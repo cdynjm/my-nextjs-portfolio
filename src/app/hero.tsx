@@ -84,7 +84,7 @@ function Hero() {
               variant="outlined"
               className="px-6 py-2"
             >
-              Commissions
+              <a href="#commissions">Commissions</a>
             </Button>
           </div>
         </div>
