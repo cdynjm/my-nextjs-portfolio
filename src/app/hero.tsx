@@ -1,0 +1,96 @@
+/* eslint-disable react/no-children-prop */
+"use client";
+
+import Image from "next/image";
+import { Button } from "@material-tailwind/react";
+import {
+  MapPinIcon,
+  BriefcaseIcon,
+  AcademicCapIcon,
+  FolderIcon,
+} from "@heroicons/react/24/solid";
+
+function Hero() {
+  return (
+    <header className="bg-white p-8">
+      <div className="container mx-auto grid h-full gap-10 min-h-[60vh] w-full grid-cols-1 items-center lg:grid-cols-2">
+        <div className="row-start-1 md:ml-[100px] lg:row-auto">
+          <h1 className="text-4xl font-bold mb-1">Jemuel Cadayona</h1>
+          <p className="text-[16px]">SOFTWARE ENGINEER</p>
+
+          <hr className="my-4 md:mr-[100px]" />
+
+          <div className="flex items-center gap-2 mb-2">
+            <MapPinIcon className="w-[20px] h-auto" />
+            <h4>Provincial Systems A.O.</h4>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <BriefcaseIcon className="w-[20px] h-auto" />
+            <h4>Software Engr. | Consultant</h4>
+          </div>
+
+          <hr className="my-4 md:mr-[100px]" />
+
+          <div className="flex items-center gap-2 mb-2">
+            <MapPinIcon className="w-[20px] h-auto" />
+            <p className="font-thin text-[14px]">
+              Capitol Site, Southern Leyte PH
+            </p>
+          </div>
+
+          <div className="flex items-center gap-2 mb-2">
+            <AcademicCapIcon className="w-[20px] h-auto" />
+            <p className="font-thin text-[14px]">Graduated, Cum Laude (BSIT)</p>
+          </div>
+          <div className="flex items-center gap-2 mb-2">
+            <FolderIcon className="w-[20px] h-auto" />
+            <p className="font-thin text-[14px] underline underline-offset-4">
+              <a
+                href="/resume/Cadayona Resume - June 2, 2025.pdf"
+                target="_blank"
+              >
+                My Resume
+              </a>
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col items-center">
+          <Image
+            width={1024}
+            height={1024}
+            alt="team work"
+            src="/image/me-2.png"
+            className="h-[30rem] w-auto mx-auto rounded-xl object-cover"
+            priority
+          />
+          <div className="flex gap-4 mt-6">
+            <Button
+              placeholder=""
+              onResize={() => {}}
+              onResizeCapture={() => {}}
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
+              className="px-6 py-2"
+            >
+              <a href="#projects">View My Work</a>
+            </Button>
+            <Button
+              placeholder=""
+              onResize={() => {}}
+              onResizeCapture={() => {}}
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
+              variant="outlined"
+              className="px-6 py-2"
+            >
+              Commissions
+            </Button>
+          </div>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+export default Hero;
