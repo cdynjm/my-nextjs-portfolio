@@ -8,63 +8,63 @@ const PROJECTS = [
     img: "/projects/lms-vue.png",
     title: "Legislative Management System",
     desc: "A comprehensive system for managing legislative documents and transactions, developed for municipalities.",
-    tech: "VueJS | InertiaJS | Laravel | TaildwindCSS | TypeScript | GraphQL | TanStack Query",
+    tech: ["VueJS", "InertiaJS", "Laravel", "TailwindCSS", "TypeScript", "GraphQL", "TanStack Query"],
     site: "https://lms.southernleyte.org.ph/",
   },
   {
     img: "/projects/dota.png",
     title: "Document Tracking Assistant",
     desc: "A comprehensive system for tracking documents and transactions using QR Code, developed for the Province of Southern Leyte.",
-    tech: "Javascript | Laravel | Livewire | MySQL",
+    tech: ["JavaScript", "Laravel", "Livewire", "MySQL"],
     site: "https://dts.southernleyte.org.ph/",
   },
   {
     img: "/projects/e-mercado.png",
     title: "e-Mercado",
     desc: "A full-featured online store with product management and a shopping cart, developed for the Province of Southern Leyte.",
-    tech: "Javascript | Laravel | Bootstrap 5 | MySQL",
+    tech: ["JavaScript", "Laravel", "Bootstrap 5", "MySQL"],
     site: "https://www.e-mercado.southernleyte.org.ph/",
   },
   {
     img: "/projects/gjtvs.png",
     title: "GJTVS - Enrolment & Attendance MS (RFID)",
     desc: "A fully integrated enrolment and attendance monitoring system using RFID technology.",
-    tech: "Javascript | Laravel | Bootstrap 5 | MySQL | Livewire",
+    tech: ["JavaScript", "Laravel", "Bootstrap 5", "MySQL", "Livewire"],
     site: "https://gjtvsims.ccsit.info/",
   },
   {
     img: "/projects/bfp.png",
     title: "BFP - Information Management System",
     desc: "A comprehensive Management Information System (MIS) for the Bureau of Fire Protection (BFP), including inspection scheduling and SMS-enabled appointment setting.",
-    tech: "VueJS | InertiaJS | Laravel | MySQL | Pushbullet API",
+    tech: ["VueJS", "InertiaJS", "Laravel", "MySQL", "Pushbullet API"],
     site: "https://mis-bfphl.ccsit.info/",
   },
   {
     img: "/projects/stmg.png",
     title: "STMG Road Traffic Offense MS",
     desc: "A comprehensive road traffic offense management system that tracks driver information and outstanding penalties.",
-    tech: "VueJS | InertiaJS | Laravel | MySQL",
+    tech: ["VueJS", "InertiaJS", "Laravel", "MySQL"],
     site: "https://rtoims.ccsit.info/",
   },
   {
     img: "/projects/mcms.png",
     title: "Municipal Crime & Accident MS",
     desc: "A comprehensive system that records crimes and accidents, featuring a GIS map powered by Leaflet to track incident locations based on SMS reports from concerned individuals.",
-    tech: "Laravel | Livewire | Boostrap 5 | MySQL | Leaflet | Pushbullet API | Javascript",
+    tech: ["Laravel", "Livewire", "Bootstrap 5", "MySQL", "Leaflet", "Pushbullet API", "JavaScript"],
     site: "",
   },
   {
     img: "/projects/als.png",
     title: "ALS - Learners Progress Monitoring",
     desc: "A system for monitoring the progress of ALS learners, developed for the Department of Education.",
-    tech: "Laravel | Livewire | Boostrap 5 | MySQL | Javascript",
+    tech: ["Laravel", "Livewire", "Bootstrap 5", "MySQL", "JavaScript"],
     site: "",
   },
 ];
 
 export function Projects() {
   return (
-    <section className="py-28 px-8" id="projects">
+    <section className="py-28 px-8 bg-white" id="projects">
       <div className="container mx-auto mb-20 text-center">
         <h2 className="mb-4 text-4xl font-semibold text-blue-gray-900">
           My Projects

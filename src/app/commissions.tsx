@@ -124,7 +124,7 @@ export default function Commissions() {
                 onResizeCapture={() => {}}
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
-                className="bg-white px-6 py-6"
+                className="px-6 py-6"
               >
                 <a href="https://www.facebook.com/jem.cdyn3" target="_blank">
                   <Button
@@ -144,6 +144,27 @@ export default function Commissions() {
           );
         })}
       </div>
+      <div className="container mx-auto mt-20 text-center justify-center max-w-3xl">
+          <h3 className="text-2xl font-semibold text-blue-gray-900 mb-2">
+            Custom Project Requirements?
+          </h3>
+          <p className="text-[16px] text-blue-gray-800 mb-6">
+            Need something specific or have a unique project in mind? I offer
+            custom solutions tailored to your exact requirements.
+          </p>
+          <a href="https://www.facebook.com/jem.cdyn3" target="_blank">
+            <Button
+              onResize={() => {}}
+              onResizeCapture={() => {}}
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
+              className="bg-gray-800 text-white hover:bg-black"
+              placeholder=""
+            >
+              Let us Talk About It
+            </Button>
+          </a>
+        </div>
     </section>
   );
 }

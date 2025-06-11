@@ -9,14 +9,30 @@ import {
   AcademicCapIcon,
   FolderIcon,
 } from "@heroicons/react/24/solid";
+import { useEffect, useState } from "react";
 
 function Hero() {
+  const fullText = "SOFTWARE ENGINEER";
+  const [displayedText, setDisplayedText] = useState("");
+
+  useEffect(() => {
+    let index = 0;
+    const interval = setInterval(() => {
+      setDisplayedText(fullText.slice(0, index + 1));
+      index++;
+      if (index >= fullText.length) clearInterval(interval);
+    }, 100);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <header className="bg-white p-8">
+    <header className="bg-gray-50 p-8">
       <div className="container mx-auto grid h-full gap-10 min-h-[60vh] w-full grid-cols-1 items-center lg:grid-cols-2">
         <div className="row-start-1 md:ml-[100px] lg:row-auto">
           <h1 className="text-4xl font-bold mb-1">Jemuel Cadayona</h1>
-          <p className="text-[16px]">SOFTWARE ENGINEER</p>
+
+          {/* Typing effect here */}
+          <p className="text-[16px] font-mono">{displayedText}</p>
 
           <hr className="my-4 md:mr-[100px]" />
 
@@ -49,6 +65,7 @@ function Hero() {
               <a
                 href="/resume/Cadayona Resume - June 2, 2025.pdf"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 My Resume
               </a>

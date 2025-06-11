@@ -4,9 +4,9 @@ const CURRENT_YEAR = new Date().getFullYear();
 
 export function Footer() {
   return (
-    <footer className="mt-10 px-8 pt-20">
+    <footer className="mt-10 px-8 pt-0 bg-gray-50">
       <div className="container mx-auto">
-        <div className="mt-16 justify-center gap-y-4 border-t border-gray-200 py-6">
+        <div className="mt-16 justify-center gap-y-4 py-6">
           <Typography
             placeholder=""
             onResize={() => {}}

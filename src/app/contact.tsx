@@ -5,7 +5,7 @@ import { FaGithub, FaFacebookF, FaLinkedinIn, FaTiktok } from "react-icons/fa";
 
 export default function Contact() {
   return (
-    <section className="px-8 py-24 bg-gray-50" id="contact">
+    <section className="px-8 py-24 bg-white" id="contact">
       <div className="container mx-auto text-center mb-12">
         <h2 className="mb-2 text-4xl font-semibold text-blue-gray-900">
           Get In Touch
@@ -16,7 +16,7 @@ export default function Contact() {
         </p>
       </div>
 
-      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-2xl p-8">
+      <div className="max-w-4xl mx-auto bg-white shadow-none rounded-2xl p-8">
         <h3 className="text-xl font-semibold mb-6 text-left">
           Contact Information
         </h3>

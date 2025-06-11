@@ -47,7 +47,7 @@ const SKILLS = [
     icon: CloudIcon,
     title: "CI/CD & Deployment",
     children:
-      "I implement continuous integration and deployment pipelines using GitHub Actions and host projects on modern platforms like Median.co for fast and reliable production delivery.",
+      "I implement continuous integration and deployment pipelines using GitHub Actions for fast and reliable production delivery.",
   },
 ];
 
@@ -132,7 +132,7 @@ const TOOLS = [
   },
   {
     image: "nextauth.png",
-    name: "NexAuth.js",
+    name: "NextAuth.js",
   },
   {
     image: "vite.svg",
@@ -167,8 +167,8 @@ export function Skills() {
         </p>
       </div>
 
-      <h3 className="mx-auto text-center">Frontend</h3>
-      <div className="container mx-auto grid grid-cols-2 gap-y-10 md:grid-cols-5 mb-4">
+      <h3 className="mx-auto text-center font-semibold">FRONTEND</h3>
+      <div className="container mx-auto grid grid-cols-2 gap-y-10 md:grid-cols-5 mb-7">
         {FRONTEND.map((tech, index) => (
           <div key={tech.name}>
             <Card
@@ -204,8 +204,8 @@ export function Skills() {
         ))}
       </div>
 
-      <h3 className="mx-auto text-center">Backend</h3>
-      <div className="container mx-auto grid grid-cols-2 gap-y-10 md:grid-cols-5 mb-4">
+      <h3 className="mx-auto text-center font-semibold">BACKEND</h3>
+      <div className="container mx-auto grid grid-cols-2 gap-y-10 md:grid-cols-5 mb-7">
         {BACKEND.map((tech, index) => (
           <div key={tech.name}>
             <Card
@@ -241,7 +241,7 @@ export function Skills() {
         ))}
       </div>
 
-      <h3 className="mx-auto text-center">Tools, Database & CI/CD</h3>
+      <h3 className="mx-auto text-center font-semibold">TOOLS | DB | CI/CD</h3>
       <div className="container mx-auto grid grid-cols-2 gap-y-10 md:grid-cols-5 mb-6">
         {TOOLS.map((tech, index) => (
           <div key={tech.name}>
@@ -278,7 +278,7 @@ export function Skills() {
         ))}
       </div>
 
-      <div className="container mx-auto grid grid-cols-1 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
+      <div className="container mx-auto grid grid-cols-1 gap-y-10 md:grid-cols-2 lg:grid-cols-3 bg-gray-50">
         {SKILLS.map((props, idx) => (
           <SkillCard key={idx} {...props} />
         ))}

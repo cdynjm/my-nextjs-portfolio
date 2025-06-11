@@ -83,7 +83,7 @@ const OTHERS = [
 
 export default function Experience() {
   return (
-    <section className="px-8 py-24 bg-white" id="experience">
+    <section className="px-8 py-24 bg-gray-50" id="experience">
       <div className="container mx-auto mb-20 text-center">
         <h2 className="mb-4 text-4xl font-semibold text-blue-gray-900">
           Professional Experience
@@ -110,7 +110,7 @@ export default function Experience() {
             </div>
 
             {/* Right: Details */}
-            <div className="md:col-span-3 bg-gray-50 p-6 rounded-lg shadow-sm">
+            <div className="md:col-span-3 bg-white p-6 rounded-lg shadow-sm">
               <p className="mb-4 text-gray-700 leading-relaxed">
                 {exp.description}
               </p>
@@ -152,7 +152,7 @@ export default function Experience() {
             </div>
 
             {/* Right: Details */}
-            <div className="md:col-span-3 bg-gray-50 p-6 rounded-lg shadow-sm">
+            <div className="md:col-span-3 bg-white p-6 rounded-lg shadow-sm">
               <p className="mb-4 text-gray-700 text-[14px] leading-relaxed">
                 {exp.description}
               </p>

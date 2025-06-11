@@ -6,27 +6,28 @@ import {
   PuzzlePieceIcon,
   CursorArrowRaysIcon,
   ArrowRightIcon,
+  AcademicCapIcon,
 } from "@heroicons/react/24/solid";
 import { ResumeItem } from "@/components";
 
 const RESUME_ITEMS = [
   {
-    icon: ChartBarIcon,
+    icon: AcademicCapIcon,
     children: "Bachelor of Science in Information Technology",
   },
   {
-    icon: PuzzlePieceIcon,
+    icon: AcademicCapIcon,
     children: "Graduated Cum Laude",
   },
   {
     icon: CursorArrowRaysIcon,
-    children: "Full Software Developer",
+    children: "Full Stack Software Developer",
   },
 ];
 
 export function Resume() {
   return (
-    <section className="px-8 py-24" id="resume">
+    <section className="px-8 py-24 bg-gray-50" id="resume">
       <div className="container mx-auto grid w-full grid-cols-1 items-center gap-16 lg:grid-cols-2">
         <div className="col-span-1">
           <Typography
