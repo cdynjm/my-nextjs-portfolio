@@ -13,7 +13,7 @@ import GitHubCalendar from "react-github-calendar";
 import { Select, Option } from "@material-tailwind/react";
 
 function Hero() {
-  const fullText = "SOFTWARE ENGINEER";
+  const fullText = "SOFTWARE DEVELOPER";
   const [displayedText, setDisplayedText] = useState("");
 
   // Dynamic year logic
@@ -44,7 +44,7 @@ function Hero() {
           </div>
           <div className="flex items-center gap-2">
             <BriefcaseIcon className="w-[20px] h-auto" />
-            <h4>Software Engr. | Consultant</h4>
+            <h4>Software Dev. | Consultant</h4>
           </div>
           <hr className="my-4 md:mr-[100px]" />
           <div className="flex items-center gap-2 mb-2">

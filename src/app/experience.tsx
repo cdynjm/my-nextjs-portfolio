@@ -3,7 +3,7 @@
 const EXPERIENCES = [
   {
     period: "2024 - Present",
-    title: "Software Engineer | Consultant",
+    title: "Software Developer | Consultant",
     company: "Provincial Systems A.O.",
     location: "Remote",
     description:
