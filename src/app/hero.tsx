@@ -61,7 +61,7 @@ function Hero() {
             <FolderIcon className="w-[20px] h-auto" />
             <p className="font-thin text-[14px] underline underline-offset-4">
               <a
-                href="/resume/Cadayona Resume - June 2, 2025.pdf"
+                href="/resume/Cadayona Resume - June 15, 2025.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >
