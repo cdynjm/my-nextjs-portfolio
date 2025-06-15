@@ -16,10 +16,11 @@ function Hero() {
   const fullText = "SOFTWARE DEVELOPER";
   const [displayedText, setDisplayedText] = useState("");
 
-  // Dynamic year logic
   const currentYear = new Date().getFullYear();
   const [year, setYear] = useState(currentYear);
   const years = Array.from({ length: 5 }, (_, i) => currentYear - i);
+
+  const [repos, setRepos] = useState([]);
 
   useEffect(() => {
     let index = 0;
@@ -30,6 +31,7 @@ function Hero() {
     }, 100);
     return () => clearInterval(interval);
   }, []);
+
 
   return (
     <header className="bg-gray-50 p-8">
@@ -138,6 +140,8 @@ function Hero() {
           fontSize={14}
         />
       </div>
+
+      
     </header>
   );
 }
