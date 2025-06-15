@@ -82,7 +82,7 @@ export function Projects() {
       .then((text) => setCodeCrypto(text))
       .catch((err) => console.error("Failed to fetch crypto.ts:", err));
 
-    fetch("https://raw.githubusercontent.com/cdynjm/my-nextjs-starterkit/main/app/api/graphql/admin/route.ts")
+    fetch("https://raw.githubusercontent.com/cdynjm/my-nextjs-starterkit/main/app/api/admin/graphql/route.ts")
       .then((res) => res.text())
       .then((text) => setCodeRoute(text))
       .catch((err) => console.error("Failed to fetch route.ts:", err));
@@ -147,7 +147,7 @@ export function Projects() {
             {/* route.ts */}
             <div>
               <h3 className="text-md font-semibold mb-2">
-                File: <code>app/api/users/route.ts</code>
+                File: <code>app/api/admin/graphql/route.ts</code>
               </h3>
               <SyntaxHighlighter
                 language="tsx"
