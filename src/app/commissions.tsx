@@ -8,48 +8,85 @@ import {
   Button,
 } from "@material-tailwind/react";
 
-const PRICING = [
+// All functional features (excluding delivery and maintenance)
+const FUNCTIONAL_FEATURES = [
+  "Responsive website design",
+  "Interactive UI components",
+  "Cross-browser compatibility",
+  "Complete web application with mobile application for Android (only if necessary)",
+  "Frontend & backend integration",
+  "Database design & implementation",
+  "User authentication & authorization",
+  "API development",
+];
+
+// Maintenance features are treated separately since they differ
+const MAINTENANCE_FEATURES = [
+  "Free maintenance support only if project is for academic purposes (non-implementation)",
+  "Maintenance support for deployed/implemented projects requires additional cost",
+  "Maintenance support available with additional cost",
+  "Lifetime maintenance included for free",
+];
+
+type PricingItem = {
+  label: string;
+  price: string;
+  subLabel: string;
+  mostPopular?: boolean;
+  features: string[];
+  maintenance: string[];
+};
+
+const PRICING: PricingItem[] = [
   {
     label: "Static Website",
     price: "₱5K - ₱10K",
-    subLabel: "Starting Price",
+    subLabel: "Basic",
     features: [
       "Responsive website design",
       "Interactive UI components",
       "Cross-browser compatibility",
-      "2 weeks delivery",
+    ],
+    maintenance: [
+      "Lifetime maintenance included for free", // Added here
     ],
   },
   {
     label: "Full Stack Development",
     price: "₱15K - ₱20K",
-    subLabel: "Exclusive for Students Only",
+    subLabel: "Students | Standard",
     mostPopular: true,
     features: [
-      "Complete web application",
+      "Complete web application with mobile application for Android (only if necessary)",
       "Frontend & backend integration",
       "Database design & implementation",
       "User authentication & authorization",
       "API development",
-      "4 weeks delivery",
+    ],
+    maintenance: [
+      "Free maintenance support only if project is for academic purposes (non-implementation)",
+      "Maintenance support for deployed/implemented projects requires additional cost",
     ],
   },
   {
     label: "Full Stack Development",
     price: "₱25K - ₱50K",
-    subLabel: "Starting Price",
-    features: [
-      "Complete web application",
-      "Frontend & backend integration",
-      "Database design & implementation",
-      "User authentication & authorization",
-      "API development",
-      "6–8 weeks delivery",
-    ],
+    subLabel: "Premium | Professional",
+    features: [],
+    maintenance: ["Maintenance support available with additional cost"],
+  },
+  {
+    label: "Full Stack Development",
+    price: "₱60K - ₱100K",
+    subLabel: "Enterprise Level",
+    features: [],
+    maintenance: ["Lifetime maintenance included for free"],
   },
 ];
 
 export default function Commissions() {
+  let inheritedFeatures: string[] = [];
+
   return (
     <section className="px-8 py-24 bg-white" id="commissions">
       <div className="container mx-auto mb-20 text-center">
@@ -60,20 +97,23 @@ export default function Commissions() {
           Professional development services tailored to your needs
         </p>
       </div>
-      <div className="container mx-auto grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-3">
+
+      <div className="container mx-auto grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-4">
         {PRICING.map((price, index) => {
-          const isMostPopular = price.mostPopular;
+          // Collect inherited + current features
+          inheritedFeatures = [...inheritedFeatures, ...(price.features || [])];
+          const fullFeatures = Array.from(new Set(inheritedFeatures));
 
           return (
             <Card
-              key={index}
               placeholder=""
               onResize={() => {}}
               onResizeCapture={() => {}}
               onPointerEnterCapture={() => {}}
               onPointerLeaveCapture={() => {}}
-              className={`p-0 shadow-lg border ${
-                isMostPopular ? "scale-105 border-black" : ""
+              key={index}
+              className={`p-0 shadow-lg border flex flex-col h-full ${
+                price.mostPopular ? "scale-105 border-black" : ""
               }`}
             >
               <CardHeader
@@ -85,12 +125,12 @@ export default function Commissions() {
                 shadow={false}
                 floated={false}
                 className={`py-8 text-center ${
-                  isMostPopular
+                  price.mostPopular
                     ? "bg-black text-white"
                     : "bg-gray-200 text-gray-900"
                 }`}
               >
-                {isMostPopular && (
+                {price.mostPopular && (
                   <span className="text-xs bg-white text-black px-3 py-1 rounded-full mb-2 inline-block font-semibold">
                     MOST POPULAR
                   </span>
@@ -106,15 +146,56 @@ export default function Commissions() {
                 onResizeCapture={() => {}}
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
-                className="bg-white text-sm text-gray-800 space-y-3 px-6 py-8"
+                className="bg-white text-sm text-gray-800 space-y-3 px-6 py-8 flex-grow"
               >
                 <ul className="list-none space-y-2">
-                  {price.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="text-green-600 font-bold">✓</span>
-                      {feature}
-                    </li>
-                  ))}
+                  {FUNCTIONAL_FEATURES.map((feature, i) => {
+                    const included = fullFeatures.includes(feature);
+                    return (
+                      <li
+                        key={i}
+                        className={`flex items-start gap-2 ${
+                          !included ? "text-gray-400 italic" : ""
+                        }`}
+                      >
+                        <span
+                          className={`${
+                            included
+                              ? "text-green-600 font-bold"
+                              : "text-red-500 font-bold"
+                          }`}
+                        >
+                          {included ? "✓" : "✗"}
+                        </span>
+                        {feature}
+                      </li>
+                    );
+                  })}
+
+                  <hr className="my-3" />
+
+                  {MAINTENANCE_FEATURES.map((feature, i) => {
+                    const included = price.maintenance.includes(feature);
+                    return (
+                      <li
+                        key={`m-${i}`}
+                        className={`flex items-start gap-2 ${
+                          !included ? "text-gray-400 italic" : ""
+                        }`}
+                      >
+                        <span
+                          className={`${
+                            included
+                              ? "text-green-600 font-bold"
+                              : "text-red-500 font-bold"
+                          }`}
+                        >
+                          {included ? "✓" : "✗"}
+                        </span>
+                        {feature}
+                      </li>
+                    );
+                  })}
                 </ul>
               </CardBody>
 
@@ -144,27 +225,28 @@ export default function Commissions() {
           );
         })}
       </div>
+
       <div className="container mx-auto mt-20 text-center justify-center max-w-3xl">
-          <h3 className="text-2xl font-semibold text-blue-gray-900 mb-2">
-            Custom Project Requirements?
-          </h3>
-          <p className="text-[16px] text-blue-gray-800 mb-6">
-            Need something specific or have a unique project in mind? I offer
-            custom solutions tailored to your exact requirements.
-          </p>
-          <a href="https://www.facebook.com/jem.cdyn3" target="_blank">
-            <Button
-              onResize={() => {}}
-              onResizeCapture={() => {}}
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
-              className="bg-gray-800 text-white hover:bg-black"
-              placeholder=""
-            >
-              Let us Talk About It
-            </Button>
-          </a>
-        </div>
+        <h3 className="text-2xl font-semibold text-blue-gray-900 mb-2">
+          Custom Project Requirements?
+        </h3>
+        <p className="text-[16px] text-blue-gray-800 mb-6">
+          Need something specific or have a unique project in mind? I offer
+          custom solutions tailored to your exact requirements.
+        </p>
+        <a href="https://www.facebook.com/jem.cdyn3" target="_blank">
+          <Button
+            placeholder=""
+            onResize={() => {}}
+            onResizeCapture={() => {}}
+            onPointerEnterCapture={() => {}}
+            onPointerLeaveCapture={() => {}}
+            className="bg-gray-800 text-white hover:bg-black"
+          >
+            Let us Talk About It
+          </Button>
+        </a>
+      </div>
     </section>
   );
 }

@@ -49,7 +49,7 @@ export function Resume() {
             onPointerLeaveCapture={() => {}}
             className="mb-4 mt-3 w-9/12 font-normal !text-gray-500"
           >
-            I am a passionate Software Engineer with a strong focus on building
+            I am a passionate Software Developer with a strong focus on building
             efficient, user-centric applications. I specialize in full-stack web
             development and enjoy solving real-world problems through clean,
             scalable code.
@@ -65,7 +65,7 @@ export function Resume() {
             className="flex items-center gap-2"
           >
             <a
-              href="/resume/Cadayona Resume - June 15, 2025.pdf"
+              href="/resume/Cadayona Resume - June 16, 2025.pdf"
               target="_blank"
             >
               View More
