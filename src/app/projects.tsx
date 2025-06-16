@@ -77,12 +77,12 @@ export function Projects() {
       .then((data) => setFeaturedRepo(data))
       .catch((err) => console.error("Failed to fetch featured repo:", err));
 
-    fetch("https://raw.githubusercontent.com/cdynjm/my-nextjs-starterkit/main/lib/crypto.ts")
+    fetch("https://raw.githubusercontent.com/cdynjm/my-nextjs-starterkit/main/app/admin/users/page.tsx")
       .then((res) => res.text())
       .then((text) => setCodeCrypto(text))
       .catch((err) => console.error("Failed to fetch crypto.ts:", err));
 
-    fetch("https://raw.githubusercontent.com/cdynjm/my-nextjs-starterkit/main/app/api/admin/graphql/route.ts")
+    fetch("https://raw.githubusercontent.com/cdynjm/my-nextjs-starterkit/main/app/graphql/admin/users/route.ts")
       .then((res) => res.text())
       .then((text) => setCodeRoute(text))
       .catch((err) => console.error("Failed to fetch route.ts:", err));
@@ -127,7 +127,7 @@ export function Projects() {
             {/* crypto.ts */}
             <div>
               <h3 className="text-md font-semibold mb-2">
-                File: <code>lib/crypto.ts</code>
+                File: <code>app/admin/users/page.tsx</code>
               </h3>
               <SyntaxHighlighter
                 language="tsx"
@@ -147,7 +147,7 @@ export function Projects() {
             {/* route.ts */}
             <div>
               <h3 className="text-md font-semibold mb-2">
-                File: <code>app/api/admin/graphql/route.ts</code>
+                File: <code>app/graphql/admin/users/route.ts</code>
               </h3>
               <SyntaxHighlighter
                 language="tsx"
