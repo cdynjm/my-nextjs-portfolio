@@ -126,8 +126,8 @@ export function Projects() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* crypto.ts */}
             <div>
-              <h3 className="text-md font-semibold mb-2">
-                File: <code>app/admin/users/page.tsx</code>
+              <h3 className="text-sm font-semibold mb-2">
+                <code>app/admin/users/page.tsx</code>
               </h3>
               <SyntaxHighlighter
                 language="tsx"
@@ -146,8 +146,8 @@ export function Projects() {
 
             {/* route.ts */}
             <div>
-              <h3 className="text-md font-semibold mb-2">
-                File: <code>app/graphql/admin/users/route.ts</code>
+              <h3 className="text-sm font-semibold mb-2">
+                <code>app/graphql/admin/users/route.ts</code>
               </h3>
               <SyntaxHighlighter
                 language="tsx"
