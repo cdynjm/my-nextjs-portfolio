@@ -53,10 +53,6 @@ const SKILLS = [
 
 const FRONTEND = [
   {
-    image: "bootstrap.png",
-    name: "Bootstrap 5",
-  },
-  {
     image: "tailwind.png",
     name: "TaildwindCSS",
   },
@@ -65,7 +61,7 @@ const FRONTEND = [
     name: "Daisy UI",
   },
   {
-    image: "shadcn.png",
+    image: "shadcn.png?new",
     name: "Shadcn UI",
   },
   {
@@ -108,8 +104,12 @@ const BACKEND = [
     name: "Livewire.js",
   },
   {
-    image: "lighthouse.png",
+    image: "lighthouse.png?new-1",
     name: "LighthousePHP",
+  },
+  {
+    image: "honojs.png?new",
+    name: "Hono.js",
   },
 ];
 
