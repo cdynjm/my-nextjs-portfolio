@@ -4,7 +4,7 @@ import { ProjectCard } from "@/components";
 // import { Typography } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark, nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const PROJECTS = [
   {
@@ -79,7 +79,7 @@ export function Projects() {
 
   // Fetch featured repo & both code files
   useEffect(() => {
-    fetch("https://api.github.com/repos/cdynjm/my-nextjs-starterkit")
+    fetch("https://api.github.com/repos/cdynjm/nextjs-graphql-honojs-starterkit")
       .then((res) => res.json())
       .then((data) => setFeaturedRepo(data))
       .catch((err) => console.error("Failed to fetch featured repo:", err));
@@ -89,7 +89,7 @@ export function Projects() {
       .then((text) => setCodeCrypto(text))
       .catch((err) => console.error("Failed to fetch crypto.ts:", err));
 
-    fetch("https://raw.githubusercontent.com/cdynjm/my-nextjs-starterkit/main/app/graphql/schema/admin/route.ts")
+    fetch("https://raw.githubusercontent.com/cdynjm/nextjs-graphql-honojs-starterkit/main/app/api/admin/users/route.ts")
       .then((res) => res.text())
       .then((text) => setCodeRoute(text))
       .catch((err) => console.error("Failed to fetch route.ts:", err));
@@ -138,7 +138,7 @@ export function Projects() {
               </h3>
               <SyntaxHighlighter
                 language="tsx"
-                style={oneDark}
+                style={nightOwl}
                 customStyle={{
                   borderRadius: "0.5rem",
                   maxHeight: "500px",
@@ -154,7 +154,7 @@ export function Projects() {
             {/* route.ts */}
             <div>
               <h3 className="text-sm font-semibold mb-2">
-                <code>app/graphql/schema/admin/route.ts</code>
+                <code>app/api/admin/users/route.ts</code>
               </h3>
               <SyntaxHighlighter
                 language="tsx"
