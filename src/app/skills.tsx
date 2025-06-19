@@ -17,31 +17,31 @@ const SKILLS = [
     icon: RectangleGroupIcon,
     title: "Frontend Development",
     children:
-      "I specialize in building responsive and modern user interfaces using technologies like TailwindCSS, Daisy UI, Shadcn UI, Bootstrap 5, JavaScript, TypeScript, React.js, Vue.js, Inertia.js, and Next.js.",
+      "I specialize in building responsive and modern user interfaces using technologies like TailwindCSS, Shadcn UI, JavaScript, TypeScript, React.js, Vue.js, Inertia.js, and Next.js.",
   },
   {
     icon: ServerIcon,
     title: "Backend Development",
     children:
-      "My backend expertise includes working with Next.js API routes, PHP 8, Laravel, Livewire.js, and LighthousePHP. I build scalable and maintainable backends that power seamless frontend experiences.",
+      "My backend expertise includes working with HonoJS, PHP 8, Laravel, Livewire.js, and LighthousePHP. I build scalable and maintainable backends that power seamless frontend experiences.",
   },
   {
     icon: WrenchIcon,
     title: "Tools and Workflow",
     children:
-      "I use modern tools like Git, GitHub Actions, Vite, Drizzle ORM, GraphQL, and TanStack Query to streamline development, manage data efficiently, and automate deployments.",
+      "I use modern tools like Git, GitHub Actions, Vite, Drizzle ORM, GraphQL to streamline development, manage data efficiently, and automate deployments.",
   },
   {
     icon: HashtagIcon,
     title: "Database & Authentication",
     children:
-      "I design and manage robust relational databases using MySQL and Drizzle ORM in Next.js, and Eloquent ORM in Laravel. For authentication, I implement secure login systems using NextAuth.js for Next.js and Laravel Breeze or Sanctum for Laravel.",
+      "I design and manage robust relational databases using MySQL, PostgreSQL, Drizzle ORM and Supabase in Next.js, and Eloquent ORM in Laravel. For authentication, I implement secure login systems using NextAuth.js for Next.js and Laravel Breeze or Sanctum for Laravel.",
   },
   {
     icon: EyeIcon,
     title: "UI Consistency & Design Systems",
     children:
-      "By leveraging component libraries like Daisy UI and Shadcn UI, I maintain consistency in UI while ensuring accessibility and maintainability across complex applications.",
+      "By leveraging component libraries like Shadcn UI, I maintain consistency in UI while ensuring accessibility and maintainability across complex applications.",
   },
   {
     icon: CloudIcon,
@@ -51,14 +51,10 @@ const SKILLS = [
   },
 ];
 
-const FRONTEND = [
+const TECHSTACKS = [
   {
     image: "tailwind.png",
     name: "TaildwindCSS",
-  },
-  {
-    image: "daisyui.png",
-    name: "Daisy UI",
   },
   {
     image: "shadcn.png?new",
@@ -88,9 +84,15 @@ const FRONTEND = [
     image: "react.png",
     name: "React.js",
   },
-];
+  {
+    image: "nextauth.png",
+    name: "NextAuth.js",
+  },
+  {
+    image: "tanstack.png",
+    name: "TanStack Query",
+  },
 
-const BACKEND = [
   {
     image: "php.png",
     name: "PHP 8",
@@ -111,28 +113,26 @@ const BACKEND = [
     image: "honojs.png?new",
     name: "Hono.js",
   },
-];
 
-const TOOLS = [
   {
     image: "graphql.png",
     name: "GraphQL",
-  },
-  {
-    image: "tanstack.png",
-    name: "TanStack Query",
   },
   {
     image: "mysql.png",
     name: "MySQL",
   },
   {
-    image: "drizzle.jpg",
-    name: "Drizzle ORM",
+    image: "postgres.webp",
+    name: "PostgreSQL",
   },
   {
-    image: "nextauth.png",
-    name: "NextAuth.js",
+    image: "supabase.png",
+    name: "Supabase",
+  },
+  {
+    image: "drizzle.jpg",
+    name: "Drizzle ORM",
   },
   {
     image: "vite.svg",
@@ -143,12 +143,12 @@ const TOOLS = [
     name: "Git",
   },
   {
-    image: "github.png",
+    image: "github actions.png?new",
     name: "Github Actions",
   },
   {
     image: "median.png",
-    name: "Median.co",
+    name: "Median Co",
   },
 ];
 
@@ -167,9 +167,8 @@ export function Skills() {
         </p>
       </div>
 
-      <h3 className="mx-auto text-center font-semibold">FRONTEND</h3>
-      <div className="container mx-auto grid grid-cols-2 gap-y-10 md:grid-cols-5 mb-7">
-        {FRONTEND.map((tech, index) => (
+      <div className="container mx-auto grid grid-cols-2 md:grid-cols-5 mb-20">
+        {TECHSTACKS.map((tech, index) => (
           <div key={tech.name}>
             <Card
               color="transparent"
@@ -188,81 +187,7 @@ export function Skills() {
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
-                <div className="mx-auto mb-6 grid h-12 w-12 place-items-center rounded-full bg-gray-200 p-2.5 text-white shadow">
-                  <Image
-                    width={50}
-                    height={50}
-                    alt={tech.image}
-                    src={`/icons/${tech.image}`}
-                    priority
-                  />
-                </div>
-                <p className="text-[13px]">{tech.name}</p>
-              </CardBody>
-            </Card>
-          </div>
-        ))}
-      </div>
-
-      <h3 className="mx-auto text-center font-semibold">BACKEND</h3>
-      <div className="container mx-auto grid grid-cols-2 gap-y-10 md:grid-cols-5 mb-7">
-        {BACKEND.map((tech, index) => (
-          <div key={tech.name}>
-            <Card
-              color="transparent"
-              shadow={false}
-              placeholder=""
-              onResize={() => {}}
-              onResizeCapture={() => {}}
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
-            >
-              <CardBody
-                className="grid justify-center text-center"
-                placeholder=""
-                onResize={() => {}}
-                onResizeCapture={() => {}}
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
-              >
-                <div className="mx-auto mb-6 grid h-12 w-12 place-items-center rounded-full bg-gray-200 p-2.5 text-white shadow">
-                  <Image
-                    width={50}
-                    height={50}
-                    alt={tech.image}
-                    src={`/icons/${tech.image}`}
-                    priority
-                  />
-                </div>
-                <p className="text-[13px]">{tech.name}</p>
-              </CardBody>
-            </Card>
-          </div>
-        ))}
-      </div>
-
-      <h3 className="mx-auto text-center font-semibold">TOOLS | DB | CI/CD</h3>
-      <div className="container mx-auto grid grid-cols-2 gap-y-10 md:grid-cols-5 mb-6">
-        {TOOLS.map((tech, index) => (
-          <div key={tech.name}>
-            <Card
-              color="transparent"
-              shadow={false}
-              placeholder=""
-              onResize={() => {}}
-              onResizeCapture={() => {}}
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
-            >
-              <CardBody
-                className="grid justify-center text-center"
-                placeholder=""
-                onResize={() => {}}
-                onResizeCapture={() => {}}
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
-              >
-                <div className="mx-auto mb-6 grid h-12 w-12 place-items-center rounded-full bg-gray-200 p-2.5 text-white shadow">
+                <div className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-full bg-gray-100 p-2.5 text-white shadow">
                   <Image
                     width={50}
                     height={50}

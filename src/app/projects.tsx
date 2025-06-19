@@ -8,6 +8,13 @@ import { oneDark, nightOwl } from "react-syntax-highlighter/dist/esm/styles/pris
 
 const PROJECTS = [
   {
+    img: "/projects/nextjs-graphql-honojs.png",
+    title: "NextJS Starter Kit",
+    desc: "A comprehensive starter kit for nextjs projects with built in authentication and postgresql for its database",
+    tech: ["NextJS", "NextAuthJS", "HonoJS", "TailwindCSS", "Shadcn UI", "TypeScript", "GraphQL", "TanStack Query", "Supabase",],
+    site: "https://nextjs-graphql-honojs-starterkit.vercel.app/",
+  },
+  {
     img: "/projects/lms-vue.png",
     title: "Legislative Management System",
     desc: "A comprehensive system for managing legislative documents and transactions, developed for municipalities.",
