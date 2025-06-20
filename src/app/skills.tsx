@@ -89,6 +89,14 @@ const TECHSTACKS = [
     name: "NextAuth.js",
   },
   {
+    image: "honojs.png?new",
+    name: "Hono.js",
+  },
+  {
+    image: "livewire.webp",
+    name: "Livewire.js",
+  },
+  {
     image: "tanstack.png",
     name: "TanStack Query",
   },
@@ -102,16 +110,8 @@ const TECHSTACKS = [
     name: "Laravel",
   },
   {
-    image: "livewire.webp",
-    name: "Livewire.js",
-  },
-  {
     image: "lighthouse.png?new-1",
     name: "LighthousePHP",
-  },
-  {
-    image: "honojs.png?new",
-    name: "Hono.js",
   },
 
   {

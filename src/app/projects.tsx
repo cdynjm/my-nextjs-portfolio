@@ -70,6 +70,20 @@ const PROJECTS = [
     tech: ["Laravel", "Livewire", "Bootstrap 5", "MySQL", "JavaScript"],
     site: "",
   },
+  {
+    img: "/projects/southerncp.png",
+    title: "Southern Comfort Pensionne",
+    desc: "A basic and simple commercial website developed for Southern Comfort Pensionne House",
+    tech: ["HTML 5", "CSS 3", "Bootstrap 5", "JavaScript"],
+    site: "https://southerncp.vercel.app/",
+  },
+  {
+    img: "/projects/jaysan-jem.png",
+    title: "Our Portfolio",
+    desc: "A special gift for my special someone — this was created to preserve our pictures and the memories we’ve shared together.",
+    tech: ["HTML 5", "CSS 3", "Bootstrap 5", "JavaScript"],
+    site: "https://jem-jaja.vercel.app/",
+  },
 ];
 
 export function Projects() {
@@ -99,7 +113,7 @@ export function Projects() {
     <section className="py-28 px-8 bg-white" id="projects">
       <div className="container mx-auto mb-20 text-center">
         <h2 className="mb-4 text-4xl font-semibold text-blue-gray-900">
-          My Projects
+          Featured Projects
         </h2>
         <p className="mb-4 text-[16px] text-blue-gray-900">
           Whether you need a powerful web system built from scratch or a website
