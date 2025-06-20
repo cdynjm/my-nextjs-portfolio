@@ -35,7 +35,7 @@ const SKILLS = [
     icon: HashtagIcon,
     title: "Database & Authentication",
     children:
-      "I design and manage robust relational databases using MySQL, PostgreSQL, Drizzle ORM and Supabase in Next.js, and Eloquent ORM in Laravel. For authentication, I implement secure login systems using NextAuth.js for Next.js and Laravel Breeze or Sanctum for Laravel.",
+      "I design and manage robust relational databases using MySQL, PostgreSQL, MongoDB, Drizzle ORM and Supabase in Next.js, and Eloquent ORM in Laravel. For authentication, I implement secure login systems using NextAuth.js for Next.js and Laravel Breeze or Sanctum for Laravel.",
   },
   {
     icon: EyeIcon,
@@ -127,6 +127,10 @@ const TECHSTACKS = [
     name: "PostgreSQL",
   },
   {
+    image: "mongodb.png",
+    name: "MongoDB",
+  },
+  {
     image: "supabase.png",
     name: "Supabase",
   },
@@ -167,7 +171,7 @@ export function Skills() {
         </p>
       </div>
 
-      <div className="container mx-auto grid grid-cols-2 md:grid-cols-5 mb-20">
+      <div className="container mx-auto grid grid-cols-2 md:grid-cols-6 mb-20">
         {TECHSTACKS.map((tech, index) => (
           <div key={tech.name}>
             <Card
