@@ -65,7 +65,7 @@ export function Resume() {
             className="flex items-center gap-2"
           >
             <a
-              href="/resume/Cadayona Resume - June 16, 2025.pdf"
+              href="/resume/Cadayona Resume - June 21, 2025.pdf"
               target="_blank"
             >
               View More
