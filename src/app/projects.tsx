@@ -103,7 +103,7 @@ export function Projects() {
       .then((text) => setCodeCrypto(text))
       .catch((err) => console.error("Failed to fetch crypto.ts:", err));
 
-    fetch("https://raw.githubusercontent.com/cdynjm/nextjs-graphql-honojs-starterkit/main/app/api/admin/users/route.ts")
+    fetch("https://raw.githubusercontent.com/cdynjm/nextjs-graphql-honojs-starterkit/nextjs-mongodb/app/api/admin/users/route.ts")
       .then((res) => res.text())
       .then((text) => setCodeRoute(text))
       .catch((err) => console.error("Failed to fetch route.ts:", err));
