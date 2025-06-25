@@ -77,13 +77,6 @@ const PROJECTS = [
     tech: ["HTML 5", "CSS 3", "Bootstrap 5", "JavaScript"],
     site: "https://southerncp.vercel.app/",
   },
-  {
-    img: "/projects/jaysan-jem.png",
-    title: "Our Portfolio",
-    desc: "A special gift for my special someone — this was created to preserve our pictures and the memories we’ve shared together.",
-    tech: ["HTML 5", "CSS 3", "Bootstrap 5", "JavaScript"],
-    site: "https://jem-jaja.vercel.app/",
-  },
 ];
 
 export function Projects() {
