@@ -151,6 +151,10 @@ const TECHSTACKS = [
     name: "Github Actions",
   },
   {
+    image: "docker.webp",
+    name: "Docker",
+  },
+  {
     image: "median.png",
     name: "Median Co",
   },
