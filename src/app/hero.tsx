@@ -150,7 +150,7 @@ function Hero() {
               }`}
             >
               <div
-                className={`max-w-[70%] px-4 py-2 rounded-lg ${
+                className={`max-w-[70%] px-4 py-2 rounded-lg text-[14px] ${
                   msg.sender === "user"
                     ? "bg-black text-white rounded-br-none"
                     : "bg-gray-200 text-gray-900 rounded-bl-none"
