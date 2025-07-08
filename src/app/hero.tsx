@@ -133,7 +133,7 @@ function Hero() {
             <small>Hi,</small> AI JEM <small>here!</small>
           </h1>
         </div>
-        <div className="flex-1 overflow-y-auto overflow-x-hidden rounded-lg p-4">
+        <div className="flex-1 overflow-y-auto overflow-x-hidden rounded-lg p-0">
           {messages.length === 0 && (
             <p className="text-center text-gray-400">
               Ask me anything about myself, work and experiences...
@@ -153,10 +153,20 @@ function Hero() {
                 scale: 1,
               }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className={`mb-3 flex ${
+              className={`mb-3 flex items-end ${
                 msg.sender === "user" ? "justify-end" : "justify-start"
               }`}
             >
+              {msg.sender !== "user" && (
+                <Image
+                  src="/image/ai-bot.webp" // Replace with your AI icon path
+                  alt="AI"
+                  width={32}
+                  height={32}
+                  className="mr-2 mb-1 rounded-full"
+                />
+              )}
+
               <div
                 className={`max-w-[70%] px-4 py-2 rounded-lg text-[14px] ${
                   msg.sender === "user"
@@ -166,8 +176,19 @@ function Hero() {
               >
                 {msg.isTyping ? <TypingIndicator /> : msg.text}
               </div>
+
+              {msg.sender === "user" && (
+                <Image
+                  src="/image/user.png?new" // Replace with your user icon path
+                  alt="User"
+                  width={32}
+                  height={32}
+                  className="ml-2 mb-1 rounded-full"
+                />
+              )}
             </motion.div>
           ))}
+
           <div ref={chatEndRef} />
         </div>
 
