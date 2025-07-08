@@ -33,7 +33,7 @@ function Hero() {
   const typeText = (fullText: string, callback: (text: string) => void) => {
     let index = 0;
     const speed = 20;
-
+    speak(fullText);
     const type = () => {
       if (index <= fullText.length) {
         callback(fullText.slice(0, index));
@@ -43,6 +43,46 @@ function Hero() {
     };
 
     type();
+  };
+
+  const speak = (text: string) => {
+    const synth = window.speechSynthesis;
+
+    const speakWithVoice = () => {
+      const voices = synth.getVoices();
+      console.log("Available voices:", voices);
+
+      // Exact match (case-insensitive) for "Microsoft George - English (United Kingdom)"
+      const desiredVoiceName = "Google UK English Male";
+      const maleVoice = voices.find(
+        (v) => v.name.toLowerCase() === desiredVoiceName.toLowerCase()
+      );
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = "en-GB"; // UK English locale
+
+      if (maleVoice) {
+        utterance.voice = maleVoice;
+      } else {
+        console.warn(
+          `Voice "${desiredVoiceName}" not found. Using default voice.`
+        );
+      }
+
+      utterance.pitch = 0.7; // slightly lower pitch
+      utterance.rate = 1.090; // normal speed
+
+      synth.speak(utterance);
+    };
+
+    if (synth.getVoices().length === 0) {
+      synth.onvoiceschanged = () => {
+        synth.onvoiceschanged = null;
+        speakWithVoice();
+      };
+    } else {
+      speakWithVoice();
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
