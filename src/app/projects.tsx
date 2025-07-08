@@ -1,10 +1,6 @@
 "use client";
 
 import { ProjectCard } from "@/components";
-// import { Typography } from "@material-tailwind/react";
-import { useEffect, useState } from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const PROJECTS = [
   {
@@ -80,27 +76,6 @@ const PROJECTS = [
 ];
 
 export function Projects() {
-  const [featuredRepo, setFeaturedRepo] = useState<any>(null);
-  const [codeCrypto, setCodeCrypto] = useState("");
-  const [codeRoute, setCodeRoute] = useState("");
-
-  // Fetch featured repo & both code files
-  useEffect(() => {
-    fetch("https://api.github.com/repos/cdynjm/nextjs-graphql-honojs-starterkit")
-      .then((res) => res.json())
-      .then((data) => setFeaturedRepo(data))
-      .catch((err) => console.error("Failed to fetch featured repo:", err));
-
-    fetch("https://raw.githubusercontent.com/cdynjm/my-nextjs-starterkit/main/app/admin/users/page.tsx")
-      .then((res) => res.text())
-      .then((text) => setCodeCrypto(text))
-      .catch((err) => console.error("Failed to fetch crypto.ts:", err));
-
-    fetch("https://raw.githubusercontent.com/cdynjm/nextjs-graphql-honojs-starterkit/nextjs-mongodb/app/api/admin/users/route.ts")
-      .then((res) => res.text())
-      .then((text) => setCodeRoute(text))
-      .catch((err) => console.error("Failed to fetch route.ts:", err));
-  }, []);
 
   return (
     <section className="py-28 px-8 bg-white" id="projects">
@@ -121,65 +96,6 @@ export function Projects() {
           <ProjectCard key={idx} {...props} />
         ))}
       </div>
-
-      {/* Featured Code Project */}
-      {featuredRepo && (
-        <div className="mt-20 container mx-auto p-6 shadow-none">
-          <h2 className="text-2xl font-semibold mb-4 text-center capitalize">
-            {featuredRepo.name}
-          </h2>
-          <p className="text-center mb-4 text-gray-600">
-            {featuredRepo.description}
-          </p>
-          <div className="text-center text-sm text-gray-500 mb-6">
-            ⭐ {featuredRepo.stargazers_count} | Updated:{" "}
-            {new Date(featuredRepo.updated_at).toLocaleDateString()}
-          </div>
-
-          {/* Two Code Files Side-by-Side */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* crypto.ts */}
-            <div>
-              <h3 className="text-sm font-semibold mb-2">
-                <code>app/admin/users/page.tsx</code>
-              </h3>
-              <SyntaxHighlighter
-                language="tsx"
-                style={nightOwl}
-                customStyle={{
-                  borderRadius: "0.5rem",
-                  maxHeight: "500px",
-                  overflowY: "auto",
-                  fontSize: "0.875rem",
-                  padding: "1rem",
-                }}
-              >
-                {codeCrypto || "// Loading crypto.ts..."}
-              </SyntaxHighlighter>
-            </div>
-
-            {/* route.ts */}
-            <div>
-              <h3 className="text-sm font-semibold mb-2">
-                <code>app/api/admin/users/route.ts</code>
-              </h3>
-              <SyntaxHighlighter
-                language="tsx"
-                style={nightOwl}
-                customStyle={{
-                  borderRadius: "0.5rem",
-                  maxHeight: "500px",
-                  overflowY: "auto",
-                  fontSize: "0.875rem",
-                  padding: "1rem",
-                }}
-              >
-                {codeRoute || "// Loading route.ts..."}
-              </SyntaxHighlighter>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
