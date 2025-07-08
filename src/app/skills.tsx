@@ -113,7 +113,10 @@ const TECHSTACKS = [
     image: "lighthouse.png?new-1",
     name: "LighthousePHP",
   },
-
+  {
+    image: "python.webp",
+    name: "Python",
+  },
   {
     image: "graphql.png",
     name: "GraphQL",
@@ -125,10 +128,6 @@ const TECHSTACKS = [
   {
     image: "postgres.webp",
     name: "PostgreSQL",
-  },
-  {
-    image: "python.webp",
-    name: "Python",
   },
   {
     image: "mongodb.png",
