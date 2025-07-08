@@ -127,6 +127,10 @@ const TECHSTACKS = [
     name: "PostgreSQL",
   },
   {
+    image: "python.webp",
+    name: "Python",
+  },
+  {
     image: "mongodb.png",
     name: "MongoDB",
   },
@@ -149,10 +153,6 @@ const TECHSTACKS = [
   {
     image: "github actions.png?new",
     name: "Github Actions",
-  },
-  {
-    image: "docker.webp",
-    name: "Docker",
   },
   {
     image: "median.png",
