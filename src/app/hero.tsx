@@ -14,6 +14,7 @@ import { Select, Option } from "@material-tailwind/react";
 
 import TypingIndicator from "@/components/typing-indicator";
 import { Input } from "@material-tailwind/react";
+import { motion } from "framer-motion";
 
 interface Message {
   sender: "user" | "ai";
@@ -121,30 +122,37 @@ function Hero() {
       <section className="flex flex-col lg:mb-5 xl:px-[300px]">
         <div className="flex flex-col items-center justify-center text-center">
           <h1 className="text-2xl font-bold mb-4 flex items-center gap-1 text-blue-500">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="size-6"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M4.848 2.771A49.144 49.144 0 0 1 12 2.25c2.43 0 4.817.178 7.152.52 1.978.292 3.348 2.024 3.348 3.97v6.02c0 1.946-1.37 3.678-3.348 3.97a48.901 48.901 0 0 1-3.476.383.39.39 0 0 0-.297.17l-2.755 4.133a.75.75 0 0 1-1.248 0l-2.755-4.133a.39.39 0 0 0-.297-.17 48.9 48.9 0 0 1-3.476-.384c-1.978-.29-3.348-2.024-3.348-3.97V6.741c0-1.946 1.37-3.68 3.348-3.97ZM6.75 8.25a.75.75 0 0 1 .75-.75h9a.75.75 0 0 1 0 1.5h-9a.75.75 0 0 1-.75-.75Zm.75 2.25a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H7.5Z"
-                clip-rule="evenodd"
-              />
-            </svg>
+            <Image
+              width={1024}
+              height={1024}
+              alt="team work"
+              src="/image/ai-bot.webp"
+              className="h-[3rem] w-auto mx-auto mr-2 rounded-xl object-cover"
+              priority
+            />
             <small>Hi,</small> AI JEM <small>here!</small>
           </h1>
         </div>
-        <div className="flex-1 overflow-y-auto rounded-lg p-4">
+        <div className="flex-1 overflow-y-auto overflow-x-hidden rounded-lg p-4">
           {messages.length === 0 && (
             <p className="text-center text-gray-400">
               Ask me anything about myself, work and experiences...
             </p>
           )}
           {messages.map((msg, idx) => (
-            <div
+            <motion.div
               key={idx}
+              initial={{
+                opacity: 0,
+                x: msg.sender === "user" ? 50 : -50,
+                scale: 0.95,
+              }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                scale: 1,
+              }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className={`mb-3 flex ${
                 msg.sender === "user" ? "justify-end" : "justify-start"
               }`}
@@ -158,7 +166,7 @@ function Hero() {
               >
                 {msg.isTyping ? <TypingIndicator /> : msg.text}
               </div>
-            </div>
+            </motion.div>
           ))}
           <div ref={chatEndRef} />
         </div>
@@ -192,7 +200,7 @@ function Hero() {
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="size-6"
+              className="size-5"
             >
               <path
                 strokeLinecap="round"
@@ -206,7 +214,7 @@ function Hero() {
 
       <div className="container mx-auto grid h-full gap-10 min-h-[60vh] w-full grid-cols-1 items-center lg:grid-cols-2">
         <div className="row-start-1 md:ml-[100px] lg:row-auto">
-          <hr className="mb-4 mt-10 lg:hidden"/>
+          <hr className="mb-4 mt-10 lg:hidden" />
           <h1 className="text-4xl font-bold mb-1">Jemuel Cadayona</h1>
           <p className="text-[16px] font-mono">{displayedText}</p>
           <hr className="my-4 md:mr-[100px]" />
