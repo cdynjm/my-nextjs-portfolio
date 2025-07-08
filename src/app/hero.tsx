@@ -133,7 +133,7 @@ function Hero() {
                 clip-rule="evenodd"
               />
             </svg>
-            My AI Chatbot
+            <small>Hi,</small> AI JEM <small>here!</small>
           </h1>
         </div>
         <div className="flex-1 overflow-y-auto rounded-lg p-4">
@@ -165,7 +165,7 @@ function Hero() {
 
         <form onSubmit={handleSubmit} className="mt-4 flex gap-2 items-center">
           <Input
-            label="Type something..."
+            label="Type Something..."
             crossOrigin=""
             onResize={() => {}}
             onResizeCapture={() => {}}
