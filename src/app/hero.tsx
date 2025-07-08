@@ -192,7 +192,7 @@ function Hero() {
             onPointerLeaveCapture={() => {}}
             type="submit"
             disabled={loading}
-            className="text-white px-6 py-2 rounded disabled:opacity-50"
+            className="text-white px-3 py-2 rounded disabled:opacity-50"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
