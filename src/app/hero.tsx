@@ -33,7 +33,13 @@ function Hero() {
   const typeText = (fullText: string, callback: (text: string) => void) => {
     let index = 0;
     const speed = 20;
-    speak(fullText);
+
+    try {
+      speak(fullText);
+    } catch (error) {
+      console.warn("Speech synthesis failed or not supported:", error);
+    }
+
     const type = () => {
       if (index <= fullText.length) {
         callback(fullText.slice(0, index));
@@ -70,7 +76,7 @@ function Hero() {
       }
 
       utterance.pitch = 0.7; // slightly lower pitch
-      utterance.rate = 1.090; // normal speed
+      utterance.rate = 1.09; // normal speed
 
       synth.speak(utterance);
     };
