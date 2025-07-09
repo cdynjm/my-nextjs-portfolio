@@ -20,6 +20,7 @@ interface Message {
   sender: "user" | "ai";
   text: string;
   isTyping?: boolean;
+  time?: Date;
 }
 
 function Hero() {
@@ -95,7 +96,14 @@ function Hero() {
     e.preventDefault();
     if (!input.trim()) return;
 
-    const userMessage: Message = { sender: "user", text: input };
+    const now = new Date();
+
+    const userMessage: Message = {
+      sender: "user",
+      text: input,
+      time: now,
+    };
+
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setLoading(true);
@@ -110,16 +118,19 @@ function Hero() {
       const data = await res.json();
       const fullAIResponse = data.response || "No response from AI.";
 
-      // Add placeholder AI message with typing indicator
-      setMessages((prev) => [
-        ...prev,
-        { sender: "ai", text: "", isTyping: true },
-      ]);
+      // Add placeholder AI message with static time and isTyping
+      const aiPlaceholder: Message = {
+        sender: "ai",
+        text: "",
+        isTyping: true,
+        time: new Date(), // static time when placeholder is added
+      };
 
-      // ✅ Add a short delay (1-2 sec) to show the typing indicator before actual typing starts
-      await new Promise((resolve) => setTimeout(resolve, 1500)); // 1.5 seconds
+      setMessages((prev) => [...prev, aiPlaceholder]);
 
-      // Start typing effect
+      // ✅ Fake typing delay
+      await new Promise((resolve) => setTimeout(resolve, 1500));
+
       typeText(fullAIResponse, (typedText) => {
         setMessages((prev) => {
           const updated = [...prev];
@@ -135,10 +146,12 @@ function Hero() {
         });
       });
     } catch {
-      setMessages((prev) => [
-        ...prev,
-        { sender: "ai", text: "Error fetching AI response." },
-      ]);
+      const errorMessage: Message = {
+        sender: "ai",
+        text: "Error fetching AI response.",
+        time: new Date(),
+      };
+      setMessages((prev) => [...prev, errorMessage]);
     } finally {
       setLoading(false);
     }
@@ -199,37 +212,67 @@ function Hero() {
                 scale: 1,
               }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className={`mb-3 flex items-end ${
+              className={`mb-3 flex ${
                 msg.sender === "user" ? "justify-end" : "justify-start"
               }`}
             >
               {msg.sender !== "user" && (
                 <Image
-                  src="/image/ai-bot.webp" // Replace with your AI icon path
+                  src="/image/ai-bot.webp"
                   alt="AI"
                   width={32}
                   height={32}
-                  className="mr-2 mb-1 rounded-full"
+                  className="mr-2 mb-auto rounded-full"
                 />
               )}
 
-              <div
-                className={`max-w-[70%] px-4 py-2 rounded-lg text-[14px] ${
-                  msg.sender === "user"
-                    ? "bg-black text-white rounded-br-none"
-                    : "bg-gray-200 text-gray-900 rounded-bl-none"
-                }`}
-              >
-                {msg.isTyping ? <TypingIndicator /> : msg.text}
+              <div className="flex flex-col max-w-[70%]">
+                <div
+                  className={`px-4 py-2 rounded-lg text-[14px] ${
+                    msg.sender === "user"
+                      ? "bg-black text-white rounded-br-none"
+                      : "bg-gray-200 text-gray-900 rounded-bl-none"
+                  }`}
+                >
+                  {msg.isTyping ? <TypingIndicator /> : msg.text}
+                </div>
+
+                <div className="mt-1 flex items-center gap-1 text-xs text-gray-400 self-end">
+                  <span>
+                    {msg.time instanceof Date
+                      ? msg.time.toLocaleTimeString([], {
+                          hour: "2-digit",
+                          minute: "2-digit",
+                          hour12: true,
+                        })
+                      : ""}
+                  </span>
+                  {msg.sender === "user" && (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-4 h-4 text-blue-500"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  )}
+                </div>
               </div>
 
               {msg.sender === "user" && (
                 <Image
-                  src="/image/user.png?new" // Replace with your user icon path
+                  src="/image/user.png?new"
                   alt="User"
                   width={32}
                   height={32}
-                  className="ml-2 mb-1 rounded-full"
+                  className="ml-2 mb-auto rounded-full"
                 />
               )}
             </motion.div>
