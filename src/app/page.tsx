@@ -9,6 +9,7 @@ import Resume from "./resume";
 import Commissions from "./commissions";
 import Experience from "./experience";
 import Contact from "./contact";
+import Certificates from "./certificates";
 
 export default function Portfolio() {
   return (
@@ -16,6 +17,7 @@ export default function Portfolio() {
       <Navbar />
       <Hero />
       <Skills />
+      <Certificates />
       <Projects />
       <Resume />
       <Commissions />

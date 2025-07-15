@@ -21,6 +21,11 @@ const NAV_MENU = [
     href: "#skills",
   },
   {
+    name: "Certificates",
+    icon: RectangleStackIcon,
+    href: "#certificates",
+  },
+  {
     name: "Projects",
     icon: RectangleStackIcon,
     href: "#projects",
