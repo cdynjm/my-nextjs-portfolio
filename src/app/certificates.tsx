@@ -10,6 +10,18 @@ const CERTS = [
     site: "https://www.freecodecamp.org/certification/cdynjm/front-end-development-libraries",
   },
   {
+    img: "/certificates/Data Visualization.png",
+    title: "Data Visualization",
+    desc: "In the Data Visualization Certification, I built charts, graphs, and maps to present different types of data using the D3.js library. I also learned about JSON (JavaScript Object Notation) and how to work with data online using an API (Application Programming Interface).",
+    site: "https://www.freecodecamp.org/certification/cdynjm/data-visualization",
+  },
+  {
+    img: "/certificates/Responsive Web Design.png",
+    title: "Responsive Web Design",
+    desc: "In this Responsive Web Design Certification, I learned HTML and CSS by building projects like a cat photo app, a quiz site, a photo gallery, and a magazine layout. I also practiced modern CSS and responsive design techniques",
+    site: "https://www.freecodecamp.org/certification/cdynjm/responsive-web-design",
+  },
+  {
     img: "/certificates/Enablement.png",
     title: "Enablement Certificate",
     desc: "Participated the ASEAN Data Science Explorers in 2023. An Enablement Session - SAP Analytics Cloud training session",
