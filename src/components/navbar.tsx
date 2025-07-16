@@ -31,7 +31,7 @@ const NAV_MENU = [
     href: "#projects",
   },
   {
-    name: "Resume",
+    name: "CV",
     icon: RectangleStackIcon,
     href: "#resume",
   },

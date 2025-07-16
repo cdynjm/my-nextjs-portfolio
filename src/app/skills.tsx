@@ -4,8 +4,8 @@ import {
   RectangleGroupIcon,
   ServerIcon,
   WrenchIcon,
+  CircleStackIcon,
   EyeIcon,
-  HashtagIcon,
   CloudIcon,
 } from "@heroicons/react/24/outline";
 import { SkillCard } from "@/components";
@@ -23,7 +23,7 @@ const SKILLS = [
     icon: ServerIcon,
     title: "Backend Development",
     children:
-      "My backend expertise includes working with HonoJS, PHP 8, Laravel, Livewire.js, and LighthousePHP. I build scalable and maintainable backends that power seamless frontend experiences.",
+      "My backend expertise includes working with HonoJS, PHP 8, Laravel, Livewire.js, and LighthousePHP. I also use Python for machine learning and AI. I build scalable and maintainable backends that power seamless frontend experiences.",
   },
   {
     icon: WrenchIcon,
@@ -32,7 +32,7 @@ const SKILLS = [
       "I use modern tools like Git, GitHub Actions, Vite, Drizzle ORM, GraphQL to streamline development, manage data efficiently, and automate deployments.",
   },
   {
-    icon: HashtagIcon,
+    icon: CircleStackIcon,
     title: "Database & Authentication",
     children:
       "I design and manage robust relational databases using MySQL, PostgreSQL, MongoDB, Drizzle ORM and Supabase in Next.js, and Eloquent ORM in Laravel. For authentication, I implement secure login systems using NextAuth.js for Next.js and Laravel Breeze or Sanctum for Laravel.",
@@ -210,7 +210,7 @@ export function Skills() {
         ))}
       </div>
 
-      <div className="container mx-auto grid grid-cols-1 gap-y-10 md:grid-cols-2 lg:grid-cols-3 bg-gray-50">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-gray-50">
         {SKILLS.map((props, idx) => (
           <SkillCard key={idx} {...props} />
         ))}
@@ -220,3 +220,4 @@ export function Skills() {
 }
 
 export default Skills;
+

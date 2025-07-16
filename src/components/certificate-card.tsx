@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { GlobeAltIcon } from "@heroicons/react/24/solid";
+import { DocumentIcon } from "@heroicons/react/24/solid";
 import { Card, CardHeader, CardBody, Button } from "@material-tailwind/react";
 
 interface ProjectCardProps {
@@ -23,7 +23,7 @@ export function CertificateCard({
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
       shadow={true}
-      className="p-8 flex flex-col h-[600px] shadow-none border" // fixed height & flex col
+      className="p-8 flex flex-col h-[550px] shadow-none border" // fixed height & flex col
     >
       <CardHeader
         placeholder=""
@@ -60,7 +60,7 @@ export function CertificateCard({
 
         <div className="flex flex-col flex-grow">
           <p className="text-[14px] font-normal text-gray-500">{desc}</p>
-          <hr className="my-4" />
+          
         </div>
 
         <div className="mt-auto">
@@ -80,7 +80,7 @@ export function CertificateCard({
               rel="noopener noreferrer"
               className="block w-full justify-center font-normal capitalize flex items-center gap-2"
             >
-              <GlobeAltIcon className="w-4 h-auto" />
+              <DocumentIcon className="w-4 h-auto" />
               Certificate
             </a>
           </Button>
@@ -91,3 +91,4 @@ export function CertificateCard({
 }
 
 export default CertificateCard;
+
