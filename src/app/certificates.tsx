@@ -22,6 +22,12 @@ const CERTS = [
     site: "https://www.freecodecamp.org/certification/cdynjm/data-visualization",
   },
   {
+    img: "/certificates/Relational Database.png",
+    title: "Relational Database",
+    desc: "I learned Bash fundamentals, how to manage files and write scripts, worked with PostgreSQL databases using SQL, and mastered Git for version control",
+    site: "https://www.freecodecamp.org/certification/cdynjm/relational-database-v8",
+  },
+  {
     img: "/certificates/Responsive Web Design.png",
     title: "Responsive Web Design",
     desc: "In this Responsive Web Design Certification, I learned HTML and CSS by building projects like a cat photo app, a quiz site, a photo gallery, and a magazine layout. I also practiced modern CSS and responsive design techniques",
