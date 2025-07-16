@@ -4,6 +4,18 @@ import CertificateCard from "@/components/certificate-card";
 
 const CERTS = [
   {
+    img: "/certificates/Document Tracking Assistant Certificate.png",
+    title: "Document Tracking Assistant Certificate",
+    desc: "I have completed this certification for developing the Document Tracking Assistant for the Province of Southern Leyte",
+    site: "_next/image?url=%2Fcertificates%2FDocument%20Tracking%20Assistant%20Certificate.png&w=1080&q=75",
+  },
+  {
+    img: "/certificates/Enablement.png",
+    title: "Enablement Certificate",
+    desc: "Participated the ASEAN Data Science Explorers in 2023. An Enablement Session - SAP Analytics Cloud training session",
+    site: "/_next/image?url=%2Fcertificates%2FEnablement.png&w=1080&q=75",
+  },
+  {
     img: "/certificates/JavaScript Algorithms and Data Structures.png",
     title: "JavaScript Algorithms and Data Structures",
     desc: "I completed this certification and learned core JavaScript, OOP, Functional Programming, algorithms, local storage, and working with APIs",
@@ -32,12 +44,6 @@ const CERTS = [
     title: "Responsive Web Design",
     desc: "In this Responsive Web Design Certification, I learned HTML and CSS by building projects like a cat photo app, a quiz site, a photo gallery, and a magazine layout. I also practiced modern CSS and responsive design techniques",
     site: "https://www.freecodecamp.org/certification/cdynjm/responsive-web-design",
-  },
-  {
-    img: "/certificates/Enablement.png",
-    title: "Enablement Certificate",
-    desc: "Participated the ASEAN Data Science Explorers in 2023. An Enablement Session - SAP Analytics Cloud training session",
-    site: "/_next/image?url=%2Fcertificates%2FEnablement.png&w=1080&q=75",
   },
 ];
 
