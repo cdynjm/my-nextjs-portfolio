@@ -11,6 +11,7 @@ import {
 import { SkillCard } from "@/components";
 import Image from "next/image";
 import { Card, CardBody } from "@material-tailwind/react";
+import { motion } from "framer-motion";
 
 const SKILLS = [
   {
@@ -162,21 +163,34 @@ const TECHSTACKS = [
 export function Skills() {
   return (
     <section className="px-8 mt-7" id="skills">
-      <div className="container mx-auto mb-20 text-center">
-        <h1 color="blue-gray" className="mb-2 font-bold uppercase text-3xl">
-          My Skills
-        </h1>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <div className="container mx-auto mb-20 text-center">
+          <h1 color="blue-gray" className="mb-2 font-bold uppercase text-3xl">
+            My Skills
+          </h1>
 
-        <p className="mx-auto w-full !text-gray-500 text-[16px]">
-          I&apos;m not just a developer; I&apos;m a digital dreamweaver.
-          Crafting immersive online experiences is not just a job but my
-          calling. Discover below how I can help you.
-        </p>
-      </div>
+          <p className="mx-auto w-full !text-gray-500 text-[16px]">
+            I&apos;m not just a developer; I&apos;m a digital dreamweaver.
+            Crafting immersive online experiences is not just a job but my
+            calling. Discover below how I can help you.
+          </p>
+        </div>
+      </motion.div>
 
       <div className="container mx-auto grid grid-cols-2 md:grid-cols-6 mb-20">
         {TECHSTACKS.map((tech, index) => (
-          <div key={tech.name}>
+          <motion.div
+            key={tech.name}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: index * 0.07 }}
+          >
             <Card
               color="transparent"
               shadow={false}
@@ -206,13 +220,21 @@ export function Skills() {
                 <p className="text-[13px]">{tech.name}</p>
               </CardBody>
             </Card>
-          </div>
+          </motion.div>
         ))}
       </div>
 
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 bg-gray-50">
         {SKILLS.map((props, idx) => (
-          <SkillCard key={idx} {...props} />
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
+          >
+            <SkillCard key={idx} {...props} />
+          </motion.div>
         ))}
       </div>
     </section>
@@ -220,4 +242,3 @@ export function Skills() {
 }
 
 export default Skills;
-

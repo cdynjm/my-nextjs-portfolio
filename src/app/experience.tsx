@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+
 const EXPERIENCES = [
   {
     period: "2024 - Present",
@@ -84,80 +86,103 @@ const OTHERS = [
 export default function Experience() {
   return (
     <section className="px-8 py-24 bg-gray-50" id="experience">
-      <div className="container mx-auto mb-20 text-center">
-        <h2 className="mb-4 text-4xl font-semibold text-blue-gray-900">
-          Professional Experience
-        </h2>
-        <p className="mb-4 text-[16px] text-blue-gray-900">
-          My journey in software development
-        </p>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <div className="container mx-auto mb-20 text-center">
+          <h2 className="mb-4 text-4xl font-semibold text-blue-gray-900">
+            Professional Experience
+          </h2>
+          <p className="mb-4 text-[16px] text-blue-gray-900">
+            My journey in software development
+          </p>
+        </div>
+      </motion.div>
 
       <div className="container mx-auto space-y-16">
         {EXPERIENCES.map((exp, index) => (
-          <div key={index} className="grid md:grid-cols-5 gap-6 items-start">
-            {/* Left: Date */}
-            <div className="md:col-span-2 text-center md:text-right">
-              <span className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-1 rounded-full">
-                {exp.period}
-              </span>
-              <h3 className="mt-4 text-lg font-semibold text-gray-800">
-                {exp.title}
-              </h3>
-              <p className="text-sm text-gray-600">
-                {exp.company} | {exp.location}
-              </p>
-            </div>
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+          >
+            <div className="grid md:grid-cols-5 gap-6 items-start">
+              {/* Left: Date */}
+              <div className="md:col-span-2 text-center md:text-right">
+                <span className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-1 rounded-full">
+                  {exp.period}
+                </span>
+                <h3 className="mt-4 text-lg font-semibold text-gray-800">
+                  {exp.title}
+                </h3>
+                <p className="text-sm text-gray-600">
+                  {exp.company} | {exp.location}
+                </p>
+              </div>
 
-            {/* Right: Details */}
-            <div className="md:col-span-3 bg-white p-6 rounded-lg shadow-sm">
-              <p className="mb-4 text-gray-700 leading-relaxed">
-                {exp.description}
-              </p>
-              <div className="flex flex-wrap gap-2 mb-4">
-                {exp.tech.map((tech, i) => (
-                  <span
-                    key={i}
-                    className="text-xs bg-gray-200 text-gray-800 font-medium px-3 py-1 rounded-full"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-              <div>
-                <p className="font-semibold mb-2">Key Achievements:</p>
-                <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
-                  {exp.achievements.map((ach, i) => (
-                    <li key={i}>{ach}</li>
+              {/* Right: Details */}
+              <div className="md:col-span-3 bg-white p-6 rounded-lg shadow-sm">
+                <p className="mb-4 text-gray-700 leading-relaxed">
+                  {exp.description}
+                </p>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {exp.tech.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="text-xs bg-gray-200 text-gray-800 font-medium px-3 py-1 rounded-full"
+                    >
+                      {tech}
+                    </span>
                   ))}
-                </ul>
+                </div>
+                <div>
+                  <p className="font-semibold mb-2">Key Achievements:</p>
+                  <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+                    {exp.achievements.map((ach, i) => (
+                      <li key={i}>{ach}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
       <hr className="my-10 xl:mx-[200px]" />
       <div className="container mx-auto space-y-16">
         {OTHERS.map((exp, index) => (
-          <div key={index} className="grid md:grid-cols-5 gap-6 items-start">
-            {/* Left: Date */}
-            <div className="md:col-span-2 text-center md:text-right">
-              <span className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-1 rounded-full">
-                {exp.period}
-              </span>
-              <h3 className="mt-4 text-md font-semibold text-gray-800">
-                {exp.title}
-              </h3>
-              <p className="text-sm text-gray-600">{exp.location}</p>
-            </div>
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+          >
+            <div className="grid md:grid-cols-5 gap-6 items-start">
+              {/* Left: Date */}
+              <div className="md:col-span-2 text-center md:text-right">
+                <span className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-4 py-1 rounded-full">
+                  {exp.period}
+                </span>
+                <h3 className="mt-4 text-md font-semibold text-gray-800">
+                  {exp.title}
+                </h3>
+                <p className="text-sm text-gray-600">{exp.location}</p>
+              </div>
 
-            {/* Right: Details */}
-            <div className="md:col-span-3 bg-white p-6 rounded-lg shadow-sm">
-              <p className="mb-4 text-gray-700 text-[14px] leading-relaxed">
-                {exp.description}
-              </p>
+              {/* Right: Details */}
+              <div className="md:col-span-3 bg-white p-6 rounded-lg shadow-sm">
+                <p className="mb-4 text-gray-700 text-[14px] leading-relaxed">
+                  {exp.description}
+                </p>
+              </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

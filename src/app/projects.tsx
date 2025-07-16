@@ -1,20 +1,39 @@
 "use client";
 
 import { ProjectCard } from "@/components";
+import { motion } from "framer-motion";
 
 const PROJECTS = [
   {
     img: "/projects/nextjs-graphql-honojs.png",
     title: "NextJS Starter Kit",
     desc: "A comprehensive starter kit for nextjs projects with built in authentication and postgresql for its database",
-    tech: ["NextJS", "NextAuthJS", "HonoJS", "TailwindCSS", "Shadcn UI", "TypeScript", "GraphQL", "TanStack Query", "Supabase",],
+    tech: [
+      "NextJS",
+      "NextAuthJS",
+      "HonoJS",
+      "TailwindCSS",
+      "Shadcn UI",
+      "TypeScript",
+      "GraphQL",
+      "TanStack Query",
+      "Supabase",
+    ],
     site: "https://nextjs-graphql-honojs-starterkit.vercel.app/",
   },
   {
     img: "/projects/lms-vue.png",
     title: "Legislative Management System",
     desc: "A comprehensive system for managing legislative documents and transactions, developed for municipalities.",
-    tech: ["VueJS", "InertiaJS", "Laravel", "TailwindCSS", "TypeScript", "GraphQL", "TanStack Query"],
+    tech: [
+      "VueJS",
+      "InertiaJS",
+      "Laravel",
+      "TailwindCSS",
+      "TypeScript",
+      "GraphQL",
+      "TanStack Query",
+    ],
     site: "https://lms.southernleyte.org.ph/",
   },
   {
@@ -56,7 +75,15 @@ const PROJECTS = [
     img: "/projects/mcms.png",
     title: "Municipal Crime & Accident MS",
     desc: "A comprehensive system that records crimes and accidents, featuring a GIS map powered by Leaflet to track incident locations based on SMS reports from concerned individuals.",
-    tech: ["Laravel", "Livewire", "Bootstrap 5", "MySQL", "Leaflet", "Pushbullet API", "JavaScript"],
+    tech: [
+      "Laravel",
+      "Livewire",
+      "Bootstrap 5",
+      "MySQL",
+      "Leaflet",
+      "Pushbullet API",
+      "JavaScript",
+    ],
     site: "",
   },
   {
@@ -76,24 +103,39 @@ const PROJECTS = [
 ];
 
 export function Projects() {
-
   return (
     <section className="py-28 px-8 bg-white" id="projects">
-      <div className="container mx-auto mb-20 text-center">
-        <h2 className="mb-4 text-4xl font-semibold text-blue-gray-900">
-          Featured Projects
-        </h2>
-        <p className="mb-4 text-[16px] text-blue-gray-900">
-          Whether you need a powerful web system built from scratch or a website
-          refreshed, I’m here to bring your digital vision to life. I also offer
-          seamless website-to-APK conversions using Median.co—so your entire
-          platform runs as a mobile app, all from a single codebase.
-        </p>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <div className="container mx-auto mb-20 text-center">
+          <h2 className="mb-4 text-4xl font-semibold text-blue-gray-900">
+            Featured Projects
+          </h2>
+          <p className="mb-4 text-[16px] text-blue-gray-900">
+            Whether you need a powerful web system built from scratch or a
+            website refreshed, I’m here to bring your digital vision to life. I
+            also offer seamless website-to-APK conversions using Median.co—so
+            your entire platform runs as a mobile app, all from a single
+            codebase.
+          </p>
+        </div>
+      </motion.div>
 
       <div className="container mx-auto grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-2 xl:grid-cols-4">
         {PROJECTS.map((props, idx) => (
-          <ProjectCard key={idx} {...props} />
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
+          >
+            <ProjectCard key={idx} {...props} />
+          </motion.div>
         ))}
       </div>
     </section>

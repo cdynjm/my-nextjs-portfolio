@@ -1,6 +1,7 @@
 "use client";
 
 import CertificateCard from "@/components/certificate-card";
+import { motion } from "framer-motion";
 
 const CERTS = [
   {
@@ -48,21 +49,37 @@ const CERTS = [
 ];
 
 export function Certificates() {
-
   return (
     <section className="py-28 px-8 bg-white" id="certificates">
-      <div className="container mx-auto mb-20 text-center">
-        <h2 className="mb-4 text-4xl font-semibold text-blue-gray-900">
-          Certificates
-        </h2>
-        <p className="mb-4 text-[16px] text-blue-gray-900">
-         These certificates show the real projects I built and the skills I practiced through FreeCodeCamp’s hands-on challenges and also with other trainings and seminars
-        </p>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
+        <div className="container mx-auto mb-20 text-center">
+          <h2 className="mb-4 text-4xl font-semibold text-blue-gray-900">
+            Certificates
+          </h2>
+          <p className="mb-4 text-[16px] text-blue-gray-900">
+            These certificates show the real projects I built and the skills I
+            practiced through FreeCodeCamp’s hands-on challenges and also with
+            other trainings and seminars
+          </p>
+        </div>
+      </motion.div>
 
       <div className="container mx-auto grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-2 xl:grid-cols-4">
         {CERTS.map((props, idx) => (
-          <CertificateCard key={idx} {...props} />
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.5, delay: idx * 0.3 }}
+          >
+            <CertificateCard key={idx} {...props} />
+          </motion.div>
         ))}
       </div>
     </section>
