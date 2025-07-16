@@ -23,7 +23,7 @@ export function CertificateCard({
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
       shadow={true}
-      className="p-8 flex flex-col h-[550px] shadow-none border" // fixed height & flex col
+      className="p-6 flex flex-col h-[550px] shadow-none border" // fixed height & flex col
     >
       <CardHeader
         placeholder=""
@@ -32,14 +32,14 @@ export function CertificateCard({
         onPointerEnterCapture={() => {}}
         onPointerLeaveCapture={() => {}}
         floated={true}
-        className="mx-0 mt-0 mb-6 h-48 shadow-none" // fixed height for consistent image size
+        className="mx-0 mt-0 mb-0 h-48 shadow-none p-2" // fixed height for consistent image size
       >
         <Image
           src={img}
           alt={title}
           width={1000}
           height={1000}
-          className="h-full w-full rounded-md"
+          className="h-auto w-full"
         />
       </CardHeader>
 
@@ -49,7 +49,7 @@ export function CertificateCard({
         onResizeCapture={() => {}}
         onPointerEnterCapture={() => {}}
         onPointerLeaveCapture={() => {}}
-        className="p-0 flex flex-col flex-grow"
+        className="p-2 flex flex-col flex-grow"
       >
         <a
           href="#"
