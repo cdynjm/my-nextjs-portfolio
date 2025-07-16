@@ -6,7 +6,7 @@ const CERTS = [
   {
     img: "/certificates/JavaScript Algorithms and Data Structures.png",
     title: "JavaScript Algorithms and Data Structures",
-    desc: "In this JavaScript Algorithms and Data Structures Certification, I learned the fundamentals of JavaScript, including variables, arrays, objects, loops, functions, the DOM, and more. I also learned Object-Oriented Programming (OOP), Functional Programming, algorithmic thinking, how to work with local storage, and how to fetch data using an API.",
+    desc: "I completed this certification and learned core JavaScript, OOP, Functional Programming, algorithms, local storage, and working with APIs",
     site: "https://www.freecodecamp.org/certification/cdynjm/javascript-algorithms-and-data-structures-v8",
   },
   {
