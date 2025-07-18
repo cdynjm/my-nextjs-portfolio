@@ -17,6 +17,12 @@ const CERTS = [
     site: "/_next/image?url=%2Fcertificates%2FEnablement.png&w=1080&q=75",
   },
   {
+    img: "/certificates/Data Analysis with Python.png",
+    title: "Data Analysis with Python Certificate",
+    desc: "I completed the Data Analysis with Python Certification, where I learned to read data from CSVs and SQL, and used Numpy, Pandas, Matplotlib, and Seaborn to analyze and visualize it",
+    site: "https://www.freecodecamp.org/certification/cdynjm/data-analysis-with-python-v7",
+  },
+  {
     img: "/certificates/JavaScript Algorithms and Data Structures.png",
     title: "JavaScript Algorithms and Data Structures Certificate",
     desc: "I completed this certification and learned core JavaScript, OOP, Functional Programming, algorithms, local storage, and working with APIs",
