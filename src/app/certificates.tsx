@@ -23,6 +23,12 @@ const CERTS = [
     site: "https://www.freecodecamp.org/certification/cdynjm/data-analysis-with-python-v7",
   },
   {
+    img: "/certificates/Scientific Computing with Python.png",
+    title: "Scientific Computing with Python Certificate",
+    desc: "I completed this curriculum and learned to analyze and manipulate data with Python, using data structures, algorithms, OOP, and advanced calculations",
+    site: "https://www.freecodecamp.org/certification/cdynjm/scientific-computing-with-python-v7",
+  },
+  {
     img: "/certificates/JavaScript Algorithms and Data Structures.png",
     title: "JavaScript Algorithms and Data Structures Certificate",
     desc: "I completed this certification and learned core JavaScript, OOP, Functional Programming, algorithms, local storage, and working with APIs",
