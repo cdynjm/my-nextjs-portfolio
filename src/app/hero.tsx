@@ -403,7 +403,7 @@ function Hero() {
               type="button"
               onClick={startListening}
               disabled={isListening}
-              className="text-white p-2 rounded bg-blue-700 disabled:opacity-50"
+              className="text-blue-700 p-2 rounded bg-transparent shadow-none disabled:opacity-50 hover:bg-transparent hover:shadow-none"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
