@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   title: "Jemuel Cadayona",
   description:
     "Introducing Tailwind Portfolio Page, a versatile and stylish portfolio template built on the foundation of Tailwind CSS and Material Tailwind.",
+  viewport: {
+    width: "device-width",
+    initialScale: 0.90,
+  },
 };
 
 export default function RootLayout({
