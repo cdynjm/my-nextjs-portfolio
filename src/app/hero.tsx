@@ -215,7 +215,7 @@ function Hero() {
           time: new Date(),
         };
         setMessages((prev) => [...prev, waitingMessage]);
-      }, 500);
+      }, 3000);
 
       const res = await fetchPromise;
       const data = await res.json();
