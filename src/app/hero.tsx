@@ -199,15 +199,29 @@ function Hero() {
     setInput("");
     setLoading(true);
 
+    let waitTimeout: NodeJS.Timeout | null = null;
+
     try {
-      const res = await fetch(ai_endpoint, {
+      const fetchPromise = fetch(ai_endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text: userMessage.text }),
       });
 
+      waitTimeout = setTimeout(() => {
+        const waitingMessage: Message = {
+          sender: "ai",
+          text: "⏳ Please wait while the AI processes your request...",
+          time: new Date(),
+        };
+        setMessages((prev) => [...prev, waitingMessage]);
+      }, 500);
+
+      const res = await fetchPromise;
       const data = await res.json();
       const fullAIResponse = data.response || "No response from AI.";
+
+      if (waitTimeout) clearTimeout(waitTimeout);
 
       const aiPlaceholder: Message = {
         sender: "ai",
@@ -235,9 +249,11 @@ function Hero() {
         });
       });
     } catch {
+      if (waitTimeout) clearTimeout(waitTimeout);
+
       const errorMessage: Message = {
         sender: "ai",
-        text: "Error fetching AI response.",
+        text: "⚠️ Error fetching AI response.",
         time: new Date(),
       };
       setMessages((prev) => [...prev, errorMessage]);
