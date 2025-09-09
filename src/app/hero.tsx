@@ -211,7 +211,7 @@ function Hero() {
       waitTimeout = setTimeout(() => {
         const waitingMessage: Message = {
           sender: "ai",
-          text: "⏳ Please wait while the AI processes your request...",
+          text: "⏳ Please wait while the AI processes your request for the first time...",
           time: new Date(),
         };
         setMessages((prev) => [...prev, waitingMessage]);
