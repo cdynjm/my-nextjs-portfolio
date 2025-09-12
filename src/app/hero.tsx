@@ -15,6 +15,7 @@ import { Select, Option } from "@material-tailwind/react";
 import TypingIndicator from "@/components/typing-indicator";
 import { Input } from "@material-tailwind/react";
 import { motion } from "framer-motion";
+import ReactMarkdown from "react-markdown";
 
 interface Message {
   sender: "user" | "ai";
@@ -342,7 +343,7 @@ function Hero() {
                         : "bg-gray-200 text-gray-900 rounded-bl-none"
                     }`}
                   >
-                    {msg.isTyping ? <TypingIndicator /> : msg.text}
+                    {msg.isTyping ? <TypingIndicator /> : <ReactMarkdown>{msg.text}</ReactMarkdown>}
                   </div>
 
                   <div className="mt-1 flex items-center gap-1 text-xs text-gray-400 self-end">
