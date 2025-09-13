@@ -9,12 +9,23 @@ const EXPERIENCES = [
     company: "Provincial Systems A.O.",
     location: "Remote",
     description:
-      "Leading the development of enterprise-level web applications using Laravel, Vue.js, and TailwindCSS. Implementing complex database architectures and optimizing application performance.",
-    tech: ["Laravel", "Vue.js", "TailwindCSS", "MySQL", "Livewire"],
+      "Spearheading the development of enterprise-level web applications using Laravel, Vue.js, and TailwindCSS. Designing and maintaining complex database architectures, optimizing performance, and ensuring system scalability. Additionally, managing the province’s hosting services (web.com) and WHM, ensuring security and stability. Handles subscription and billing notifications received via email from web.com, and develops reliable office-focused systems and applications.",
+    tech: [
+      "Laravel",
+      "Vue.js",
+      "TailwindCSS",
+      "MySQL",
+      "Livewire",
+      "WHM",
+      "Web.com",
+    ],
     achievements: [
-      "Reduced application load time by 40% through code optimization",
-      "Implemented CI/CD pipeline reducing deployment time by 60%",
-      "Developed projects intended for the office’s daily use",
+      "Reduced application load time by 40% through code and query optimization",
+      "Implemented a CI/CD pipeline reducing deployment time by 60%",
+      "Developed and deployed multiple in-house projects to streamline office operations",
+      "Managed hosting and WHM environments, ensuring uptime and secure configurations",
+      "Monitored and addressed subscription and billing notifications from web.com hosting services",
+      "Mitigated server-related issues through proactive monitoring and alerts",
     ],
   },
   {
