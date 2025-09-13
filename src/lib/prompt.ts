@@ -88,6 +88,9 @@ Experiences:
   - Built and maintained custom systems for institutions and clients.
   - Gained hands-on experience with PHP, Laravel, Livewire, and MySQL.
 
+- Aug 2025: Comprehensive Discussion and Open Forum for the Document Tracking Assistant System
+    - Presented recommendations to further enhance the Document Tracking Assistant System, ensuring improved usability and alignment with office needs at the Capitol Site of Southern Leyte.
+
 - Jan 2025: Document Tracking System – Full Implementation
   - Conducted live demo and user training at the Capitol Site, Southern Leyte.
 

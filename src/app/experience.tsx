@@ -46,6 +46,15 @@ const EXPERIENCES = [
 
 const OTHERS = [
   {
+    period: "August 2025",
+    title:
+      "Comprehensive Discussion and Open Forum for the Document Tracking Assistant System",
+    location:
+      "Boardroom, Provincial Governor’s Office, Capitol Site Southern Leyte",
+    description:
+      "Conducted a comprehensive discussion on key issues, gathered user feedback, and facilitated an open forum to address concerns and share insights. Presented recommendations to further enhance the Document Tracking Assistant System, ensuring improved usability and alignment with office needs at the Capitol Site of Southern Leyte.",
+  },
+  {
     period: "January 2025",
     title:
       "Full Implementation and User Demonstration for the Document Tracking Assistant",
