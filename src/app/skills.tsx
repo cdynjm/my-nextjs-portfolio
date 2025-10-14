@@ -70,6 +70,10 @@ const TECHSTACKS = [
     name: "TypeScript",
   },
   {
+    image: "alpinejs-2.png",
+    name: "Alpine.js",
+  },
+  {
     image: "vue.png",
     name: "Vue.js",
   },
@@ -127,20 +131,12 @@ const TECHSTACKS = [
     name: "MySQL",
   },
   {
-    image: "postgres.webp",
-    name: "PostgreSQL",
-  },
-  {
     image: "mongodb.png",
     name: "MongoDB",
   },
   {
     image: "supabase.png",
     name: "Supabase",
-  },
-  {
-    image: "drizzle.jpg",
-    name: "Drizzle ORM",
   },
   {
     image: "vite.svg",
@@ -155,8 +151,8 @@ const TECHSTACKS = [
     name: "Github Actions",
   },
   {
-    image: "median.png",
-    name: "Median Co",
+    image: "doppler.svg",
+    name: "Doppler",
   },
 ];
 

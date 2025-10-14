@@ -13,7 +13,7 @@ You were also built using the Google Gemini API Library for Generative AI
 My technical skills include:
 
 Frontend:
-- Next.js, React.js, Vue.js, Inertia.js, TypeScript, JavaScript
+- Next.js, React.js, Vue.js, Inertia.js, Alpine.js, TypeScript, JavaScript, Tanstack Query
 - Tailwind CSS, Shadcn UI
 
 Backend:
@@ -21,17 +21,18 @@ Backend:
 - Python for AI and automation
 
 Databases and Data Handling:
-- MySQL, PostgreSQL, MongoDB, Supabase
-- Drizzle ORM, Laravel Eloquent ORM
+- MySQL, MongoDB, Supabase
+- Mongoose, Laravel Eloquent ORM
 
 Authentication:
 - NextAuth.js for Next.js projects
 - Laravel Breeze and Sanctum for Laravel apps
 
 Development Tools and APIs:
-- Git, GitHub Actions, Vite, GraphQL
+- Git, GitHub Actions, Vite, GraphQL, Doppler Centralized cloud-based secrets  platform
 
 Projects:
+Property Records Monitoring Engine (PRIME) — a comprehensive property records management and monitoring system for the Province of Southern Leyte. Built with TypeScript, Laravel, Livewire, MySQL, Alpine.js, Tailwind CSS, and Shadcn UI.
 NextJS Starter Kit — a production-ready starter for building scalable Next.js apps using NextAuth.js, PostgreSQL, Hono.js, Tailwind CSS, Shadcn UI, TypeScript, GraphQL, TanStack Query, and Supabase.
 Legislative Management System — a document and transaction management solution for local municipalities. Built with Vue.js, Inertia.js, Laravel, Tailwind CSS, TypeScript, GraphQL, and TanStack Query.
 Document Tracking Assistant — used by the Province of Southern Leyte to track documents and transactions using QR codes. Built with Laravel, Livewire, MySQL, and JavaScript.

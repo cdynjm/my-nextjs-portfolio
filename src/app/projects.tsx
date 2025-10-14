@@ -5,6 +5,21 @@ import { motion } from "framer-motion";
 
 const PROJECTS = [
   {
+    img: "/projects/prime.png",
+    title: "Property Records Monitoring Engine",
+    desc: "A comprehensive system for managing and monitoring property records, developed for the Province of Southern Leyte.",
+    tech: [
+      "TypeScript",
+      "Laravel",
+      "Livewire",
+      "MySQL",
+      "Alpine.js",
+      "TailwindCSS",
+      "Shadcn UI",
+    ],
+    site: "https://prime.southernleyte.org.ph/",
+  },
+  {
     img: "/projects/nextjs-graphql-honojs.png",
     title: "NextJS Starter Kit",
     desc: "A comprehensive starter kit for nextjs projects with built in authentication and postgresql for its database",
