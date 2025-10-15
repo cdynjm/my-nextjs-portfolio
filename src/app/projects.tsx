@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const PROJECTS = [
   {
     img: "/projects/prime.png",
-    title: "Property Records Monitoring Engine",
+    title: "Property Records & Inventory Monitoring Engine",
     desc: "A comprehensive system for managing and monitoring property records, developed for the Province of Southern Leyte.",
     tech: [
       "TypeScript",
