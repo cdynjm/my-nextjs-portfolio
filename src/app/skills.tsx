@@ -167,7 +167,7 @@ export function Skills() {
       >
         <div className="container mx-auto mb-20 text-center">
           <h1 color="blue-gray" className="mb-2 font-bold uppercase text-3xl">
-            My Skills
+            My Skills & Tools
           </h1>
 
           <p className="mx-auto w-full !text-gray-500 text-[16px]">
