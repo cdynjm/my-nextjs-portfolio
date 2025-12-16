@@ -32,7 +32,7 @@ Development Tools and APIs:
 - Git, GitHub Actions, Vite, GraphQL, Doppler Centralized cloud-based secrets  platform
 
 Projects:
-Point of Sale System - PSAO - A comprehensive system for managing and monitoring sales at Provincial Systems Administrator's Office. Built with TypeScript, Laravel, ReactJS, MySQL, TailwindCSS, Shadcn UI
+Point of Sale System - PSAO - A comprehensive system for managing and monitoring sales at Provincial Systems Administrator's Office. Built with TypeScript, Laravel, InertiaJS, ReactJS, MySQL, TailwindCSS, Shadcn UI
 Property Records & Inventory Monitoring Engine (PRIME) — a comprehensive property records management and monitoring system for the Province of Southern Leyte. Built with TypeScript, Laravel, Livewire, MySQL, Alpine.js, Tailwind CSS, and Flux UI.
 NextJS Starter Kit — a production-ready starter for building scalable Next.js apps using NextAuth.js, PostgreSQL, Hono.js, Tailwind CSS, Shadcn UI, TypeScript, GraphQL, TanStack Query, and Supabase.
 Legislative Management System — a document and transaction management solution for local municipalities. Built with Vue.js, Inertia.js, Laravel, Tailwind CSS, TypeScript, GraphQL, and TanStack Query.

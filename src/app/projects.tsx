@@ -11,6 +11,7 @@ const PROJECTS = [
     tech: [
       "TypeScript",
       "Laravel",
+      "InertiaJS",
       "ReactJS",
       "MySQL",
       "TailwindCSS",
