@@ -5,6 +5,20 @@ import { motion } from "framer-motion";
 
 const PROJECTS = [
   {
+    img: "/projects/pos.png",
+    title: "Point of Sale System - PSAO",
+    desc: "A comprehensive system for managing and monitoring sales at Provincial Systems Administrator's Office",
+    tech: [
+      "TypeScript",
+      "Laravel",
+      "ReactJS",
+      "MySQL",
+      "TailwindCSS",
+      "Shadcn UI",
+    ],
+    site: "https://prime.southernleyte.org.ph/",
+  },
+  {
     img: "/projects/prime.png",
     title: "Property Records & Inventory Monitoring Engine",
     desc: "A comprehensive system for managing and monitoring property records, developed for the Province of Southern Leyte.",
@@ -15,7 +29,7 @@ const PROJECTS = [
       "MySQL",
       "Alpine.js",
       "TailwindCSS",
-      "Shadcn UI",
+      "Flux UI",
     ],
     site: "https://prime.southernleyte.org.ph/",
   },
