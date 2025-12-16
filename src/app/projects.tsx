@@ -16,7 +16,7 @@ const PROJECTS = [
       "TailwindCSS",
       "Shadcn UI",
     ],
-    site: "https://prime.southernleyte.org.ph/",
+    site: "https://pos-psao.southernleyte.org.ph/",
   },
   {
     img: "/projects/prime.png",
