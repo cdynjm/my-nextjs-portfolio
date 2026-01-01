@@ -52,6 +52,11 @@ declare global {
     readonly confidence: number;
     readonly transcript: string;
   }
+
+  interface SpeechRecognitionErrorEvent extends Event {
+    readonly error: string;
+    readonly message: string;
+  }
 }
 
 type SpeechRecognition = any;
