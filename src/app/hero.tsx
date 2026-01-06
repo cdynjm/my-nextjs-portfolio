@@ -10,7 +10,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { useEffect, useState, useRef } from "react";
 import GitHubCalendar from "react-github-calendar";
-import { Select, Option } from "@material-tailwind/react";
+// import { Select, Option } from "@material-tailwind/react";
 
 import TypingIndicator from "@/components/typing-indicator";
 import { Input } from "@material-tailwind/react";
@@ -266,9 +266,9 @@ function Hero() {
   const fullText = "SOFTWARE DEVELOPER";
   const [displayedText, setDisplayedText] = useState("");
 
-  const currentYear = new Date().getFullYear();
-  const [year, setYear] = useState(currentYear);
-  const years = Array.from({ length: 5 }, (_, i) => currentYear - i);
+  // const currentYear = new Date().getFullYear();
+  // const [year, setYear] = useState(currentYear);
+  // const years = Array.from({ length: 5 }, (_, i) => currentYear - i);
 
   const [repos, setRepos] = useState([]);
 
@@ -571,7 +571,7 @@ function Hero() {
         <div className="mt-16 container mx-auto flex flex-col items-center justify-center">
           <h2 className="text-2xl font-bold mb-4">GitHub Contributions</h2>
 
-          <div className="mb-6 w-48">
+          {/* <div className="mb-6 w-48">
             <Select
               placeholder=""
               onResize={() => {}}
@@ -589,11 +589,11 @@ function Hero() {
                 </Option>
               ))}
             </Select>
-          </div>
+          </div> */ }
 
           <GitHubCalendar
             username="cdynjm"
-            year={year}
+            
             blockSize={14}
             blockMargin={5}
             fontSize={14}
