@@ -5,6 +5,21 @@ import { motion } from "framer-motion";
 
 const PROJECTS = [
   {
+    img: "/projects/solepgea.png",
+    title: "SOLEPGEA",
+    desc: "A comprehensive system for managing and monitoring contributions & loans of employees, developed for the Province of Southern Leyte.",
+    tech: [
+      "TypeScript",
+      "Laravel",
+      "InertiaJS",
+      "ReactJS",
+      "MySQL",
+      "TailwindCSS",
+      "Shadcn UI",
+    ],
+    site: "https://solepgea.southernleyte.org.ph/",
+  },
+  {
     img: "/projects/pos.png",
     title: "Point of Sale System - PSAO",
     desc: "A comprehensive system for managing and monitoring sales at Provincial Systems Administrator's Office",
