@@ -30,7 +30,7 @@ const SKILLS = [
     icon: WrenchIcon,
     title: "Tools and Workflow",
     children:
-      "I use modern tools like Git, GitHub Actions, Vite, Drizzle ORM, GraphQL to streamline development, manage data efficiently, and automate deployments.",
+      "I use modern tools like Git, GitHub Actions, Vite, Drizzle ORM, Prisma, GraphQL to streamline development, manage data efficiently, and automate deployments.",
   },
   {
     icon: CircleStackIcon,
@@ -135,8 +135,12 @@ const TECHSTACKS = [
     name: "MongoDB",
   },
   {
-    image: "supabase.png",
-    name: "Supabase",
+    image: "drizzle.jpg",
+    name: "Drizzle ORM",
+  },
+   {
+    image: "prisma.png",
+    name: "Prisma",
   },
   {
     image: "vite.svg",
