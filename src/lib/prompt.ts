@@ -21,7 +21,7 @@ Backend:
 - Python for AI and automation
 
 Databases and Data Handling:
-- MySQL, MongoDB, Prisma, Drizzle ORM
+- MySQL, MongoDB, Prisma, Supabase, PostgreSQL
 - Mongoose, Laravel Eloquent ORM
 
 Authentication:

@@ -36,7 +36,7 @@ const SKILLS = [
     icon: CircleStackIcon,
     title: "Database & Authentication",
     children:
-      "I design and manage robust relational databases using MySQL, PostgreSQL, MongoDB, Drizzle ORM and Supabase in Next.js, and Eloquent ORM in Laravel. For authentication, I implement secure login systems using NextAuth.js for Next.js and Laravel Breeze or Sanctum for Laravel.",
+      "I design and manage robust relational databases using MySQL, PostgreSQL, MongoDB, Prisma and Supabase in Next.js, and Eloquent ORM in Laravel. For authentication, I implement secure login systems using NextAuth.js for Next.js and Laravel Breeze or Sanctum for Laravel.",
   },
   {
     icon: EyeIcon,
@@ -68,10 +68,6 @@ const TECHSTACKS = [
   {
     image: "typescript.png",
     name: "TypeScript",
-  },
-  {
-    image: "alpinejs-2.png",
-    name: "Alpine.js",
   },
   {
     image: "vue.png",
@@ -131,12 +127,16 @@ const TECHSTACKS = [
     name: "MySQL",
   },
   {
+    image: "postgres.webp",
+    name: "PostgreSQL",
+  },
+  {
     image: "mongodb.png",
     name: "MongoDB",
   },
   {
-    image: "drizzle.jpg",
-    name: "Drizzle ORM",
+    image: "supabase.png",
+    name: "Supabase",
   },
    {
     image: "prisma.png",
@@ -208,7 +208,7 @@ export function Skills() {
                 onPointerEnterCapture={() => {}}
                 onPointerLeaveCapture={() => {}}
               >
-                <div className="mx-auto mb-4 grid h-12 w-12 place-items-center rounded-full bg-gray-100 p-2.5 text-white shadow">
+                <div className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-full bg-gray-100 p-2.5 text-white shadow">
                   <Image
                     width={50}
                     height={50}
