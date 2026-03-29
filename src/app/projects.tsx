@@ -19,7 +19,7 @@ const PROJECTS = [
       "MySQL",
       "Google Cloud API",
     ],
-    site: "https://solepgea.southernleyte.org.ph/",
+    site: "https://budgetrack.southernleyte.org.ph/",
   },
   {
     img: "/projects/solepgea.png",
