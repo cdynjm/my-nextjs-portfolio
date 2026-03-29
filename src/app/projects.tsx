@@ -9,7 +9,7 @@ const PROJECTS = [
     title: "BudgeTRACK",
     desc: "A comprehensive system for managing and monitoring budget allocations and expenditures, developed for the Province of Southern Leyte.",
     tech: [
-      "TypyeScript",
+      "TypeScript",
       "NextJS",
       "ReactJS",
       "Tanstack Query",
