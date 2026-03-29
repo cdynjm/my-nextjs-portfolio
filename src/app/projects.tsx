@@ -5,6 +5,23 @@ import { motion } from "framer-motion";
 
 const PROJECTS = [
   {
+    img: "/projects/budgetrack.png",
+    title: "BudgeTRACK",
+    desc: "A comprehensive system for managing and monitoring budget allocations and expenditures, developed for the Province of Southern Leyte.",
+    tech: [
+      "TypyeScript",
+      "NextJS",
+      "ReactJS",
+      "Tanstack Query",
+      "Prisma",
+      "HonoJS",
+      "NextAuthJS",
+      "MySQL",
+      "Google Cloud API",
+    ],
+    site: "https://solepgea.southernleyte.org.ph/",
+  },
+  {
     img: "/projects/solepgea.png",
     title: "SOLEPGEA",
     desc: "A comprehensive system for managing and monitoring contributions & loans of employees, developed for the Province of Southern Leyte.",

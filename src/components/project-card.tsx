@@ -25,7 +25,7 @@ export function ProjectCard({
       onPointerEnterCapture={() => {}}
       onPointerLeaveCapture={() => {}}
       shadow={true}
-      className="p-8 flex flex-col h-[600px] shadow-none border" // fixed height & flex col
+      className="p-8 flex flex-col h-[650px] shadow-none border" // fixed height & flex col
     >
       <CardHeader
         placeholder=""

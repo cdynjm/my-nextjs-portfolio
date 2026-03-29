@@ -32,6 +32,7 @@ Development Tools and APIs:
 - Git, GitHub Actions, Vite, GraphQL, Doppler Centralized cloud-based secrets  platform
 
 Projects:
+BudgeTRACK - a comprehensive system for managing and monitoring budget allocations and expenditures, developed for the Province of Southern Leyte. Built with TypeScript, NextJS, ReactJS, Tanstack Query, Prisma, HonoJS, NextAuthJS, MySQL, Google Cloud API
 SOLEPGEA - a comprehensive system for managing and monitoring contributions & loans of employees, developed for the Province of Southern Leyte. Built with TypeScript, Laravel, InertiaJS, ReactJS, MySQL, TailwindCSS, Shadcn UI
 Point of Sale System - PSAO - A comprehensive system for managing and monitoring sales at Provincial Systems Administrator's Office. Built with TypeScript, Laravel, InertiaJS, ReactJS, MySQL, TailwindCSS, Shadcn UI
 Property Records & Inventory Monitoring Engine (PRIME) — a comprehensive property records management and monitoring system for the Province of Southern Leyte. Built with TypeScript, Laravel, Livewire, MySQL, Alpine.js, Tailwind CSS, and Flux UI.
