@@ -17,8 +17,8 @@ export default function Portfolio() {
       <Navbar />
       <Hero />
       <Skills />
-      <Certificates />
       <Projects />
+      <Certificates />
       <Resume />
       <Commissions />
       <Experience />

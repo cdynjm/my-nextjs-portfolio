@@ -5,6 +5,22 @@ import { motion } from "framer-motion";
 
 const PROJECTS = [
   {
+    img: "/projects/promotors.png",
+    title: "PROMOTORS",
+    desc: "A comprehensive system for managing and monitoring equipment, fuel, oil and other inventory, developed for the Province of Southern Leyte.",
+    tech: [
+      "TypeScript",
+      "NextJS",
+      "ReactJS",
+      "Tanstack Query",
+      "Prisma",
+      "tRPC",
+      "NextAuthJS",
+      "MySQL",
+    ],
+    site: "https://promotors.southernleyte.org.ph/",
+  },
+  {
     img: "/projects/budgetrack.png",
     title: "BudgeTRACK",
     desc: "A comprehensive system for managing and monitoring budget allocations and expenditures, developed for the Province of Southern Leyte.",
@@ -14,7 +30,7 @@ const PROJECTS = [
       "ReactJS",
       "Tanstack Query",
       "Prisma",
-      "HonoJS",
+      "tRPC",
       "NextAuthJS",
       "MySQL",
       "Google Cloud API",
@@ -65,23 +81,6 @@ const PROJECTS = [
       "Flux UI",
     ],
     site: "https://prime.southernleyte.org.ph/",
-  },
-  {
-    img: "/projects/nextjs-graphql-honojs.png",
-    title: "NextJS Starter Kit",
-    desc: "A comprehensive starter kit for nextjs projects with built in authentication and postgresql for its database",
-    tech: [
-      "NextJS",
-      "NextAuthJS",
-      "HonoJS",
-      "TailwindCSS",
-      "Shadcn UI",
-      "TypeScript",
-      "GraphQL",
-      "TanStack Query",
-      "Supabase",
-    ],
-    site: "https://nextjs-graphql-honojs-starterkit.vercel.app/",
   },
   {
     img: "/projects/lms-vue.png",

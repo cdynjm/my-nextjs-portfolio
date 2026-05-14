@@ -30,7 +30,7 @@ const SKILLS = [
     icon: WrenchIcon,
     title: "Tools and Workflow",
     children:
-      "I use modern tools like Git, GitHub Actions, Vite, Drizzle ORM, Prisma, GraphQL to streamline development, manage data efficiently, and automate deployments.",
+      "I use modern tools like Git, GitHub Actions, Vite, Prisma, GraphQL and tRPC to streamline development, manage data efficiently, and automate deployments.",
   },
   {
     icon: CircleStackIcon,
@@ -53,31 +53,22 @@ const SKILLS = [
 ];
 
 const TECHSTACKS = [
-  {
-    image: "tailwind.png",
-    name: "TaildwindCSS",
-  },
-  {
-    image: "shadcn.png?new",
-    name: "Shadcn UI",
-  },
-  {
-    image: "javascript.png",
-    name: "JavaScript",
-  },
+  // Languages
   {
     image: "typescript.png",
     name: "TypeScript",
   },
   {
-    image: "vue.png",
-    name: "Vue.js",
+    image: "graphql.png",
+    name: "GraphQL",
   },
+
+  // Frameworks
   {
-    image: "inertia.svg",
-    name: "Inertia.js",
+    image: "trpc.png",
+    name: "tRPC",
   },
-  {
+   {
     image: "nextjs.png",
     name: "Next.js",
   },
@@ -86,61 +77,42 @@ const TECHSTACKS = [
     name: "React.js",
   },
   {
-    image: "nextauth.png",
-    name: "NextAuth.js",
-  },
-  {
-    image: "honojs.png?new",
-    name: "Hono.js",
-  },
-  {
-    image: "livewire.webp",
-    name: "Livewire.js",
-  },
-  {
-    image: "tanstack.png",
-    name: "TanStack Query",
-  },
-
-  {
-    image: "php.png",
-    name: "PHP 8",
+    image: "vue.png",
+    name: "Vue.js",
   },
   {
     image: "laravel-2.png",
     name: "Laravel",
   },
   {
-    image: "lighthouse.png?new-1",
-    name: "LighthousePHP",
+    image: "inertia.svg",
+    name: "Inertia.js",
   },
   {
-    image: "python.webp",
-    name: "Python",
+    image: "livewire.webp",
+    name: "Livewire.js",
+  },
+
+  // Tools & Libraries
+  {
+    image: "shadcn.png?new",
+    name: "Shadcn UI",
   },
   {
-    image: "graphql.png",
-    name: "GraphQL",
+    image: "nextauth.png",
+    name: "NextAuth.js",
+  },
+  {
+    image: "react-query.webp",
+    name: "TanStack Query",
+  },
+  {
+    image: "prisma.png",
+    name: "Prisma",
   },
   {
     image: "mysql.png",
     name: "MySQL",
-  },
-  {
-    image: "postgres.webp",
-    name: "PostgreSQL",
-  },
-  {
-    image: "mongodb.png",
-    name: "MongoDB",
-  },
-  {
-    image: "supabase.png",
-    name: "Supabase",
-  },
-   {
-    image: "prisma.png",
-    name: "Prisma",
   },
   {
     image: "vite.svg",
@@ -170,8 +142,8 @@ export function Skills() {
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <div className="container mx-auto mb-20 text-center">
-          <h1 color="blue-gray" className="mb-2 font-bold uppercase text-3xl">
-            My Skills & Tools
+          <h1 color="blue-gray" className="mb-2 font-bold text-2xl">
+            Current Languages/Frameworks/Tools Used
           </h1>
 
           <p className="mx-auto w-full !text-gray-500 text-[16px]">
