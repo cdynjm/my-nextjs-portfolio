@@ -61,14 +61,14 @@ const TECHSTACKS = [
   { image: "laravel-2.png", name: "Laravel" },
   { image: "inertia.svg", name: "Inertia.js" },
   { image: "livewire.webp", name: "Livewire.js" },
-  { image: "shadcn.png?new", name: "Shadcn UI" },
+  { image: "shadcn.png?new", name: "ShadcnUI" },
   { image: "nextauth.png", name: "NextAuth.js" },
-  { image: "react-query.webp", name: "TanStack Query" },
+  { image: "react-query.webp", name: "TanStack" },
   { image: "prisma.png", name: "Prisma" },
   { image: "mysql.png", name: "MySQL" },
   { image: "vite.svg", name: "Vite" },
   { image: "git.png", name: "Git" },
-  { image: "github actions.png?new", name: "Github Actions" },
+  { image: "github actions.png", name: "GH Actions" },
   { image: "doppler.svg", name: "Doppler" },
 ];
 
