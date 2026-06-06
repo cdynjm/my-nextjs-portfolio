@@ -18,10 +18,10 @@ export default function Portfolio() {
       <Hero />
       <Skills />
       <Projects />
+      <Experience />
       <Certificates />
       <Resume />
       <Commissions />
-      <Experience />
       <Contact />
       <Footer />
     </>

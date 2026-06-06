@@ -1,6 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import { GlobeAltIcon } from "@heroicons/react/24/solid";
-import { Card, CardHeader, CardBody, Button } from "@material-tailwind/react";
+import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
 
 interface ProjectCardProps {
   img: string;
@@ -10,95 +11,73 @@ interface ProjectCardProps {
   site: string;
 }
 
-export function ProjectCard({
-  img,
-  title,
-  desc,
-  tech,
-  site,
-}: ProjectCardProps) {
+export function ProjectCard({ img, title, desc, tech, site }: ProjectCardProps) {
   return (
-    <Card
-      placeholder=""
-      onResize={() => {}}
-      onResizeCapture={() => {}}
-      onPointerEnterCapture={() => {}}
-      onPointerLeaveCapture={() => {}}
-      shadow={true}
-      className="p-8 flex flex-col h-[650px] shadow-none border" // fixed height & flex col
+    <a
+      href={site}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group relative flex flex-col h-full w-full bg-white border border-gray-100 rounded-2xl overflow-hidden
+                 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 ease-out"
     >
-      <CardHeader
-        placeholder=""
-        onResize={() => {}}
-        onResizeCapture={() => {}}
-        onPointerEnterCapture={() => {}}
-        onPointerLeaveCapture={() => {}}
-        floated={true}
-        className="mx-0 mt-0 mb-6 h-48 shadow-none" // fixed height for consistent image size
-      >
+      {/* Image */}
+      <div className="relative h-48 overflow-hidden bg-gray-50">
         <Image
           src={img}
           alt={title}
           width={1000}
           height={1000}
-          className="h-full w-full md:object-cover rounded-md"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-      </CardHeader>
+        {/* Overlay on hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-      <CardBody
-        placeholder=""
-        onResize={() => {}}
-        onResizeCapture={() => {}}
-        onPointerEnterCapture={() => {}}
-        onPointerLeaveCapture={() => {}}
-        className="p-0 flex flex-col flex-grow"
-      >
-        <a
-          href="#"
-          className="block text-blue-gray-900 transition-colors hover:text-gray-800"
-        >
-          <h6 className="mb-2 font-bold">{title}</h6>
-        </a>
-
-        <div className="flex flex-col flex-grow">
-          <p className="text-[14px] font-normal text-gray-500">{desc}</p>
-          <hr className="my-4" />
-          <div className="flex flex-wrap gap-2 mb-4">
-            {tech.map((techItem, i) => (
-              <span
-                key={i}
-                className="text-xs bg-gray-200 text-gray-800 font-medium px-3 py-1 rounded-full"
-              >
-                {techItem}
-              </span>
-            ))}
-          </div>
+        {/* Arrow icon on hover */}
+        <div className="absolute top-3 right-3 bg-white rounded-full p-1.5 shadow-md
+                        opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0
+                        transition-all duration-300">
+          <ArrowUpRightIcon className="w-4 h-4 text-gray-800" />
         </div>
+      </div>
 
-        <div className="mt-auto">
-          <Button
-            placeholder=""
-            onResize={() => {}}
-            onResizeCapture={() => {}}
-            onPointerEnterCapture={() => {}}
-            onPointerLeaveCapture={() => {}}
-            color="gray"
-            size="sm"
-            className="w-full"
-          >
-            <a
-              href={site}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full justify-center font-normal capitalize flex items-center gap-2"
+      {/* Content */}
+      <div className="flex flex-col flex-grow p-5 gap-3">
+        {/* Title */}
+        <h3 className="font-bold text-sm tracking-widest text-gray-900 uppercase">
+          {title}
+        </h3>
+
+        {/* Divider */}
+        <div className="w-8 h-0.5 bg-blue-500 rounded-full" />
+
+        {/* Description */}
+        <p className="text-[13px] leading-relaxed text-gray-500 flex-grow">
+          {desc}
+        </p>
+
+        {/* Tech Stack */}
+        <div className="flex flex-wrap gap-1.5 pt-1">
+          {tech.map((item, i) => (
+            <span
+              key={i}
+              className="text-[11px] font-medium px-2.5 py-1 rounded-full
+                         bg-gray-100 text-gray-600 tracking-wide"
             >
-              <GlobeAltIcon className="w-4 h-auto" />
-              Live Site
-            </a>
-          </Button>
+              {item}
+            </span>
+          ))}
         </div>
-      </CardBody>
-    </Card>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="px-5 pb-5">
+        <div className="flex items-center gap-1.5 text-[12px] font-semibold text-blue-600
+                        group-hover:text-blue-700 transition-colors tracking-wide uppercase">
+          <span>View Live Site</span>
+          <ArrowUpRightIcon className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        </div>
+      </div>
+    </a>
   );
 }
 

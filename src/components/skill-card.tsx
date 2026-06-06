@@ -1,4 +1,4 @@
-import { Card, CardBody, Typography } from "@material-tailwind/react";
+"use client";
 
 interface SkillCardProps {
   title: string;
@@ -8,50 +8,24 @@ interface SkillCardProps {
 
 export function SkillCard({ icon: Icon, title, children }: SkillCardProps) {
   return (
-    <Card
-      color="transparent"
-      placeholder=""
-      onResize={() => {}}
-      onResizeCapture={() => {}}
-      onPointerEnterCapture={() => {}}
-      onPointerLeaveCapture={() => {}}
-      shadow={false}
-    >
-      <CardBody
-        placeholder=""
-        onResize={() => {}}
-        onResizeCapture={() => {}}
-        onPointerEnterCapture={() => {}}
-        onPointerLeaveCapture={() => {}}
-        className="grid justify-center text-center"
-      >
-        <div className="mx-auto mb-3 grid h-12 w-12 place-items-center rounded-full bg-gray-900 p-2.5 text-white shadow">
-          <Icon className="h-6 w-6" strokeWidth={2} />
-        </div>
-        <Typography
-          placeholder=""
-          onResize={() => {}}
-          onResizeCapture={() => {}}
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
-          variant="h5"
-          color="blue-gray"
-          className="mb-2"
-        >
-          {title}
-        </Typography>
-        <Typography
-          placeholder=""
-          onResize={() => {}}
-          onResizeCapture={() => {}}
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
-          className="px-8 text-[14px] !text-gray-500"
-        >
-          {children}
-        </Typography>
-      </CardBody>
-    </Card>
+    <div className="group flex flex-col items-center text-center p-8 border-b border-r border-gray-100
+                    hover:bg-blue-50/50 transition-colors duration-300 last:border-b-0">
+      {/* Icon */}
+      <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl
+                      bg-gray-900 group-hover:bg-blue-600 transition-colors duration-300 shadow-sm">
+        <Icon className="h-5 w-5 text-white" strokeWidth={1.5} />
+      </div>
+
+      {/* Title */}
+      <h3 className="mb-2.5 text-[14px] font-bold text-gray-900 tracking-wide">
+        {title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-[13px] leading-relaxed text-gray-500">
+        {children}
+      </p>
+    </div>
   );
 }
 

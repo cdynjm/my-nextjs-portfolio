@@ -53,23 +53,8 @@ const PROJECTS = [
     site: "https://solepgea.southernleyte.org.ph/",
   },
   {
-    img: "/projects/pos.png",
-    title: "Point of Sale System - PSAO",
-    desc: "A comprehensive system for managing and monitoring sales at Provincial Systems Administrator's Office",
-    tech: [
-      "TypeScript",
-      "Laravel",
-      "InertiaJS",
-      "ReactJS",
-      "MySQL",
-      "TailwindCSS",
-      "Shadcn UI",
-    ],
-    site: "https://pos-psao.southernleyte.org.ph/",
-  },
-  {
     img: "/projects/prime.png",
-    title: "Property Records & Inventory Monitoring Engine",
+    title: "PRIME",
     desc: "A comprehensive system for managing and monitoring property records, developed for the Province of Southern Leyte.",
     tech: [
       "TypeScript",
@@ -84,7 +69,7 @@ const PROJECTS = [
   },
   {
     img: "/projects/lms-vue.png",
-    title: "Legislative Management System",
+    title: "LMS Sogod",
     desc: "A comprehensive system for managing legislative documents and transactions, developed for municipalities.",
     tech: [
       "VueJS",
@@ -95,11 +80,11 @@ const PROJECTS = [
       "GraphQL",
       "TanStack Query",
     ],
-    site: "https://lms.southernleyte.org.ph/",
+    site: "https://sogodlms.ccsit.info/",
   },
   {
     img: "/projects/dota.png",
-    title: "Document Tracking Assistant",
+    title: "DOTA | DTS",
     desc: "A comprehensive system for tracking documents and transactions using QR Code, developed for the Province of Southern Leyte.",
     tech: ["JavaScript", "Laravel", "Livewire", "MySQL"],
     site: "https://dts.southernleyte.org.ph/",
@@ -111,93 +96,68 @@ const PROJECTS = [
     tech: ["JavaScript", "Laravel", "Bootstrap 5", "MySQL"],
     site: "https://www.e-mercado.southernleyte.org.ph/",
   },
-  {
-    img: "/projects/gjtvs.png",
-    title: "GJTVS - Enrolment & Attendance MS (RFID)",
-    desc: "A fully integrated enrolment and attendance monitoring system using RFID technology.",
-    tech: ["JavaScript", "Laravel", "Bootstrap 5", "MySQL", "Livewire"],
-    site: "https://gjtvsims.ccsit.info/",
-  },
-  {
-    img: "/projects/bfp.png",
-    title: "BFP - Information Management System",
-    desc: "A comprehensive Management Information System (MIS) for the Bureau of Fire Protection (BFP), including inspection scheduling and SMS-enabled appointment setting.",
-    tech: ["VueJS", "InertiaJS", "Laravel", "MySQL", "Pushbullet API"],
-    site: "https://mis-bfphl.ccsit.info/",
-  },
-  {
-    img: "/projects/stmg.png",
-    title: "STMG Road Traffic Offense MS",
-    desc: "A comprehensive road traffic offense management system that tracks driver information and outstanding penalties.",
-    tech: ["VueJS", "InertiaJS", "Laravel", "MySQL"],
-    site: "https://rtoims.ccsit.info/",
-  },
-  {
-    img: "/projects/mcms.png",
-    title: "Municipal Crime & Accident MS",
-    desc: "A comprehensive system that records crimes and accidents, featuring a GIS map powered by Leaflet to track incident locations based on SMS reports from concerned individuals.",
-    tech: [
-      "Laravel",
-      "Livewire",
-      "Bootstrap 5",
-      "MySQL",
-      "Leaflet",
-      "Pushbullet API",
-      "JavaScript",
-    ],
-    site: "",
-  },
-  {
-    img: "/projects/als.png",
-    title: "ALS - Learners Progress Monitoring",
-    desc: "A system for monitoring the progress of ALS learners, developed for the Department of Education.",
-    tech: ["Laravel", "Livewire", "Bootstrap 5", "MySQL", "JavaScript"],
-    site: "",
-  },
-  {
-    img: "/projects/southerncp.png",
-    title: "Southern Comfort Pensionne",
-    desc: "A basic and simple commercial website developed for Southern Comfort Pensionne House",
-    tech: ["HTML 5", "CSS 3", "Bootstrap 5", "JavaScript"],
-    site: "https://southerncp.vercel.app/",
-  },
 ];
 
 export function Projects() {
   return (
-    <section className="py-28 px-8 bg-white" id="projects">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        <div className="container mx-auto mb-20 text-center">
-          <h2 className="mb-4 text-4xl font-semibold text-blue-gray-900">
-            Featured Projects
-          </h2>
-          <p className="mb-4 text-[16px] text-blue-gray-900">
-            Whether you need a powerful web system built from scratch or a
-            website refreshed, I’m here to bring your digital vision to life. I
-            also offer seamless website-to-APK conversions using Median.co—so
-            your entire platform runs as a mobile app, all from a single
-            codebase.
-          </p>
-        </div>
-      </motion.div>
+    <section
+      className="relative py-28 px-8 bg-[#f8f8f6] overflow-hidden"
+      id="projects"
+    >
+      {/* Subtle background decoration */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-blue-50 opacity-60 blur-3xl" />
+        <div className="absolute -bottom-24 -left-24 w-[400px] h-[400px] rounded-full bg-indigo-50 opacity-50 blur-3xl" />
+      </div>
 
-      <div className="container mx-auto grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-2 xl:grid-cols-4">
-        {PROJECTS.map((props, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: idx * 0.05 }}
-          >
-            <ProjectCard key={idx} {...props} />
-          </motion.div>
-        ))}
+      <div className="relative container mx-auto">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="mb-20"
+        >
+          <div className="flex flex-col items-center text-center gap-4">
+            {/* Label pill */}
+            <span className="text-[11px] font-semibold tracking-[0.2em] uppercase text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full border border-blue-100">
+              Portfolio
+            </span>
+
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight leading-tight">
+              Featured Projects
+            </h2>
+
+            <p className="max-w-lg text-[15px] leading-relaxed text-gray-500">
+              Whether you need a powerful web system built from scratch or a
+              website refreshed, I&apos;m here to bring your digital vision to life.
+            </p>
+
+            {/* Decorative line */}
+            <div className="flex items-center gap-2 mt-2">
+              <div className="w-10 h-0.5 bg-gray-300 rounded-full" />
+              <div className="w-2 h-2 rounded-full bg-blue-500" />
+              <div className="w-10 h-0.5 bg-gray-300 rounded-full" />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 items-stretch">
+          {PROJECTS.map((props, idx) => (
+            <motion.div
+              key={idx}
+              className="flex"
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, delay: idx * 0.07, ease: "easeOut" }}
+            >
+              <ProjectCard {...props} />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

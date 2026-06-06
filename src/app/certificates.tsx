@@ -62,37 +62,58 @@ const CERTS = [
 
 export function Certificates() {
   return (
-    <section className="py-28 px-8 bg-white" id="certificates">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        <div className="container mx-auto mb-20 text-center">
-          <h2 className="mb-4 text-4xl font-semibold text-blue-gray-900">
-            Certificates
-          </h2>
-          <p className="mb-4 text-[16px] text-blue-gray-900">
-            These certificates show the real projects I built and the skills I
-            practiced through FreeCodeCamp’s hands-on challenges and also with
-            other trainings and seminars
-          </p>
-        </div>
-      </motion.div>
+    <section className="py-28 px-8 bg-[#f8f8f6] relative overflow-hidden" id="certificates">
 
-      <div className="container mx-auto grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-2 xl:grid-cols-4">
-        {CERTS.map((props, idx) => (
-          <motion.div
-            key={idx}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.5, delay: idx * 0.05 }}
-          >
-            <CertificateCard key={idx} {...props} />
-          </motion.div>
-        ))}
+      {/* Background decoration */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-32 -left-32 w-[400px] h-[400px] rounded-full bg-blue-50 opacity-70 blur-3xl" />
+        <div className="absolute -bottom-24 -right-24 w-[350px] h-[350px] rounded-full bg-indigo-50 opacity-60 blur-3xl" />
+      </div>
+
+      <div className="relative container mx-auto">
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          <div className="mb-20 text-center">
+            <span className="inline-block text-[11px] font-semibold tracking-[0.2em] uppercase text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full border border-blue-100 mb-4">
+              Credentials
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-3">
+              Certificates
+            </h2>
+            <p className="max-w-xl mx-auto text-[15px] leading-relaxed text-gray-500">
+              These certificates show the real projects I built and the skills I
+              practiced through FreeCodeCamps hands-on challenges and also with
+              other trainings and seminars.
+            </p>
+            <div className="flex items-center justify-center gap-2 mt-5">
+              <div className="w-10 h-0.5 bg-gray-300 rounded-full" />
+              <div className="w-2 h-2 rounded-full bg-blue-500" />
+              <div className="w-10 h-0.5 bg-gray-300 rounded-full" />
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 items-stretch">
+          {CERTS.map((props, idx) => (
+            <motion.div
+              key={idx}
+              className="flex"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: idx * 0.05 }}
+            >
+              <CertificateCard key={idx} {...props} />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
