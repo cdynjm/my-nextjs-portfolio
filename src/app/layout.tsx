@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "Introducing Tailwind Portfolio Page, a versatile and stylish portfolio template built on the foundation of Tailwind CSS and Material Tailwind.",
   viewport: {
     width: "device-width",
-    initialScale: 0.90,
+    initialScale: 1,
   },
 };
 

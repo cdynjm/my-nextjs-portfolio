@@ -321,13 +321,20 @@ function Hero() {
                   </div>
                 </div>
                 {msg.sender === "user" && (
-                  <Image
-                    src="/image/user.png?new"
-                    alt="User"
-                    width={28}
-                    height={28}
-                    className="ml-2 mb-auto rounded-full ring-1 ring-gray-200 flex-shrink-0"
-                  />
+                  <div className="ml-2 mb-auto w-7 h-7 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="w-4 h-4 text-gray-500"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
                 )}
               </motion.div>
             ))}
