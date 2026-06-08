@@ -451,7 +451,7 @@ function Hero() {
                 <MapPinIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-gray-400 mb-0.5">
-                    DESIGNATION
+                    OFFICE
                   </p>
                   <p className="text-[13px] text-gray-800 font-bold">
                     Provincial Systems Administrators Office
@@ -462,7 +462,7 @@ function Hero() {
                 <BriefcaseIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-gray-400 mb-0.5">
-                    WORK
+                    DESIGNATION
                   </p>
                   <p className="text-[13px] text-gray-800">
                     Software Developer · Consultant
