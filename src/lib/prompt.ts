@@ -28,6 +28,9 @@ Authentication:
 - NextAuth.js for Next.js projects
 - Laravel Breeze and Sanctum for Laravel apps
 
+Mobile Development:
+- React Native with Expo
+
 Development Tools and APIs:
 - Git, GitHub Actions, Vite, GraphQL, Doppler Centralized cloud-based secrets  platform, tRPC (TypeScript Remote Procedure Call)
 

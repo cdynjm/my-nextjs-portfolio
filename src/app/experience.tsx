@@ -9,42 +9,84 @@ const EXPERIENCES = [
     company: "Provincial Systems A.O.",
     location: "Remote",
     description:
-      "Spearheading the development of enterprise-level web applications using Laravel, Vue.js, and TailwindCSS. Designing and maintaining complex database architectures, optimizing performance, and ensuring system scalability. Additionally, managing the province's hosting services (web.com) and WHM, ensuring security and stability. Handles subscription and billing notifications received via email from web.com, and develops reliable office-focused systems and applications.",
+      "Leading the design, development, and deployment of enterprise-grade web applications and internal government systems. Building scalable full-stack solutions using Next.js, React, TypeScript, tRPC, Prisma, Laravel, and MySQL. Responsible for system architecture, database design, API development, performance optimization, CI/CD automation, and maintaining secure, reliable production environments that streamline office operations and document management workflows.",
     tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "tRPC",
+      "Prisma",
       "Laravel",
-      "Vue.js",
-      "TailwindCSS",
-      "MySQL",
       "Livewire",
-      "WHM",
-      "Web.com",
+      "MySQL",
+      "TanStack Query",
+      "GitHub Actions",
     ],
     achievements: [
-      "Reduced application load time by 40% through code and query optimization",
-      "Implemented a CI/CD pipeline reducing deployment time by 60%",
-      "Developed and deployed multiple in-house projects to streamline office operations",
-      "Managed hosting and WHM environments, ensuring uptime and secure configurations",
-      "Monitored and addressed subscription and billing notifications from web.com hosting services",
-      "Mitigated server-related issues through proactive monitoring and alerts",
+      "Designed and deployed multiple enterprise and government-focused systems used across various offices",
+      "Implemented CI/CD pipelines with GitHub Actions to automate testing and deployments",
+      "Developed scalable APIs and database architectures supporting high-volume transactional workflows",
+      "Improved application performance through query optimization, caching strategies, and efficient data fetching",
+      "Built modern full-stack applications using Next.js, tRPC, Prisma, and TypeScript",
+      "Maintained secure production environments while ensuring reliability, uptime, and system stability",
     ],
   },
+
   {
-    period: "2023 - 2024",
+    period: "2023 - Present",
     title: "Full Stack Developer",
     company: "Freelance",
     location: "Remote",
     description:
-      "Developed and maintained multiple client websites and web applications.",
-    tech: ["PHP", "JavaScript", "Laravel", "Bootstrap", "MySQL", "Livewire"],
+      "Designing, developing, and maintaining custom web applications for clients across various industries. Delivering end-to-end solutions ranging from system architecture and database design to frontend development and deployment. Building modern, scalable applications using Laravel, Next.js, React, TypeScript, Prisma, and MySQL while focusing on performance, security, and user experience.",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Laravel",
+      "Livewire",
+      "Prisma",
+      "MySQL",
+      "tRPC",
+      "TanStack Query",
+      "Bootstrap",
+    ],
     achievements: [
-      "Developed multiple system projects for specific institutions",
-      "Learned new tech stacks and frameworks",
-      "Improved offered services to each client",
+      "Developed and deployed multiple custom business and institutional systems",
+      "Built full-stack applications from requirements gathering through production deployment",
+      "Integrated modern development workflows and best practices across client projects",
+      "Expanded expertise across multiple frameworks, libraries, and database technologies",
+      "Delivered scalable solutions tailored to client operational requirements",
+      "Provided ongoing maintenance, feature enhancements, and technical support for deployed systems",
     ],
   },
 ];
 
 const OTHERS = [
+  {
+    period: "April 2026",
+    title: "Implementation of the Budget Transaction and Control Keeper System",
+    location: "Provincial Government of Southern Leyte",
+    description:
+      "Successfully designed, developed, and implemented the Budget Transaction and Control Keeper System, a comprehensive platform for managing, monitoring, and controlling budget transactions across various departments. The system provides accurate tracking of budget allocations, expenditures, and financial reporting, helping improve transparency, accountability, and the efficient utilization of government resources. The implementation streamlined budget-related workflows and enhanced financial oversight within participating offices.",
+  },
+  {
+    period: "February - March 2026",
+    title:
+      "SOLEPGEA System Development, Presentation, and Stakeholder Consultations",
+    location: "Provincial Government of Southern Leyte",
+    description:
+      "Developed the SOLEPGEA System and conducted a series of meetings, consultations, demonstrations, and stakeholder discussions during February and March 2026. The platform was designed exclusively for the Provincial Government of Southern Leyte Employees Association (SOLEPGEA) to manage employee association records, membership information, benefits, and loan transactions. The discussions focused on gathering requirements, validating workflows, presenting system features, and ensuring the platform aligned with the operational needs of the association. The SOLEPGEA System is a privately developed platform created specifically for SOLEPGEA and is not a government-owned system.",
+  },
+
+  {
+    period: "December 2025",
+    title: "PRIME: Property Records & Inventory Monitoring Engine",
+    location: "Provincial Government of Southern Leyte",
+    description:
+      "Successfully developed and completed the Property Records & Inventory Monitoring Engine (PRIME), a robust system designed to manage government property records and inventory operations. The platform provides real-time asset tracking, detailed inventory reporting, and efficient monitoring of government-owned resources. By centralizing property information and automating inventory processes, the system improves accountability, transparency, asset utilization, and maintenance management across participating offices.",
+  },
+
   {
     period: "August 2025",
     title:
@@ -106,7 +148,6 @@ const OTHERS = [
 export default function Experience() {
   return (
     <section className="px-8 py-24 bg-white" id="experience">
-
       {/* ── Section Header ── */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -121,7 +162,9 @@ export default function Experience() {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight mb-3">
             Professional Experience
           </h2>
-          <p className="text-[15px] text-gray-500">My journey in software development</p>
+          <p className="text-[15px] text-gray-500">
+            My journey in software development
+          </p>
           <div className="flex items-center justify-center gap-2 mt-5">
             <div className="w-10 h-0.5 bg-gray-200 rounded-full" />
             <div className="w-2 h-2 rounded-full bg-blue-500" />
@@ -146,7 +189,6 @@ export default function Experience() {
                 transition={{ duration: 0.5, delay: index * 0.15 }}
               >
                 <div className="grid md:grid-cols-5 gap-6 items-start">
-
                   {/* Left: Period & title */}
                   <div className="md:col-span-2 text-center md:text-right md:pr-10 relative">
                     <span className="inline-block bg-blue-600 text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full tracking-wide shadow-sm shadow-blue-200">
@@ -188,7 +230,10 @@ export default function Experience() {
                       </p>
                       <ul className="space-y-2">
                         {exp.achievements.map((ach, i) => (
-                          <li key={i} className="flex items-start gap-2.5 text-[13px] text-gray-700">
+                          <li
+                            key={i}
+                            className="flex items-start gap-2.5 text-[13px] text-gray-700"
+                          >
                             <span className="mt-[5px] w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
                             {ach}
                           </li>
@@ -230,7 +275,6 @@ export default function Experience() {
                 transition={{ duration: 0.5, delay: index * 0.05 }}
               >
                 <div className="grid md:grid-cols-5 gap-6 items-start">
-
                   {/* Left */}
                   <div className="md:col-span-2 text-center md:text-right md:pr-10 relative">
                     <span className="inline-block bg-gray-100 text-gray-700 text-[11px] font-bold px-3.5 py-1.5 rounded-full tracking-wide">
@@ -239,7 +283,9 @@ export default function Experience() {
                     <h3 className="mt-3 text-[13px] font-semibold text-gray-800 leading-snug">
                       {exp.title}
                     </h3>
-                    <p className="text-[11px] text-gray-400 mt-1">{exp.location}</p>
+                    <p className="text-[11px] text-gray-400 mt-1">
+                      {exp.location}
+                    </p>
 
                     {/* Timeline dot */}
                     <div className="hidden md:flex absolute -right-[5px] top-[9px] w-[10px] h-[10px] rounded-full bg-gray-300 ring-4 ring-white z-10" />

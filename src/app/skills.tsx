@@ -56,6 +56,7 @@ const TECHSTACKS = [
   { image: "graphql.png", name: "GraphQL" },
   { image: "trpc.png", name: "tRPC" },
   { image: "nextjs.png", name: "Next.js" },
+  { image: "expo.png", name: "Expo" },
   { image: "react.png", name: "React.js" },
   { image: "vue.png", name: "Vue.js" },
   { image: "laravel-2.png", name: "Laravel" },
