@@ -428,7 +428,7 @@ function Hero() {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5, delay: 0.5 }}
       >
-        <div className="container mx-auto px-6 grid min-h-[60vh] w-full grid-cols-1 items-center gap-12 lg:grid-cols-2 py-10">
+        <div className="container mx-auto px-6 grid min-h-[60vh] w-full grid-cols-1 items-center gap-12 lg:grid-cols-2 py-8 lg:py-10">
           {/* Left — Info */}
           <div className="order-2 lg:order-1">
             <hr className="mb-6 border-gray-100 lg:hidden" />
@@ -503,21 +503,60 @@ function Hero() {
 
           {/* Right — Photo, transparent bg, no frame */}
           <div className="flex flex-col items-center order-1 lg:order-2">
-            <Image
-              width={1024}
-              height={1024}
-              alt="Jemuel Cadayona"
-              src="/image/me-2.png"
-              className="h-[28rem] w-auto mx-auto object-contain drop-shadow-lg"
-              priority
-            />
-            <div className="flex gap-3 mt-2">
+            <div className="relative isolate">
+              {/* Ambient blob */}
+              <div className="absolute inset-0 -z-10 scale-90 translate-y-4 rounded-full bg-gray-100 blur-2xl opacity-80" />
+
+              {/* Large solid circle ring */}
+              <div className="absolute inset-0 -z-10 m-auto w-[280px] h-[280px] lg:w-[380px] lg:h-[380px] rounded-full border-2 border-gray-100 lg:border-gray-200 hidden lg:block" />
+
+              {/* Dashed outer ring */}
+              <div className="absolute inset-0 -z-10 m-auto w-[310px] h-[310px] lg:w-[420px] lg:h-[420px] rounded-full border border-dashed border-gray-200 lg:border-gray-300 opacity-80 hidden lg:block" />
+
+              {/* Floating accent circles */}
+              <div className="absolute top-8 -right-4 -z-10 w-16 h-16 rounded-full bg-gray-100 opacity-90" />
+              <div className="absolute bottom-12 -left-4 -z-10 w-10 h-10 rounded-full bg-gray-200 opacity-90" />
+
+              {/* Dot grid top-right */}
+              <div
+                className="absolute top-0 right-0 w-24 h-24 z-0 opacity-55"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle, #8f9fb9 1px, transparent 1px)",
+                  backgroundSize: "10px 10px",
+                }}
+              />
+
+              {/* Dot grid bottom-left */}
+              <div
+                className="absolute bottom-0 left-0 w-20 h-20 z-0 opacity-40"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle, #99a6bc 1px, transparent 1px)",
+                  backgroundSize: "10px 10px",
+                }}
+              />
+
+              {/* Image (always above background layers) */}
+              <Image
+                width={1024}
+                height={1024}
+                alt="Jemuel Cadayona"
+                src="/image/me-2.png"
+                className="relative z-10 h-[18rem] sm:h-[22rem] lg:h-[30rem] w-auto mx-auto object-contain drop-shadow-xl"
+                priority
+              />
+            </div>
+
+            {/* CTAs */}
+            <div className="flex gap-3 mt-4">
               <a
                 href="#projects"
-                className="px-6 py-2.5 bg-gray-900 hover:bg-gray-700 text-white text-[13px] font-bold rounded-xl transition-colors"
+                className="px-6 py-2.5 bg-gray-900 hover:bg-gray-700 text-white text-[13px] font-bold rounded-xl transition-colors shadow-sm"
               >
                 View My Work
               </a>
+
               <a
                 href="#commissions"
                 className="px-6 py-2.5 bg-white hover:bg-gray-50 text-gray-800 text-[13px] font-bold rounded-xl border border-gray-200 transition-colors"
