@@ -538,14 +538,64 @@ function Hero() {
               />
 
               {/* Image (always above background layers) */}
-              <Image
-                width={1024}
-                height={1024}
-                alt="Jemuel Cadayona"
-                src="/image/me-2.png"
-                className="relative z-10 h-[18rem] sm:h-[22rem] lg:h-[30rem] w-auto mx-auto object-contain drop-shadow-xl"
-                priority
-              />
+              <div className="relative group">
+                {/* Ambient blob */}
+                <div className="absolute inset-0 -z-10 scale-90 translate-y-4 rounded-full bg-gray-100 blur-2xl opacity-80" />
+
+                {/* Large solid circle ring */}
+                <div className="absolute inset-0 -z-10 m-auto w-[280px] h-[280px] lg:w-[380px] lg:h-[380px] rounded-full border-2 border-gray-100" />
+
+                {/* Dashed outer ring */}
+                <div className="absolute inset-0 m-auto -z-10 w-[310px] h-[310px] lg:w-[420px] lg:h-[420px] rounded-full border border-dashed border-gray-200 opacity-60" />
+
+                {/* Floating accent circles */}
+                <div className="absolute top-8 -right-4 -z-10 w-16 h-16 rounded-full bg-gray-100 opacity-60" />
+                <div className="absolute bottom-12 -left-4 -z-10 w-10 h-10 rounded-full bg-gray-200 opacity-40" />
+
+                {/* Dot grid top-right */}
+                <div
+                  className="absolute top-0 right-0 w-24 h-24 -z-10 opacity-25"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle, #9ca3af 1px, transparent 1px)",
+                    backgroundSize: "10px 10px",
+                  }}
+                />
+
+                {/* Dot grid bottom-left */}
+                <div
+                  className="absolute bottom-0 left-0 w-20 h-20 -z-10 opacity-20"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(circle, #9ca3af 1px, transparent 1px)",
+                    backgroundSize: "10px 10px",
+                  }}
+                />
+
+                {/* Primary image — visible by default */}
+                <Image
+                  width={1024}
+                  height={1024}
+                  alt="Jemuel Cadayona"
+                  src="/image/me-2.png"
+                  className="h-[18rem] sm:h-[22rem] lg:h-[30rem] w-auto mx-auto object-contain drop-shadow-xl relative
+               transition-opacity duration-500 ease-in-out
+               opacity-100 group-hover:opacity-0"
+                  priority
+                />
+
+                {/* Hover image — fades in on hover */}
+                <Image
+                  width={1024}
+                  height={1024}
+                  alt="Jemuel Cadayona"
+                  src="/image/me.png?new"
+                  className="h-[18rem] sm:h-[22rem] lg:h-[30rem] w-auto mx-auto object-contain drop-shadow-xl
+               absolute inset-0 m-auto
+               transition-opacity duration-500 ease-in-out
+               opacity-0 group-hover:opacity-100"
+                />
+              </div>
             </div>
 
             {/* CTAs */}
