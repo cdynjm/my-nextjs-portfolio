@@ -91,37 +91,77 @@ Services, Commissions and Pricing:
 - Built for long-term production deployments
 
 Experiences:
-- 2024–Present: Software Developer / Consultant (Provincial Systems A.O., Remote)
-  - Led enterprise web app development using Laravel, Vue.js, and TailwindCSS.
-  - Built internal systems and optimized performance across multiple offices.
-  - Additionally, managing the province’s hosting services (web.com) and WHM, ensuring security and stability. Handles subscription and billing notifications received via email from web.com, and develops reliable office-focused systems and applications.
 
-- 2023–2024: Full Stack Developer (Freelance, Remote)
-  - Built and maintained custom systems for institutions and clients.
-  - Gained hands-on experience with PHP, Laravel, Livewire, and MySQL.
+2024 – Present: Software Developer | Consultant
+Provincial Systems A.O. | Remote
+- Leading the design, development, and deployment of enterprise-grade web applications and internal government systems using Next.js, React, TypeScript, tRPC, Prisma, Laravel, and MySQL.
+- Designing and maintaining scalable full-stack architectures across multiple government offices.
+- Improving system performance, scalability, and maintainability across production applications.
+- Managing provincial hosting infrastructure (web.com) and WHM, ensuring stability, security, and uptime.
+- Handling subscription and billing notifications from hosting services and ensuring timely coordination and response.
+- Developing reliable, office-focused digital systems tailored to government operational needs.
 
-- Aug 2025: Comprehensive Discussion and Open Forum for the Document Tracking Assistant System
-    - Presented recommendations to further enhance the Document Tracking Assistant System, ensuring improved usability and alignment with office needs at the Capitol Site of Southern Leyte.
+2023 – Present: Full Stack Developer (Freelance)
+Remote
+- Designing, developing, and maintaining custom web applications for clients and institutions.
+- Building full-stack systems using Next.js, React, TypeScript, Laravel, Livewire, Prisma, and MySQL.
+- Handling end-to-end development including system architecture, database design, frontend/backend development, and deployment.
+- Delivering scalable and performance-focused solutions based on client requirements.
 
-- Jan 2025: Document Tracking System – Full Implementation
-  - Conducted live demo and user training at the Capitol Site, Southern Leyte.
+Project Engagements & System Implementations:
 
-- Nov 2024: Document Tracking System – Initial Orientation
-  - Presented features and workflows to improve office document handling.
+April 2026 — Budget Transaction and Control Keeper System
+- Designed and implemented a comprehensive financial management system for tracking budget allocations, expenditures, and reporting.
+- Improved transparency, accountability, and efficiency in government financial operations.
+- Streamlined budget monitoring workflows across multiple departments.
 
-- Apr 2024: Legislative MS Orientation – Sogod, So. Leyte
-  - Introduced the system to university and municipal staff.
+February – March 2026 — SOLEPGEA System Development & Stakeholder Engagements
+- Developed a dedicated platform for the Provincial Government of Southern Leyte Employees Association (SOLEPGEA).
+- Conducted meetings, consultations, and system demonstrations with stakeholders.
+- Collected requirements and validated workflows to ensure alignment with operational needs.
+- Built a system for managing membership records, benefits, and loan transactions.
+- Established a centralized platform to improve association management and member services.
 
-- Mar–Nov 2023: e-Mercado Project – Province of Southern Leyte
-  - Developed a digital market platform for local vendors and consumers.
-  - Presented to Gov. Mian Mercado and provincial officials.
+December 2025 — PRIME: Property Records & Inventory Monitoring Engine
+- Developed a property and inventory management system for government assets.
+- Enabled real-time tracking, reporting, and monitoring of physical resources.
+- Improved accountability, transparency, and asset utilization across offices.
+- Centralized inventory data to support efficient maintenance and auditing.
 
-- Feb–Jun 2023: On-the-Job Training (System Developer, SLSU)
-  - Created internal systems: Capstone Repository and QA File Manager.
-  - Also built a profiling system for graduate students.
+August 2025 — Document Tracking Assistant System: Open Forum & Review
+- Facilitated a comprehensive discussion and stakeholder feedback session.
+- Presented system enhancements based on user requirements.
+- Improved usability and workflow alignment with office operations.
 
-- Dec 2022: Capstone Project – Property Inventory System
-  - Developed and defended a university asset management system.
+January 2025 — Document Tracking System: Full Implementation
+- Conducted system rollout, training, and live demonstrations at Capitol Site.
+- Ensured smooth adoption across participating offices.
+
+November 2024 — Document Tracking System: Initial Orientation
+- Presented system features and workflows to government personnel.
+- Introduced digitized document processing to improve efficiency and transparency.
+
+April 2024 — Legislative Management System Orientation
+Sogod, Southern Leyte
+- Conducted a half-day orientation for key personnel and staff.
+- Demonstrated system capabilities for legislative process optimization.
+
+March – November 2023 — e-Mercado Project Development
+- Developed a digital marketplace platform for local vendors and consumers in Southern Leyte.
+- Presented the system to provincial leadership and stakeholders.
+- Enhanced the system based on feedback and community needs.
+- Contributed to digital transformation initiatives in the province.
+
+February – June 2023 — On-the-Job Training (System Developer)
+SLSU Main Campus
+- Developed internal systems including a Capstone Project Repository and QA File Management System.
+- Assisted in building a Graduate Studies Profiling System for academic tracking.
+- Gained experience in system analysis, development, and deployment.
+
+December 2022 — Capstone Project: Property Inventory and Control System
+SLSU FCSIT
+- Designed and defended a university asset management system.
+- Focused on improving property tracking, reporting, and accountability.
 
 Instructions for AI JEM:
 

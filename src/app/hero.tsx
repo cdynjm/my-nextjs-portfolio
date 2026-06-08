@@ -226,7 +226,7 @@ function Hero() {
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5, delay: 0.05 }}
       >
-        <section className="max-w-2xl mx-auto px-6 pt-10 pb-4">
+        <section className="max-w-2xl mx-auto px-6 pt-7 lg:pt-8 pb-4">
           {/* Chat header */}
           <div className="flex items-center gap-3 mb-4">
             <div className="relative flex-shrink-0">
@@ -238,13 +238,22 @@ function Hero() {
                 className="h-9 w-9 rounded-xl object-cover ring-1 ring-gray-200"
                 priority
               />
-              <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-white" />
+
+              {/* Online status dot */}
+              <span className="absolute -bottom-0.5 -right-0.5 flex h-3 w-3 items-center justify-center">
+                {/* pulse ring */}
+                <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping" />
+
+                {/* solid dot */}
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-green-500 border-2 border-white" />
+              </span>
             </div>
+
             <div>
               <p className="text-[13px] font-bold text-gray-900 leading-none">
-                AI JEM
+               Hi, I&apos;m AI JEM
               </p>
-              <p className="text-[11px] text-emerald-500 font-medium mt-0.5">
+              <p className="text-[11px] text-green-500 font-medium mt-0.5">
                 Online · Ask me anything
               </p>
             </div>
@@ -543,14 +552,14 @@ function Hero() {
                 <div className="absolute inset-0 -z-10 scale-90 translate-y-4 rounded-full bg-gray-100 blur-2xl opacity-80" />
 
                 {/* Large solid circle ring */}
-                <div className="absolute inset-0 -z-10 m-auto w-[280px] h-[280px] lg:w-[380px] lg:h-[380px] rounded-full border-2 border-gray-100" />
+                <div className="absolute inset-0 -z-10 m-auto w-[280px] h-[280px] lg:w-[380px] lg:h-[380px] rounded-full border-2 border-gray-100 lg:border-gray-200 hidden lg:block" />
 
                 {/* Dashed outer ring */}
-                <div className="absolute inset-0 m-auto -z-10 w-[310px] h-[310px] lg:w-[420px] lg:h-[420px] rounded-full border border-dashed border-gray-200 opacity-60" />
+                <div className="absolute inset-0 -z-10 m-auto w-[310px] h-[310px] lg:w-[420px] lg:h-[420px] rounded-full border border-dashed border-gray-200 lg:border-gray-300 opacity-80 hidden lg:block" />
 
                 {/* Floating accent circles */}
-                <div className="absolute top-8 -right-4 -z-10 w-16 h-16 rounded-full bg-gray-100 opacity-60" />
-                <div className="absolute bottom-12 -left-4 -z-10 w-10 h-10 rounded-full bg-gray-200 opacity-40" />
+                <div className="absolute top-8 -right-4 -z-10 w-16 h-16 rounded-full bg-gray-100 opacity-90" />
+                <div className="absolute bottom-12 -left-4 -z-10 w-10 h-10 rounded-full bg-gray-200 opacity-90" />
 
                 {/* Dot grid top-right */}
                 <div
