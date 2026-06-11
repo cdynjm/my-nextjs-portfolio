@@ -62,6 +62,7 @@ const TECHSTACKS = [
   { image: "laravel-2.png", name: "Laravel" },
   { image: "inertia.svg", name: "Inertia.js" },
   { image: "livewire.webp", name: "Livewire.js" },
+  { image: "tailwind.png?new", name: "TailwindCSS" },
   { image: "shadcn.png?new", name: "ShadcnUI" },
   { image: "nextauth.png", name: "NextAuth.js" },
   { image: "react-query.webp", name: "TanStack" },
