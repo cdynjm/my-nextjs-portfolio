@@ -5,7 +5,21 @@ import { motion } from "framer-motion";
 
 const PROJECTS = [
   {
-    img: "/projects/promotors.png",
+    img: "/projects/slgovhub.png",
+    title: "SLGOVHUB",
+    desc: "Landing page with AI Agent and list of all portals, developed for the Province of Southern Leyte.",
+    tech: [
+      "JavaScript",
+      "NextJS",
+      "ReactJS",
+      "Tailwind CSS",
+      "Groq SDK",
+      "Google GenAI",
+    ],
+    site: "https://promotors.southernleyte.org.ph/",
+  },
+  {
+    img: "/projects/promotors-2.png?new",
     title: "PROMOTORS",
     desc: "A comprehensive system for managing and monitoring equipment, fuel, oil and other inventory, developed for the Province of Southern Leyte.",
     tech: [
@@ -21,7 +35,7 @@ const PROJECTS = [
     site: "https://promotors.southernleyte.org.ph/",
   },
   {
-    img: "/projects/budgetrack.png",
+    img: "/projects/budgetrack-2.png",
     title: "BudgeTRACK",
     desc: "A comprehensive system for managing and monitoring budget allocations and expenditures, developed for the Province of Southern Leyte.",
     tech: [
@@ -38,7 +52,55 @@ const PROJECTS = [
     site: "https://budgetrack.southernleyte.org.ph/",
   },
   {
-    img: "/projects/solepgea.png",
+    img: "/projects/dota-2.png",
+    title: "DOTA | DTS",
+    desc: "A comprehensive system for tracking documents and transactions using QR Code, developed for the Province of Southern Leyte.",
+    tech: [
+      "JavaScript",
+      "Laravel",
+      "Livewire",
+      "MySQL",
+      "Chatify",
+      "NextJS",
+      "ReactJS",
+    ],
+    site: "https://dts.southernleyte.org.ph/",
+  },
+  {
+    img: "/projects/dates.png",
+    title: "DATES",
+    desc: "A comprehensive system for DTR availability monitoring, developed for the Province of Southern Leyte.",
+    tech: [
+      "TypeScript",
+      "NextJS",
+      "ReactJS",
+      "Tanstack Query",
+      "Prisma",
+      "tRPC",
+      "NextAuthJS",
+      "MySQL",
+    ],
+    site: "https://dates.southernleyte.org.ph/",
+  },
+  {
+    img: "/projects/bizibee-2.png",
+    title: "BiziBee",
+    desc: "A cloud-based Business Inventory & Sales Management System designed to help businesses simplify daily operations.",
+    tech: [
+      "TypeScript",
+      "NextJS",
+      "ReactJS",
+      "Tanstack Query",
+      "Prisma",
+      "tRPC",
+      "NextAuthJS",
+      "MySQL",
+      "Oracle CI",
+    ],
+    site: "https://bizi-bee.vercel.app/",
+  },
+  {
+    img: "/projects/solepgea-2.png",
     title: "SOLEPGEA",
     desc: "A comprehensive system for managing and monitoring contributions & loans of employees, developed for the Province of Southern Leyte.",
     tech: [
@@ -51,50 +113,6 @@ const PROJECTS = [
       "Shadcn UI",
     ],
     site: "https://solepgea.southernleyte.org.ph/",
-  },
-  {
-    img: "/projects/prime.png",
-    title: "PRIME",
-    desc: "A comprehensive system for managing and monitoring property records, developed for the Province of Southern Leyte.",
-    tech: [
-      "TypeScript",
-      "Laravel",
-      "Livewire",
-      "MySQL",
-      "Alpine.js",
-      "TailwindCSS",
-      "Flux UI",
-    ],
-    site: "https://prime.southernleyte.org.ph/",
-  },
-  {
-    img: "/projects/lms-vue.png",
-    title: "LMS Sogod",
-    desc: "A comprehensive system for managing legislative documents and transactions, developed for municipalities.",
-    tech: [
-      "VueJS",
-      "InertiaJS",
-      "Laravel",
-      "TailwindCSS",
-      "TypeScript",
-      "GraphQL",
-      "TanStack Query",
-    ],
-    site: "https://sogodlms.ccsit.info/",
-  },
-  {
-    img: "/projects/dota.png",
-    title: "DOTA | DTS",
-    desc: "A comprehensive system for tracking documents and transactions using QR Code, developed for the Province of Southern Leyte.",
-    tech: ["JavaScript", "Laravel", "Livewire", "MySQL"],
-    site: "https://dts.southernleyte.org.ph/",
-  },
-  {
-    img: "/projects/e-mercado.png",
-    title: "e-Mercado",
-    desc: "A full-featured online store with product management and a shopping cart, developed for the Province of Southern Leyte.",
-    tech: ["JavaScript", "Laravel", "Bootstrap 5", "MySQL"],
-    site: "https://www.e-mercado.southernleyte.org.ph/",
   },
 ];
 
@@ -131,7 +149,8 @@ export function Projects() {
 
             <p className="max-w-lg text-[15px] leading-relaxed text-gray-500">
               Whether you need a powerful web system built from scratch or a
-              website refreshed, I&apos;m here to bring your digital vision to life.
+              website refreshed, I&apos;m here to bring your digital vision to
+              life.
             </p>
 
             {/* Decorative line */}

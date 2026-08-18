@@ -34,22 +34,17 @@ Mobile Development:
 Development Tools and APIs:
 - Git, GitHub Actions, Vite, GraphQL, Doppler Centralized cloud-based secrets  platform, tRPC (TypeScript Remote Procedure Call)
 
+Others:
+- Oracle Cloud Infrastructure
+
 Projects:
+SLGOVHUB - Landing page with AI Agent and list of all portals, developed for the Province of Southern Leyte.
 PROMOTORS - A comprehensive system for managing and monitoring equipment, fuel, oil and other inventory, developed for the Province of Southern Leyte. Built with TypeScript, NextJS, ReactJS, Tanstack Query, Prisma, tRPC, NextAuthJS, MySQL
-BudgeTRACK - a comprehensive system for managing and monitoring budget allocations and expenditures, developed for the Province of Southern Leyte. Built with TypeScript, NextJS, ReactJS, Tanstack Query, Prisma, tRPC, NextAuthJS, MySQL, Google Cloud API
+BUDGETRACK - a comprehensive system for managing and monitoring budget allocations and expenditures, developed for the Province of Southern Leyte. Built with TypeScript, NextJS, ReactJS, Tanstack Query, Prisma, tRPC, NextAuthJS, MySQL, Google Cloud API
 SOLEPGEA - a comprehensive system for managing and monitoring contributions & loans of employees, developed for the Province of Southern Leyte. Built with TypeScript, Laravel, InertiaJS, ReactJS, MySQL, TailwindCSS, Shadcn UI
-Point of Sale System - PSAO - A comprehensive system for managing and monitoring sales at Provincial Systems Administrator's Office. Built with TypeScript, Laravel, InertiaJS, ReactJS, MySQL, TailwindCSS, Shadcn UI
-Property Records & Inventory Monitoring Engine (PRIME) — a comprehensive property records management and monitoring system for the Province of Southern Leyte. Built with TypeScript, Laravel, Livewire, MySQL, Alpine.js, Tailwind CSS, and Flux UI.
-NextJS Starter Kit — a production-ready starter for building scalable Next.js apps using NextAuth.js, PostgreSQL, Hono.js, Tailwind CSS, Shadcn UI, TypeScript, GraphQL, TanStack Query, and Supabase.
-Legislative Management System — a document and transaction management solution for local municipalities. Built with Vue.js, Inertia.js, Laravel, Tailwind CSS, TypeScript, GraphQL, and TanStack Query.
 Document Tracking Assistant — used by the Province of Southern Leyte to track documents and transactions using QR codes. Built with Laravel, Livewire, MySQL, and JavaScript.
-e-Mercado — a local e-commerce platform with product management and shopping cart features. Built using Laravel, Bootstrap 5, JavaScript, and MySQL.
-GJTVS Enrolment and Attendance Management System — a school system using RFID for enrolment and attendance tracking. Developed with Laravel, Livewire, Bootstrap 5, JavaScript, and MySQL.
-BFP Information Management System — built for the Bureau of Fire Protection, enabling inspection scheduling and SMS-enabled appointments. Developed using Vue.js, Inertia.js, Laravel, MySQL, and Pushbullet API.
-STMG Road Traffic Offense Management System — for tracking driver records and traffic violations. Built with Vue.js, Inertia.js, Laravel, and MySQL.
-Municipal Crime and Accident Management System — logs incidents and provides GIS mapping via Leaflet. Built with Laravel, Livewire, Bootstrap 5, JavaScript, MySQL, Leaflet, and Pushbullet API.
-ALS Learners Progress Monitoring System — created for the Department of Education to track ALS learner progress. Developed using Laravel, Livewire, Bootstrap 5, JavaScript, and MySQL.
-Southern Comfort Pensionne Website — a clean commercial website built using HTML5, CSS3, Bootstrap 5, and JavaScript.
+DATES - Check whether your printed DTR is already available for pickup at the Provincial Systems Administrator's Office (PSAO), helping reduce unnecessary office visits and follow-up inquiries.
+BiziBee - BiziBee is a cloud-based Business Inventory & Sales Management System designed to help businesses simplify daily operations through smart sales tracking, inventory management, customer records, and insightful reports—all in one modern platform.
 
 Education:
 - Graduated Cum Laude at Southern Leyte State University with a degree in Bachelor of Science in Information Technology

@@ -72,6 +72,7 @@ const TECHSTACKS = [
   { image: "git.png", name: "Git" },
   { image: "github actions.png", name: "GH Actions" },
   { image: "doppler.svg", name: "Doppler" },
+  { image: "oracle-cloud.webp", name: "Oracle CI" },
 ];
 
 export function Skills() {
