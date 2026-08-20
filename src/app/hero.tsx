@@ -91,7 +91,7 @@ function Hero() {
           }, 300);
         }
       };
-      recognition.onerror = (event: SpeechRecognitionErrorEvent) => {
+      recognition.onerror = (event: MySpeechRecognitionErrorEvent) => {
         console.error("Speech recognition error:", event.error);
         setIsListening(false);
       };
