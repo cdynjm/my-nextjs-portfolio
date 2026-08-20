@@ -28,11 +28,11 @@ declare global {
     SpeechRecognition: any;
     webkitSpeechRecognition: any;
   }
-  interface SpeechRecognitionEvent extends Event {
+  interface MySpeechRecognitionEvent extends Event {
     readonly resultIndex: number;
-    readonly results: SpeechRecognitionResultList;
+    readonly results: MySpeechRecognitionResultList;
   }
-  interface SpeechRecognitionResultList {
+  interface MySpeechRecognitionResultList {
     readonly length: number;
     item(index: number): SpeechRecognitionResult;
     [index: number]: SpeechRecognitionResult;
@@ -47,8 +47,8 @@ declare global {
     readonly confidence: number;
     readonly transcript: string;
   }
-  interface SpeechRecognitionErrorEvent extends Event {
-    readonly error: SpeechRecognitionErrorCode;
+  interface MySpeechRecognitionErrorEvent extends Event {
+    readonly error: string;
     readonly message: string;
   }
 }
