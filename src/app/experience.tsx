@@ -1,6 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
 
 const EXPERIENCES = [
   {
@@ -148,8 +150,16 @@ const OTHERS = [
     description: `Successfully presented and defended our capstone project titled "Property Inventory and Control System" at Southern Leyte State University (SLSU). The system was developed to enhance the tracking, management, and reporting of physical assets within the university. The presentation covered the system's features, technical architecture, and its potential to streamline property-related operations.`,
   },
 ];
+const INITIAL_OTHERS_COUNT = 3;
 
 export default function Experience() {
+  const [showAllOthers, setShowAllOthers] = useState(false);
+
+  const visibleOthers = showAllOthers
+    ? OTHERS
+    : OTHERS.slice(0, INITIAL_OTHERS_COUNT);
+  const hasMore = OTHERS.length > INITIAL_OTHERS_COUNT;
+
   return (
     <section className="px-8 py-24 bg-white" id="experience">
       {/* ── Section Header ── */}
@@ -180,7 +190,6 @@ export default function Experience() {
       {/* ── Work Experience Timeline ── */}
       <div className="container mx-auto max-w-4xl">
         <div className="relative">
-          {/* Vertical timeline line */}
           <div className="hidden md:block absolute left-[calc(40%-1px)] top-0 bottom-0 w-px bg-gradient-to-b from-blue-200 via-blue-100 to-transparent" />
 
           <div className="space-y-12">
@@ -193,7 +202,6 @@ export default function Experience() {
                 transition={{ duration: 0.5, delay: index * 0.15 }}
               >
                 <div className="grid md:grid-cols-5 gap-6 items-start">
-                  {/* Left: Period & title */}
                   <div className="md:col-span-2 text-center md:text-right md:pr-10 relative">
                     <span className="inline-block bg-blue-600 text-white text-[11px] font-bold px-3.5 py-1.5 rounded-full tracking-wide shadow-sm shadow-blue-200">
                       {exp.period}
@@ -205,17 +213,14 @@ export default function Experience() {
                       {exp.company} · {exp.location}
                     </p>
 
-                    {/* Timeline dot */}
                     <div className="hidden md:flex absolute -right-[5px] top-[9px] w-[10px] h-[10px] rounded-full bg-blue-600 ring-4 ring-white border border-blue-200 z-10" />
                   </div>
 
-                  {/* Right: Card */}
                   <div className="md:col-span-3 bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:shadow-md hover:border-blue-100 transition-all duration-300">
                     <p className="text-[13px] text-gray-600 leading-relaxed mb-5">
                       {exp.description}
                     </p>
 
-                    {/* Tech pills */}
                     <div className="flex flex-wrap gap-1.5 mb-5">
                       {exp.tech.map((tech, i) => (
                         <span
@@ -227,7 +232,6 @@ export default function Experience() {
                       ))}
                     </div>
 
-                    {/* Achievements */}
                     <div className="border-t border-gray-100 pt-4">
                       <p className="text-[11px] font-bold tracking-widest uppercase text-gray-400 mb-3">
                         Key Achievements
@@ -266,45 +270,70 @@ export default function Experience() {
       {/* ── Other Activities Timeline ── */}
       <div className="container mx-auto max-w-4xl">
         <div className="relative">
-          {/* Vertical line */}
           <div className="hidden md:block absolute left-[calc(40%-1px)] top-0 bottom-0 w-px bg-gradient-to-b from-gray-200 via-gray-100 to-transparent" />
 
           <div className="space-y-10">
-            {OTHERS.map((exp, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-              >
-                <div className="grid md:grid-cols-5 gap-6 items-start">
-                  {/* Left */}
-                  <div className="md:col-span-2 text-center md:text-right md:pr-10 relative">
-                    <span className="inline-block bg-gray-100 text-gray-700 text-[11px] font-bold px-3.5 py-1.5 rounded-full tracking-wide">
-                      {exp.period}
-                    </span>
-                    <h3 className="mt-3 text-[13px] font-semibold text-gray-800 leading-snug">
-                      {exp.title}
-                    </h3>
-                    <p className="text-[11px] text-gray-400 mt-1">
-                      {exp.location}
-                    </p>
+            <AnimatePresence initial={false}>
+              {visibleOthers.map((exp, index) => (
+                <motion.div
+                  key={exp.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: index < INITIAL_OTHERS_COUNT ? index * 0.05 : 0,
+                  }}
+                >
+                  <div className="grid md:grid-cols-5 gap-6 items-start">
+                    <div className="md:col-span-2 text-center md:text-right md:pr-10 relative">
+                      <span className="inline-block bg-gray-100 text-gray-700 text-[11px] font-bold px-3.5 py-1.5 rounded-full tracking-wide">
+                        {exp.period}
+                      </span>
+                      <h3 className="mt-3 text-[13px] font-semibold text-gray-800 leading-snug">
+                        {exp.title}
+                      </h3>
+                      <p className="text-[11px] text-gray-400 mt-1">
+                        {exp.location}
+                      </p>
 
-                    {/* Timeline dot */}
-                    <div className="hidden md:flex absolute -right-[5px] top-[9px] w-[10px] h-[10px] rounded-full bg-gray-300 ring-4 ring-white z-10" />
-                  </div>
+                      <div className="hidden md:flex absolute -right-[5px] top-[9px] w-[10px] h-[10px] rounded-full bg-gray-300 ring-4 ring-white z-10" />
+                    </div>
 
-                  {/* Right: Card */}
-                  <div className="md:col-span-3 bg-gray-50 border border-gray-100 rounded-2xl p-5 hover:shadow-sm hover:border-gray-200 transition-all duration-300">
-                    <p className="text-[13px] text-gray-600 leading-relaxed whitespace-pre-line">
-                      {exp.description}
-                    </p>
+                    <div className="md:col-span-3 bg-gray-50 border border-gray-100 rounded-2xl p-5 hover:shadow-sm hover:border-gray-200 transition-all duration-300">
+                      <p className="text-[13px] text-gray-600 leading-relaxed whitespace-pre-line">
+                        {exp.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
+
+          {/* Show More / Show Less */}
+          {hasMore && (
+            <div className="flex justify-center mt-10">
+              <button
+                onClick={() => setShowAllOthers((prev) => !prev)}
+                className="group flex items-center gap-2 text-[13px] font-semibold text-gray-700
+                           bg-gray-50 hover:bg-gray-100 border border-gray-200 hover:border-gray-300
+                           px-5 py-2.5 rounded-full transition-all duration-200"
+              >
+                <span>
+                  {showAllOthers
+                    ? "Show Less"
+                    : `Show ${OTHERS.length - INITIAL_OTHERS_COUNT} More`}
+                </span>
+                <ChevronDownIcon
+                  className={`w-3.5 h-3.5 transition-transform duration-300 ${
+                    showAllOthers ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>

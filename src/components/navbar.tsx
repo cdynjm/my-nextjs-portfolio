@@ -68,7 +68,7 @@ export function Navbar() {
         {/* Desktop social buttons */}
         <div className="hidden lg:flex items-center gap-2">
           <a
-            href="https://www.facebook.com/jem.cdyn3"
+            href="https://www.facebook.com/jem.cdyn"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-1.5 text-[12px] font-semibold text-gray-600 hover:text-blue-600 px-3 py-1.5 rounded-lg hover:bg-blue-50 transition-all duration-150"

@@ -13,6 +13,8 @@ import GitHubCalendar from "react-github-calendar";
 import TypingIndicator from "@/components/typing-indicator";
 import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 
 interface Message {
   sender: "user" | "ai";
@@ -97,18 +99,41 @@ function Hero() {
     }
   }, []);
 
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+  }, [messages]);
+
+  useEffect(() => {
+    const container = chatEndRef.current?.parentElement;
+    if (!container) return;
+
+    const isNearBottom =
+      container.scrollHeight - container.scrollTop - container.clientHeight <
+      100;
+
+    if (isNearBottom) {
+      chatEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+    }
+  }, [messages]);
+
   const startListening = () => {
     if (recognitionRef.current && !isListening) recognitionRef.current.start();
   };
 
+  const [isMuted, setIsMuted] = useState(true);
+
   const typeText = (fullText: string, callback: (text: string) => void) => {
     let index = 0;
     const speed = 20;
-    try {
-      speak(fullText);
-    } catch (error) {
-      console.warn("Speech synthesis failed:", error);
+
+    if (!isMuted) {
+      try {
+        speak(fullText);
+      } catch (error) {
+        console.warn("Speech synthesis failed:", error);
+      }
     }
+
     const type = () => {
       if (index <= fullText.length) {
         callback(fullText.slice(0, index));
@@ -116,6 +141,7 @@ function Hero() {
         setTimeout(type, speed);
       }
     };
+
     type();
   };
 
@@ -149,27 +175,81 @@ function Hero() {
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setLoading(true);
-    let waitTimeout: NodeJS.Timeout | null = null;
+
+    let waitTimeout: ReturnType<typeof setTimeout> | null = null;
+
     try {
-      const fetchPromise = fetch(ai_endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: userMessage.text }),
-      });
+      const sleep = (ms: number): Promise<void> =>
+        new Promise((resolve) => setTimeout(resolve, ms));
+
+      const fetchAI = async (
+        retries: number = 2,
+      ): Promise<{ response: string }> => {
+        try {
+          const res = await fetch(ai_endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              text: userMessage.text,
+            }),
+          });
+
+          if (!res.ok) {
+            throw new Error(`HTTP ${res.status}`);
+          }
+
+          const data: { response?: string } = await res.json();
+
+          if (!data.response) {
+            throw new Error("Empty AI response");
+          }
+
+          return {
+            response: data.response,
+          };
+        } catch (err) {
+          if (retries > 0) {
+            console.log(`Retrying AI request... (${retries} retries left)`);
+
+            await sleep(1000);
+
+            return fetchAI(retries - 1);
+          }
+
+          throw err;
+        }
+      };
+
       waitTimeout = setTimeout(() => {
         setMessages((prev) => [
           ...prev,
           {
             sender: "ai",
-            text: "⏳ Please wait while the AI processes your request for the first time...",
+            text: "⏳ Please wait patiently while I'm processing your request...",
             time: new Date(),
           },
         ]);
       }, 3000);
-      const res = await fetchPromise;
-      const data = await res.json();
-      const fullAIResponse = data.response || "No response from AI.";
-      if (waitTimeout) clearTimeout(waitTimeout);
+
+      let fullAIResponse: string;
+
+      try {
+        const data = await fetchAI(2);
+        fullAIResponse = data.response;
+      } catch (err) {
+        console.error("AI request failed:", err);
+
+        fullAIResponse =
+          "⚠️ Sorry, I couldn't get a response from the AI. Please try again in a moment.";
+      }
+
+      if (waitTimeout) {
+        clearTimeout(waitTimeout);
+        waitTimeout = null;
+      }
+
       setMessages((prev) => [
         ...prev,
         { sender: "ai", text: "", isTyping: true, time: new Date() },
@@ -251,7 +331,7 @@ function Hero() {
 
             <div>
               <p className="text-[13px] font-bold text-gray-900 leading-none">
-               Hi, I&apos;m AI JEM
+                Hi, I&apos;m AI JEM
               </p>
               <p className="text-[11px] text-green-500 font-medium mt-0.5">
                 Online · Ask me anything
@@ -260,48 +340,141 @@ function Hero() {
           </div>
 
           {/* Messages */}
-          <div className="bg-gray-50 border border-gray-100 rounded-2xl p-4 min-h-[72px] max-h-64 overflow-y-auto overflow-x-hidden">
+          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4 min-h-[72px] max-h-64 overflow-y-auto overflow-x-hidden">
             {messages.length === 0 && (
-              <p className="text-center text-gray-400 text-[13px] py-3">
-                Ask me anything about myself, work and experiences...
-              </p>
+              <div className="flex items-center justify-center min-h-[40px]">
+                <p className="text-center text-gray-400 text-[13px]">
+                  Ask me anything about myself, work and experiences...
+                </p>
+              </div>
             )}
+
             {messages.map((msg, idx) => (
               <motion.div
                 key={idx}
                 initial={{
                   opacity: 0,
-                  x: msg.sender === "user" ? 40 : -40,
-                  scale: 0.96,
+                  x: msg.sender === "user" ? 20 : -20,
+                  y: 4,
                 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className={`mb-3 flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}
+                animate={{
+                  opacity: 1,
+                  x: 0,
+                  y: 0,
+                }}
+                transition={{
+                  duration: 0.25,
+                  ease: "easeOut",
+                }}
+                className={`mb-4 flex items-start ${
+                  msg.sender === "user" ? "justify-end" : "justify-start"
+                }`}
               >
+                {/* AI Avatar */}
                 {msg.sender !== "user" && (
                   <Image
                     src="/image/ai-bot.webp"
                     alt="AI"
                     width={28}
                     height={28}
-                    className="mr-2 mb-auto rounded-full ring-1 ring-gray-200 flex-shrink-0"
+                    className="mr-2 mt-0.5 rounded-full border border-gray-200 flex-shrink-0"
                   />
                 )}
-                <div className="flex flex-col max-w-[75%]">
+
+                <div
+                  className={`flex flex-col ${
+                    msg.sender === "user"
+                      ? "items-end max-w-[75%]"
+                      : "items-start max-w-[80%]"
+                  }`}
+                >
+                  {/* Chat Bubble */}
                   <div
-                    className={`px-3.5 py-2 rounded-2xl text-[13px] leading-relaxed ${
+                    className={`px-3.5 py-2.5 text-[13px] leading-relaxed border ${
                       msg.sender === "user"
-                        ? "bg-gray-900 text-white rounded-br-sm"
-                        : "bg-white border border-gray-200 text-gray-800 rounded-bl-sm shadow-sm"
+                        ? "border-gray-300 bg-black text-white rounded-2xl rounded-br-md"
+                        : "border-gray-200 bg-white text-gray-700 rounded-2xl rounded-bl-md"
                     }`}
                   >
                     {msg.isTyping ? (
                       <TypingIndicator />
                     ) : (
-                      <ReactMarkdown>{msg.text}</ReactMarkdown>
+                      <div
+                        className="
+                prose prose-sm max-w-none
+                text-[13px] leading-relaxed
+
+                [&_table]:w-full
+                [&_table]:border-collapse
+                [&_table]:text-[12px]
+                [&_table]:my-2
+                [&_table]:table-fixed
+                [&_table]:max-w-full
+
+                [&_th]:border
+                [&_th]:border-gray-200
+                [&_th]:bg-gray-50
+                [&_th]:px-2
+                [&_th]:py-1
+                [&_th]:text-left
+
+                [&_td]:border
+                [&_td]:border-gray-200
+                [&_td]:px-2
+                [&_td]:py-1
+                [&_td]:align-top
+                [&_td]:break-words
+
+                [&_th]:break-words
+
+                [&_ul]:list-disc
+                [&_ul]:pl-4
+                [&_ul]:my-1
+
+                [&_ol]:list-decimal
+                [&_ol]:pl-4
+                [&_ol]:my-1
+
+                [&_p]:my-1
+                [&_p]:break-words
+
+                [&_li]:break-words
+
+                [&_strong]:font-semibold
+
+                [&_h1]:text-sm
+                [&_h1]:font-bold
+                [&_h1]:mt-2
+
+                [&_h2]:text-sm
+                [&_h2]:font-bold
+                [&_h2]:mt-2
+
+                [&_h3]:text-[13px]
+                [&_h3]:font-semibold
+                [&_h3]:mt-1.5
+
+                [&_a]:break-all
+                [&_a]:text-emerald-600
+                [&_a]:underline
+              "
+                      >
+                        <ReactMarkdown
+                          remarkPlugins={[remarkGfm]}
+                          rehypePlugins={[rehypeRaw]}
+                        >
+                          {msg.text}
+                        </ReactMarkdown>
+                      </div>
                     )}
                   </div>
-                  <div className="mt-1 flex items-center gap-1 text-[11px] text-gray-400 self-end">
+
+                  {/* Timestamp */}
+                  <div
+                    className={`mt-1 flex items-center gap-1 text-[10px] text-gray-400 ${
+                      msg.sender === "user" ? "mr-1" : "ml-1"
+                    }`}
+                  >
                     <span>
                       {msg.time instanceof Date
                         ? msg.time.toLocaleTimeString([], {
@@ -311,10 +484,11 @@ function Hero() {
                           })
                         : ""}
                     </span>
+
                     {msg.sender === "user" && (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="w-3.5 h-3.5 text-gray-400"
+                        className="w-3 h-3 text-gray-400"
                         fill="none"
                         viewBox="0 0 24 24"
                         stroke="currentColor"
@@ -329,8 +503,10 @@ function Hero() {
                     )}
                   </div>
                 </div>
+
+                {/* User Avatar */}
                 {msg.sender === "user" && (
-                  <div className="ml-2 mb-auto w-7 h-7 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center flex-shrink-0">
+                  <div className="ml-2 mt-0.5 w-7 h-7 rounded-full border border-gray-200 bg-white flex items-center justify-center flex-shrink-0">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="w-4 h-4 text-gray-500"
@@ -339,7 +515,7 @@ function Hero() {
                     >
                       <path
                         fillRule="evenodd"
-                        d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
+                        d="M7.5 6a4.5 4.5 0 1 1 9 0A4.5 4.5 0 0 1 7.5 6ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z"
                         clipRule="evenodd"
                       />
                     </svg>
@@ -347,6 +523,7 @@ function Hero() {
                 )}
               </motion.div>
             ))}
+
             <div ref={chatEndRef} />
           </div>
 
@@ -439,15 +616,15 @@ function Hero() {
       >
         <div className="container mx-auto px-6 grid min-h-[60vh] w-full grid-cols-1 items-center gap-12 lg:grid-cols-2 py-8 lg:py-10">
           {/* Left — Info */}
-          <div className="order-2 lg:order-1">
-            <hr className="mb-6 border-gray-100 lg:hidden" />
+          <div className="order-2 lg:order-1 flex flex-col items-start text-center lg:items-start lg:text-left">
+            <hr className="mb-6 border-gray-100 w-full lg:hidden" />
 
             {/* Name block */}
             <p className="text-[11px] font-semibold tracking-[0.1em] uppercase text-gray-400 mb-1">
               Based in Southern Leyte, PH
             </p>
-            <h1 className="text-[36px] font-extrabold text-gray-900 leading-tight tracking-tight mb-1">
-              Jemuel Cadayona
+            <h1 className="text-[30px] font-extrabold text-gray-900 leading-tight tracking-tight mb-1">
+              JEMUEL CADAYONA
             </h1>
             <p className="font-mono text-[11px] tracking-[0.22em] uppercase text-gray-400 mb-7">
               {displayedText}
@@ -455,8 +632,8 @@ function Hero() {
             </p>
 
             {/* Role cards */}
-            <div className="flex flex-col gap-2 mb-5">
-              <div className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5">
+            <div className="flex flex-col gap-2 mb-5 w-full max-w-sm lg:max-w-none">
+              <div className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5 text-left">
                 <MapPinIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-gray-400 mb-0.5">
@@ -467,7 +644,7 @@ function Hero() {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5">
+              <div className="flex items-center gap-3 bg-gray-50 border border-gray-100 rounded-xl px-4 py-2.5 text-left">
                 <BriefcaseIcon className="w-4 h-4 text-gray-400 flex-shrink-0" />
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-[0.1em] text-gray-400 mb-0.5">
@@ -480,10 +657,10 @@ function Hero() {
               </div>
             </div>
 
-            <div className="h-px bg-gray-100 mb-5" />
+            <div className="h-px bg-gray-100 mb-5 w-full" />
 
             {/* Details */}
-            <div className="flex flex-col gap-2.5 mb-7">
+            <div className="flex flex-col items-start lg:items-start gap-2.5 mb-7">
               <div className="flex items-center gap-3">
                 <MapPinIcon className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
                 <span className="text-[13px] text-gray-500">
@@ -548,20 +725,12 @@ function Hero() {
 
               {/* Image (always above background layers) */}
               <div className="relative group">
-                {/* Ambient blob */}
                 <div className="absolute inset-0 -z-10 scale-90 translate-y-4 rounded-full bg-gray-100 blur-2xl opacity-80" />
-
-                {/* Large solid circle ring */}
                 <div className="absolute inset-0 -z-10 m-auto w-[280px] h-[280px] lg:w-[380px] lg:h-[380px] rounded-full border-2 border-gray-100 lg:border-gray-200 hidden lg:block" />
-
-                {/* Dashed outer ring */}
                 <div className="absolute inset-0 -z-10 m-auto w-[310px] h-[310px] lg:w-[420px] lg:h-[420px] rounded-full border border-dashed border-gray-200 lg:border-gray-300 opacity-80 hidden lg:block" />
-
-                {/* Floating accent circles */}
                 <div className="absolute top-8 -right-4 -z-10 w-16 h-16 rounded-full bg-gray-100 opacity-90" />
                 <div className="absolute bottom-12 -left-4 -z-10 w-10 h-10 rounded-full bg-gray-200 opacity-90" />
 
-                {/* Dot grid top-right */}
                 <div
                   className="absolute top-0 right-0 w-24 h-24 -z-10 opacity-25"
                   style={{
@@ -570,8 +739,6 @@ function Hero() {
                     backgroundSize: "10px 10px",
                   }}
                 />
-
-                {/* Dot grid bottom-left */}
                 <div
                   className="absolute bottom-0 left-0 w-20 h-20 -z-10 opacity-20"
                   style={{
@@ -581,7 +748,6 @@ function Hero() {
                   }}
                 />
 
-                {/* Primary image — visible by default */}
                 <Image
                   width={1024}
                   height={1024}
@@ -592,8 +758,6 @@ function Hero() {
                opacity-100 group-hover:opacity-0"
                   priority
                 />
-
-                {/* Hover image — fades in on hover */}
                 <Image
                   width={1024}
                   height={1024}
@@ -615,7 +779,6 @@ function Hero() {
               >
                 View My Work
               </a>
-
               <a
                 href="#commissions"
                 className="px-6 py-2.5 bg-white hover:bg-gray-50 text-gray-800 text-[13px] font-bold rounded-xl border border-gray-200 transition-colors"

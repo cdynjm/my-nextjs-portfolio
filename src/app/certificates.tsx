@@ -1,7 +1,10 @@
 "use client";
 
+import { useCallback, useEffect, useState } from "react";
 import CertificateCard from "@/components/certificate-card";
 import { motion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
+import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/react/24/solid";
 
 const CERTS = [
   {
@@ -61,25 +64,53 @@ const CERTS = [
 ];
 
 export function Certificates() {
-  return (
-    <section className="py-28 px-8 bg-[#f8f8f6] relative overflow-hidden" id="certificates">
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "center",
+    skipSnaps: false,
+  });
 
-      {/* Background decoration */}
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+  const scrollTo = useCallback(
+    (index: number) => emblaApi?.scrollTo(index),
+    [emblaApi],
+  );
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    setScrollSnaps(emblaApi.scrollSnapList());
+    onSelect();
+    emblaApi.on("select", onSelect);
+    emblaApi.on("reInit", onSelect);
+  }, [emblaApi, onSelect]);
+
+  return (
+    <section
+      className="py-16 md:py-28 px-0 md:px-8 bg-[#f8f8f6] relative overflow-hidden"
+      id="certificates"
+    >
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute -top-32 -left-32 w-[400px] h-[400px] rounded-full bg-blue-50 opacity-70 blur-3xl" />
         <div className="absolute -bottom-24 -right-24 w-[350px] h-[350px] rounded-full bg-indigo-50 opacity-60 blur-3xl" />
       </div>
 
       <div className="relative container mx-auto">
-
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <div className="mb-20 text-center">
+          <div className="mb-16 text-center">
             <span className="inline-block text-[11px] font-semibold tracking-[0.2em] uppercase text-blue-600 bg-blue-50 px-4 py-1.5 rounded-full border border-blue-100 mb-4">
               Credentials
             </span>
@@ -99,21 +130,65 @@ export function Certificates() {
           </div>
         </motion.div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 items-stretch">
-          {CERTS.map((props, idx) => (
-            <motion.div
-              key={idx}
-              className="flex"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: idx * 0.05 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex items-center py-4">
+              {CERTS.map((props, idx) => (
+                <div
+                  key={idx}
+                  className="flex-[0_0_92%] min-w-0 sm:flex-[0_0_70%] md:flex-[0_0_58%] lg:flex-[0_0_48%] xl:flex-[0_0_42%] px-1.5 md:px-3"
+                >
+                  <CertificateCard
+                    {...props}
+                    isActive={idx === selectedIndex}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center gap-6 mt-10">
+            <button
+              onClick={scrollPrev}
+              aria-label="Previous certificate"
+              className="hidden md:flex w-10 h-10 rounded-full border border-gray-200 items-center justify-center
+                         text-gray-600 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50
+                         transition-colors duration-200"
             >
-              <CertificateCard key={idx} {...props} />
-            </motion.div>
-          ))}
-        </div>
+              <ArrowLeftIcon className="w-4 h-4" />
+            </button>
+
+            <div className="flex items-center gap-2">
+              {scrollSnaps.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => scrollTo(idx)}
+                  aria-label={`Go to certificate ${idx + 1}`}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    idx === selectedIndex
+                      ? "w-6 bg-blue-600"
+                      : "w-1.5 bg-gray-300 hover:bg-gray-400"
+                  }`}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={scrollNext}
+              aria-label="Next certificate"
+              className="hidden md:flex w-10 h-10 rounded-full border border-gray-200 items-center justify-center
+                         text-gray-600 hover:text-blue-600 hover:border-blue-200 hover:bg-blue-50
+                         transition-colors duration-200"
+            >
+              <ArrowRightIcon className="w-4 h-4" />
+            </button>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

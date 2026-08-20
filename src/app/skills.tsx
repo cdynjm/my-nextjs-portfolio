@@ -5,12 +5,12 @@ import {
   ServerIcon,
   WrenchIcon,
   CircleStackIcon,
-  EyeIcon,
   CloudIcon,
 } from "@heroicons/react/24/outline";
 import { SkillCard } from "@/components";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { SparklesIcon } from "@heroicons/react/24/solid";
 
 const SKILLS = [
   {
@@ -38,10 +38,10 @@ const SKILLS = [
       "I design and manage robust relational databases using MySQL, PostgreSQL, MongoDB, Prisma and Supabase in Next.js, and Eloquent ORM in Laravel. For authentication, I implement secure login systems using NextAuth.js for Next.js and Laravel Breeze or Sanctum for Laravel.",
   },
   {
-    icon: EyeIcon,
-    title: "UI Consistency & Design Systems",
+    icon: SparklesIcon,
+    title: "AI-Assisted Development",
     children:
-      "By leveraging component libraries like Shadcn UI, I maintain consistency in UI while ensuring accessibility and maintainability across complex applications.",
+      "I use AI tools like Claude to speed up development, debug faster, and write cleaner code, while also integrating AI capabilities such as Claude AI and Groq AI directly into applications when a project calls for intelligent features or automation.",
   },
   {
     icon: CloudIcon,
@@ -73,12 +73,13 @@ const TECHSTACKS = [
   { image: "github actions.png", name: "GH Actions" },
   { image: "doppler.svg", name: "Doppler" },
   { image: "oracle-cloud.webp", name: "Oracle CI" },
+  { image: "claude.webp", name: "Claude AI" },
+  { image: "groq-2.png", name: "Groq AI" },
 ];
 
 export function Skills() {
   return (
     <section className="px-8 py-24 bg-white" id="skills">
-
       {/* ── Section Header ── */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -95,7 +96,8 @@ export function Skills() {
           </h2>
           <p className="mx-auto max-w-xl text-[15px] leading-relaxed text-gray-500">
             I&apos;m not just a developer — I&apos;m a digital dreamweaver.
-            Crafting immersive online experiences is not just a job but my calling.
+            Crafting immersive online experiences is not just a job but my
+            calling.
           </p>
           <div className="flex items-center justify-center gap-2 mt-5">
             <div className="w-10 h-0.5 bg-gray-300 rounded-full" />
@@ -120,12 +122,16 @@ export function Skills() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
             >
-              <div className="group flex flex-col items-center gap-2.5 p-4 rounded-2xl
+              <div
+                className="group flex flex-col items-center gap-2.5 p-4 rounded-2xl
                               bg-gray-50 border border-gray-100
                               hover:bg-white hover:border-blue-100 hover:shadow-md
-                              transition-all duration-300 cursor-default">
-                <div className="h-10 w-10 flex items-center justify-center rounded-xl bg-white shadow-sm border border-gray-100
-                                group-hover:scale-110 transition-transform duration-300">
+                              transition-all duration-300 cursor-default"
+              >
+                <div
+                  className="h-10 w-10 flex items-center justify-center rounded-xl bg-white shadow-sm border border-gray-100
+                                group-hover:scale-110 transition-transform duration-300"
+                >
                   <Image
                     width={28}
                     height={28}
@@ -146,8 +152,10 @@ export function Skills() {
 
       {/* ── Skill Cards Grid ── */}
       <div className="container mx-auto">
-        <div className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm
-                        grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          className="rounded-2xl border border-gray-100 overflow-hidden shadow-sm
+                        grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+        >
           {SKILLS.map((props, idx) => (
             <motion.div
               key={idx}
@@ -161,7 +169,6 @@ export function Skills() {
           ))}
         </div>
       </div>
-
     </section>
   );
 }
