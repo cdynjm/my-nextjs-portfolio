@@ -48,7 +48,7 @@ declare global {
     readonly transcript: string;
   }
   interface SpeechRecognitionErrorEvent extends Event {
-    readonly error: string;
+    readonly error: SpeechRecognitionErrorCode;
     readonly message: string;
   }
 }
