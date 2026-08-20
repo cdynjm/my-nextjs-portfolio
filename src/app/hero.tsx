@@ -79,7 +79,7 @@ function Hero() {
       recognition.onend = () => {
         setIsListening(false);
       };
-      recognition.onresult = (event: SpeechRecognitionEvent) => {
+      recognition.onresult = (event: MySpeechRecognitionEvent) => {
         let transcript = "";
         for (let i = event.resultIndex; i < event.results.length; ++i) {
           transcript += event.results[i][0].transcript;
