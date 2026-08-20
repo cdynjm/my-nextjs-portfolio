@@ -100,10 +100,6 @@ function Hero() {
   }, []);
 
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
-  }, [messages]);
-
-  useEffect(() => {
     const container = chatEndRef.current?.parentElement;
     if (!container) return;
 
@@ -112,7 +108,10 @@ function Hero() {
       100;
 
     if (isNearBottom) {
-      chatEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+      container.scrollTo({
+        top: container.scrollHeight,
+        behavior: "smooth",
+      });
     }
   }, [messages]);
 
