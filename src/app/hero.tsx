@@ -339,15 +339,22 @@ function Hero() {
           </div>
 
           {/* Messages */}
-          <div className="bg-gray-50 border border-gray-200 rounded-2xl p-4 min-h-[72px] max-h-64 overflow-y-auto overflow-x-hidden">
+          <div
+            className="relative bg-gray-50 border border-gray-200 rounded-2xl p-4 min-h-[72px] max-h-64 overflow-y-auto overflow-x-hidden"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle, #dee2eb 1px, transparent 1px)",
+              backgroundSize: "16px 16px",
+            }}
+          >
+            {" "}
             {messages.length === 0 && (
               <div className="flex items-center justify-center min-h-[40px]">
-                <p className="text-center text-gray-400 text-[13px]">
-                  Ask me anything about myself, work and experiences...
+                <p className="text-center text-gray-500 text-[13px]">
+                  Ask me about myself, work and experiences...
                 </p>
               </div>
             )}
-
             {messages.map((msg, idx) => (
               <motion.div
                 key={idx}
@@ -522,7 +529,6 @@ function Hero() {
                 )}
               </motion.div>
             ))}
-
             <div ref={chatEndRef} />
           </div>
 
