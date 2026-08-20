@@ -350,7 +350,7 @@ function Hero() {
             {" "}
             {messages.length === 0 && (
               <div className="flex items-center justify-center min-h-[40px]">
-                <p className="text-center text-gray-500 text-[13px]">
+                <p className="text-center text-gray-500 text-[12px] md:text-[13px]">
                   Ask me about myself, work and experiences...
                 </p>
               </div>
@@ -396,7 +396,7 @@ function Hero() {
                 >
                   {/* Chat Bubble */}
                   <div
-                    className={`px-3.5 py-2.5 text-[13px] leading-relaxed border ${
+                    className={`px-3.5 py-2.5 text-[12px] md:text-[13px] leading-relaxed border ${
                       msg.sender === "user"
                         ? "border-gray-300 bg-black text-white rounded-2xl rounded-br-md"
                         : "border-gray-200 bg-white text-gray-700 rounded-2xl rounded-bl-md"
@@ -408,7 +408,7 @@ function Hero() {
                       <div
                         className="
                 prose prose-sm max-w-none
-                text-[13px] leading-relaxed
+                text-[12px] md:text-[13px] leading-relaxed
 
                 [&_table]:w-full
                 [&_table]:border-collapse
@@ -456,7 +456,7 @@ function Hero() {
                 [&_h2]:font-bold
                 [&_h2]:mt-2
 
-                [&_h3]:text-[13px]
+                [&_h3]:text-[12px] md:[&_h3]:text-[13px]
                 [&_h3]:font-semibold
                 [&_h3]:mt-1.5
 
@@ -551,7 +551,7 @@ function Hero() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               disabled={loading}
-              className="flex-1 bg-transparent text-[13px] text-gray-800 placeholder-gray-400 outline-none min-w-0"
+              className="flex-1 bg-transparent text-[12px] md:text-[13px] text-gray-800 placeholder-gray-400 outline-none min-w-0"
             />
             {/* Mic */}
             <button
@@ -777,16 +777,17 @@ function Hero() {
             </div>
 
             {/* CTAs */}
-            <div className="flex gap-3 mt-4">
+            <div className="flex gap-2.5 mt-4">
               <a
                 href="#projects"
-                className="px-6 py-2.5 bg-gray-900 hover:bg-gray-700 text-white text-[13px] font-bold rounded-xl transition-colors shadow-sm"
+                className="px-4 py-1.5 bg-gray-900 hover:bg-gray-700 text-white text-[12px] font-bold rounded-lg transition-colors shadow-sm"
               >
                 View My Work
               </a>
+
               <a
                 href="#commissions"
-                className="px-6 py-2.5 bg-white hover:bg-gray-50 text-gray-800 text-[13px] font-bold rounded-xl border border-gray-200 transition-colors"
+                className="px-4 py-1.5 bg-white hover:bg-gray-50 text-gray-800 text-[12px] font-bold rounded-lg border border-gray-200 transition-colors"
               >
                 Commissions
               </a>

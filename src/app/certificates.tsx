@@ -95,7 +95,7 @@ export function Certificates() {
 
   return (
     <section
-      className="py-16 md:py-28 px-0 md:px-8 bg-[#f8f8f6] relative overflow-hidden"
+      className="py-16 md:py-28 px-4 md:px-8 bg-[#f8f8f6] relative overflow-hidden"
       id="certificates"
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -141,7 +141,7 @@ export function Certificates() {
               {CERTS.map((props, idx) => (
                 <div
                   key={idx}
-                  className="flex-[0_0_92%] min-w-0 sm:flex-[0_0_70%] md:flex-[0_0_58%] lg:flex-[0_0_48%] xl:flex-[0_0_42%] px-1.5 md:px-3"
+                  className="flex-[0_0_92%] min-w-0 sm:flex-[0_0_70%] md:flex-[0_0_58%] lg:flex-[0_0_48%] xl:flex-[0_0_42%] px-1 md:px-3"
                 >
                   <CertificateCard
                     {...props}
