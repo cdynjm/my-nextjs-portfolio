@@ -50,7 +50,7 @@ export function Resume() {
           </p>
 
           <a
-            href="/resume/Cadayona Resume - June 21, 2025.pdf"
+            href="/resume/CADAYONA RESUME - Aug 25, 2026.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-[13px] font-semibold text-gray-800 hover:text-gray-500 transition-colors group"

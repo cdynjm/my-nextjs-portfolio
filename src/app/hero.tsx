@@ -681,7 +681,7 @@ function Hero() {
               <div className="flex items-center gap-3">
                 <FolderIcon className="w-3.5 h-3.5 text-gray-400 flex-shrink-0" />
                 <a
-                  href="/resume/Cadayona Resume - January 6, 2026.pdf"
+                  href="/resume/CADAYONA RESUME - Aug 25, 2026.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[13px] text-gray-800 font-medium underline underline-offset-4 hover:text-gray-500 transition-colors"
