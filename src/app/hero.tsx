@@ -820,6 +820,7 @@ function Hero() {
                   blockSize={14}
                   blockMargin={5}
                   fontSize={14}
+                  colorScheme="light"
                 />
               </center>
             </div>
